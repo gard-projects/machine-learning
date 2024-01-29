@@ -19,6 +19,6 @@ network.add(layers.Dense(10, activation='softmax'))
 network.compile(optimizer='rmsprop', loss='categorical_crossentropy', metrics=['accuracy'])
 
 # Training the network
-network.fit(train_images, train_labels, epochs=5, batch_size=128)
+network.fit(train_images, train_labels, epochs=10, batch_size=128)
 test_loss, test_acc = network.evaluate(test_images, test_labels)
 print('test_acc:', test_acc)
