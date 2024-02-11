@@ -36,6 +36,8 @@ class LinReg():
     def cost_function(self, n, X, y):
         '''J(theta), uses mean squared error (MSE)'''
         J = 1/(2*n) * np.sum(np.square(np.matmul(X,self.theta) - y))
+        J_matrixversion = 1/(2*n) * np.matmul((np.matmul(X,self.theta) - y).T, (np.matmul(X,self.theta) - y))
+        print("J_matrixversion:", J_matrixversion)
         return J
        
     def gradient_descent(self, n, X, y):
@@ -47,7 +49,7 @@ if __name__ == "__main__":
     training_data = pd.read_csv("dataset/l1_train.csv").to_numpy()
     testing_data = pd.read_csv("dataset/l1_test.csv").to_numpy()
     
-    model = LinReg(epoch=100)
+    model = LinReg(epoch=10)
     model.fit(training_data)
     
     
