@@ -1,6 +1,8 @@
 import pandas as pd
 import numpy as np
 
+# Allowing virtual environment to be used: Set-ExecutionPolicy Unrestricted -Scope Process
+
 class LinReg():
     def __init__(self, epoch=10, learning_rate=0.001, stop_criterion=1e-6):
         self.theta= None # Weights matrix
@@ -35,14 +37,19 @@ class LinReg():
   
     def cost_function(self, n, X, y):
         '''J(theta), uses mean squared error (MSE)'''
-        J = 1/(2*n) * np.sum(np.square(np.matmul(X,self.theta) - y))
-        J_matrixversion = 1/(2*n) * np.matmul((np.matmul(X,self.theta) - y).T, (np.matmul(X,self.theta) - y))
-        print("J_matrixversion:", J_matrixversion)
+        # Altenrative: J = 1/(2*n) * np.sum(np.square(np.matmul(X,self.theta) - y))
+        J = 1/(2*n) * np.matmul((np.matmul(X,self.theta) - y).T, (np.matmul(X,self.theta) - y))
         return J
-       
+
     def gradient_descent(self, n, X, y):
         grad = 1/n * np.matmul(X.T, np.matmul(X, self.theta) - y)
         return grad
+    
+    def predict(self, testing_set):
+        n = testing_set.shape[0]
+        m = testing_set.shape[1]-1
+        X = np.c_[(np.ones(n), testing_set[0:n, 0:m])]
+        return 0
     
 if __name__ == "__main__":
     # Load dataset
@@ -51,5 +58,6 @@ if __name__ == "__main__":
     
     model = LinReg(epoch=10)
     model.fit(training_data)
+    #print(model.predict(testing_data))
     
     
