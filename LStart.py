@@ -46,10 +46,11 @@ class LinReg():
         return grad
     
     def predict(self, testing_set):
+        '''Predicts the response value given the predictors (of testing set) and learned weights'''
         n = testing_set.shape[0]
         m = testing_set.shape[1]-1
         X = np.c_[(np.ones(n), testing_set[0:n, 0:m])]
-        return 0
+        return np.matmul(X, self.theta)
     
 if __name__ == "__main__":
     # Load dataset
@@ -58,6 +59,13 @@ if __name__ == "__main__":
     
     model = LinReg(epoch=10)
     model.fit(training_data)
-    #print(model.predict(testing_data))
-    
+
+    # Handling testing dataset
+    n_test = testing_data.shape[0]
+    m_test = testing_data.shape[1]-1
+    X_test = np.c_[(np.ones(n_test), testing_data[0:n_test, 0:m_test])] # Design matrix for features of testing set
+    y_test= testing_data[:, -1:]
+  
+    test = model.cost_function(n_test, X_test, y_test)
+    print(test)
     
