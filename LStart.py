@@ -1,5 +1,7 @@
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
+from sklearn import linear_model
 
 # Allowing virtual environment to be used: Set-ExecutionPolicy Unrestricted -Scope Process
 
@@ -13,14 +15,13 @@ class LinReg():
     def fit(self, training_set):
       m = training_set.shape[1]-1   # number of predictors
       n = training_set.shape[0]     # number of samples
-      previous_cost = 0
       
       # Split dataset into predictors and response
-      X = training_set[0:n, 0:m]
+      X_features = training_set[0:n, 0:m]
       y = training_set[0:n, -1:]
       
       # Design matrix (include bias term)
-      X = np.c_[(np.ones(n), X)]
+      X = np.c_[(np.ones(n), X_features)]
 
       # Random initialization of weights
       self.theta = np.random.rand(m+1, 1)
@@ -28,11 +29,7 @@ class LinReg():
       # Gradient descent
       for i in range(self.epoch):
           grad = self.gradient_descent(n, X, y)
-          self.theta = self.theta - self.learning_rate * grad
-          # Calculate the distance score (loss) for each epoch
-          error = self.cost_function(n, X, y)
-          print("Error estimate:", error, "Epoch:", i+1)
-      
+          self.theta = self.theta - (self.learning_rate * grad)
       return 0
   
     def cost_function(self, n, X, y):
@@ -42,7 +39,7 @@ class LinReg():
         return J
 
     def gradient_descent(self, n, X, y):
-        grad = 1/n * np.matmul(X.T, np.matmul(X, self.theta) - y)
+        grad = (1/n) * np.matmul(X.T, np.matmul(X, self.theta) - y)
         return grad
     
     def predict(self, testing_set):
@@ -59,6 +56,12 @@ if __name__ == "__main__":
     
     model = LinReg(epoch=10)
     model.fit(training_data)
+    
+    # Handling training dataset
+    n = training_data.shape[0]
+    m = training_data.shape[1]-1
+    x = training_data[0:n, 0:m]
+    y = training_data[:, -1:]
 
     # Handling testing dataset
     n_test = testing_data.shape[0]
@@ -67,5 +70,13 @@ if __name__ == "__main__":
     y_test= testing_data[:, -1:]
   
     test = model.cost_function(n_test, X_test, y_test)
+    print()
+    print()
     print(test)
+    
+    # Implement Scikit, compare results
+    scikit_model = linear_model.LinearRegression()
+    scikit_model.fit(x, y)
+    print("Scikit learn model weights:", scikit_model.coef_, "Bias:", scikit_model.intercept_)
+    print("Custom model weights:", model.theta)
     
