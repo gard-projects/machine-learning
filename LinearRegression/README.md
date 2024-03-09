@@ -75,6 +75,7 @@ $x^{(2)} = [50]$ and $y^{(2)} = [47.46446305]$ \
 $x^{(4)} = [38]$ and $y^{(4)} = [36.58639803]$ 
 
 Lets do another example, but in this scenario we are going to use a dataset with three predictors, and one dependent variable.
+![Dataset_example](matrix_ex.png)
 
 
 Try understand why this is the case, as this will help in understanding the equations that come later (e.g. **hypothesis function $h_{\theta}(x)$** and **gradient vector $\nabla_{\theta}J(\theta)$**)
