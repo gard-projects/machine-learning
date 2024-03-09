@@ -29,3 +29,4 @@ Pairing this function with the `to_numpy()` function allows us to put the data i
 training_set = pd.read_csv('./dataset/l1_train.csv').to_numpy()
 testing_set = pd.read_csv('./dataset/l1_test.csv').to_numpy()
 ```
+**NB!** Note the location where you may store the CSV files can be different, in that case just replace the location in the `read_csv(...)` with your respective path!
