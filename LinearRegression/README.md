@@ -112,4 +112,9 @@ $x^{(4)} = [4, 5, 6] \quad$ and $\quad y^{(4)} = [16]$
 > [!TIP]
 > Try understand why this is the case, as this will help in understanding the equations that come later (e.g. **hypothesis function $h_{\theta}(x)$** and **gradient vector $\nabla_{\theta}J(\theta)$**)
 
-
+The `fit` function expects two arguments, the feature matrix and the actual response matrix. To fetch these, we use slicing.
+```
+model = LinReg(epochs=10000, learning_rate=0.001)
+model.fit(X_features=training_set[:,:m], y=training_set[:,m:])
+```
+For now we set the **epochs** and **learning rate $\alpha$** to 10 000 and 0.001 respectively. The exact reason for the choice of values will be explained shortly.
