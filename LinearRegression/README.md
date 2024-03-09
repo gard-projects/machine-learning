@@ -117,4 +117,5 @@ The `fit` function expects two arguments, the feature matrix and the actual resp
 model = LinReg(epochs=10000, learning_rate=0.001)
 model.fit(X_features=training_set[:,:m], y=training_set[:,m:])
 ```
+It is important than the variable **m** is included in the slicing, because if it is omitted the resulting slicing operation will not be of the correct shape expected by the `fit` function. \
 For now we set the **epochs** and **learning rate $\alpha$** to 10 000 and 0.001 respectively. The exact reason for the choice of values will be explained shortly.
