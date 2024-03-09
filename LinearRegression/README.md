@@ -9,9 +9,10 @@ The dataset we are working with is of the name "l1_test.csv" and "l1_train.csv" 
 # Understanding the dataset
 Before we begin it is useful and necessary to understand the dataset you are working with. As a result of this we introduce two new variables which will be important in the code:
 
-**n** : number of samples (observations or data points)
-
-**m** : number of predictors (independent variables)
+>
+>**n** : number of samples (observations or data points)
+>
+>**m** : number of predictors (independent variables)
 
 If we take a look at the dataset for our training set we note the following: \
 $n =  696 - 1 = 695$ (we decrease by one to not account for the header label) \
@@ -32,15 +33,19 @@ testing_set = pd.read_csv('./dataset/l1_test.csv').to_numpy()
 **NB!** Note the location where you may store the CSV files can be different, in that case just replace the location in the `read_csv(...)` with your respective path.
 
 # Creating the model structure
-To make the coding experience easier I make use of Python classes. The next question is what is needed for creating a linear regression model?
+**NB!** I assume you have some grasp of classes in Python, thus I will not elaborate on this syntax.
+To make the coding experience easier I make use of Python classes. Our constructor takes in two arguments, **epochs** and **learning_rate** $\alpha$.
 
-1. `fit(X_features, y)`: the main function of our model, estimates the weights of our network given the training dataset
-2. `standardize(X)`: standardizes the data, by subtracting the mean and dividing by the standard deviation
-3. `predict(X)`: computes an estimated response given the features design matrix X, and model weights $\theta$
-4. `cost_function(X,y)`: computes the distance score using mean squared error (MSE), we is appended to our `cost_history` array
-5. `gradient(X, y, n)`: computes the gradient of the given cost function
-6. `r_square(X, y)`: computes the coefficient of determination, useful for metric for understanding how well the model performs
 
-Do not worry if you do not understand everything yet, we will go through each function in the list.
+The next question is what is needed for creating a linear regression model?
+1. `fit(self, X_features, y)`: the main function of our model, estimates the weights of our network given the training dataset
+2. `standardize(self, X)`: standardizes the data, by subtracting the mean and dividing by the standard deviation
+3. `predict(self, X)`: computes an estimated response given the features design matrix X, and model weights $\theta$
+4. `cost_function(self, X,y)`: computes the distance score using mean squared error (MSE), we append this loss value to our `cost_history` array
+5. `gradient(self, X, y, n)`: computes the gradient of the given cost function
+6. `r_square(self, X, y)`: computes the coefficient of determination, useful for metric for understanding how well the model performs
+
+Do not worry if you do not understand everything yet, we will go through each component of the list. 
 
 ## Fitting the data
+As described briefly earlier, we use the `fit(...)` function as our main method of running the model. 
