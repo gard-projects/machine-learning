@@ -101,7 +101,7 @@ The following matrices for the features (predictors), actual responses and weigh
 ![X_ex1](x_ex1.png) ![y_ex1](y_ex1.png) ![theta_ex1](theta_ex1.png)
 
 > [!NOTE]
-> Notice how the weight matrix always has one more element than the predictor matrix $X_{features}$?
+> Notice how the weight matrix always has one more element than the predictor matrix $X_{features}$? \
 > This is why the shape of the matrix $\theta$ is $(m+1, 1)$
 
 $x^{(1)} = [1, 2, 3] \quad$ and $\quad y^{(1)} = [10]$ \
