@@ -16,7 +16,8 @@ Before we begin it is useful and necessary to understand the dataset you are wor
 
 If we take a look at the dataset for our training set we note the following: \
 $n =  696 - 1 = 695 \quad$ (we decrease by one to not account for the header label) \
-$m = 2 - 1 = 1 \quad$ (there is only one dependent variable, y) \
+$m = 2 - 1 = 1 \quad$ (there is only one dependent variable, y) 
+
 I encourage you as the reader to calculate the respective size (m and n) for the testing set for some practice.
 
 To find **n** and **m** in Python we utilize the shape attribute of a numpy array (which is a np.ndarray object). In the example under we use a matrix `X_features`, which represents the values of the predictors in the training dataset. 
@@ -24,8 +25,10 @@ To find **n** and **m** in Python we utilize the shape attribute of a numpy arra
 n = X_features.shape[0] # Number of samples
 m = X_features.shape[1] # Number of predictors (features)
 ```
-The shape of X_features is $(695, 1)$, and can be found by using 
-``` X_features_shape = X_features.shape```
+The shape of X_features is $(695, 1)$, and can be computed using:
+```
+X_features_shape = X_features.shape
+```
 
 
 # Extracting data from CSV file
