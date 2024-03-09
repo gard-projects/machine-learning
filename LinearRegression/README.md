@@ -34,13 +34,21 @@ testing_set = pd.read_csv('./dataset/l1_test.csv').to_numpy()
 
 # Creating the model structure
 **NB!** I assume you have some grasp of classes in Python, thus I will not elaborate on this syntax.
-To make the coding experience easier I make use of Python classes. Our constructor takes in two arguments, **epochs** and **learning_rate $\alpha$**.
+To make the coding experience easier I make use of Python classes. Our constructor takes in two arguments, **epochs** and **learning_rate $\alpha$**. The cost history field is used to keep track of the loss value during each epoch.
 
-> ${\color{red}**Epoch**}$ : the number of iterations in our training loop 
+> **Epoch**: the number of iterations in our training loop 
 > 
 > **Training loop**: the learning process in which the model adjusts its weights (in our case $\theta$) to better map predictors to actual responses 
 >
-> **Learning rate $\alpha$**: a number that influences how much the model tweaks itself in each epoch
+> **Learning rate $\alpha$**: a number that influences how much the model tweaks itself in each epoch (more on this later)
+
+```
+def __init__(self, epochs: int, learning_rate: int):
+        self.epochs = epochs
+        self.learning_rate = learning_rate
+        self.theta= None
+        self.cost_history = [] # Keep track of the distance score
+```
 
 The next question is what is needed for creating a linear regression model?
 1. `fit(self, X_features, y)`: the main function of our model, estimates the weights of our network given the training dataset
