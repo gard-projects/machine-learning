@@ -149,4 +149,5 @@ At this stage we are ready to start predicting values using the weights in our m
 To estimate responses we use a **hypothesis function $h_{\theta}(x)$, also called a regression function. The generalized regression function takes in single predictor, thus a 1D numpy array of some length m (m independent variables). 
 $$h_{\theta}(x) = \theta_{0} + \theta_{1} \cdot x_{1} + \dots + \theta_{n-1} \cdot x_{n-1} + \theta_{n} \cdot x_{n}$$
 
-We can convert the hypothesis function $h_{\theta}(x)$ into a matrix, which we call the **design matrix $X$**
+We introduce a new matrix -- called **design matrix $X$** -- to simply the equation above. The design matrix has the following form:
+
