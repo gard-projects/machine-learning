@@ -88,7 +88,8 @@ $x^{(1)} = [24] \quad$ and $\quad y^{(1)} = [21.54945196]$ \
 $x^{(2)} = [50] \quad$ and $\quad y^{(2)} = [47.46446305]$ \
 $x^{(4)} = [38] \quad$ and $\quad y^{(4)} = [36.58639803]$ 
 
-Lets do another example, but in this scenario we are going to use a dataset with three predictors, and one dependent variable.
+### Example dataset
+Let us do an example with more than one predictor to get a feel for the "i" notation. In this scenario we are going to use a dataset with three predictors, and one dependent variable.
 ![Dataset_example](matrix_ex.png) 
 
 $x^{(1)} = [1, 2, 3] \quad$ and $\quad y^{(1)} = [10]$ \
