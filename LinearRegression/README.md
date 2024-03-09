@@ -94,6 +94,9 @@ Let us do an example with more than one predictor to become more comfortable wit
 
 ![Dataset_example](matrix_ex.png) 
 
+The following matrices for the features (predictors), actual responses and weights ($\theta$):
+![X_ex1](x_ex1.png) ![y_ex1](y_ex1.png) ![theta_ex1](theta_ex1.png)
+
 $x^{(1)} = [1, 2, 3] \quad$ and $\quad y^{(1)} = [10]$ \
 $x^{(2)} = [2, 3, 4] \quad$ and $\quad y^{(2)} = [12]$ \
 $x^{(4)} = [4, 5, 6] \quad$ and $\quad y^{(4)} = [16]$ 
