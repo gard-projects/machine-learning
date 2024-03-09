@@ -179,35 +179,6 @@ Since the two inner terms of the multiplication is equal, the matrix multiplicat
 > [!TIP]
 > As a question for the reader, what would happen if the multiplication was in the reverse order, that is $\theta \cdot X$?
 
-## Gradient descent and learning rate $\alpha$
-This is the core of learning in machine learning.
-> **Gradient descent**: an algorithm that uses the gradient of the loss function, to find the minimum of the loss function
-
-So how do we get to this minimum, how does it look like?
-![gradient_descent_theory](gradient_descent_theory.png)
-
-Think of the gradient as a ball. The random intialization can be thought of as a person holding the ball in some random location on the graph, which in this case is one dimensional (1D).
-If the person were to let go of the ball, the ball would roll down to until it stops, which can be local minimum or global minimum. 
-
-In more technical terms, the ball can be seen as weights of the network, and we use the gradient $\textemdash$ which tells us the direction of steepest descent **in the current position** $\textemdash$ to move in the 
-direction which leads us to a minimum of the loss function. The arrows on the image represents the location of the ball at each epoch, which is controlled by the **learning rate $\alpha$**. So in each **epoch** the ball recieves a new position, i.e. the weights' values are slightly modified. The ideal situation is to end up in a global minimum (indicated by the picture), not a local minimum.
-
-To calculate the gradient of the loss function we must find the partial derivatives with respect to each weight $\theta_{i}$, where i \in $\mathbb{R}$
-```
- def gradient (self, X: np.ndarray, y: np.ndarray, n: int) -> np.ndarray:
-        y_est = self.predict(X)
-        e = y_est - y # Error vector
-        g = (1/n) * np.dot(X.T, e)
-        return g
-```
-
-This `gradient`function will return a matrix of shape $(2, 1)$ in our example, since we have only two weights (m+1). This result is used in the **training loop** which is located in our `fit`function. 
-```
-for _ in range(self.epochs):
-        step =  self.learning_rate * self.gradient(X, y, n)
-        self.theta = self.theta - step
-```
-
 ## Cost function and cost history
 Now that we have a way to estimate responses using our weights and features, we want to measure how well our model is doing. Upon each epoch, we calculate the gradient of the given cost function, where the weight matrix $\theta$ is changed slightly in each iteration. The cost function we will be using is based on the mean squared error, which is a popular choice for linear regression. The general formula for MSE is given by
 
@@ -238,5 +209,45 @@ def cost_function(self, X: np.ndarray, y: np.ndarray) -> float:
         J = 1/(2*n) * np.dot(e.T, e).item() # Translate 1x1 matrix into a scalar
         return J
 ```
+
+The **cost_history** is a list of the loss score for each respective epoch. It is not necessary to include it, but it provides insight into whether the gradient descent is implemented correctly or not. If implemented correctly the loss value should decrease in each epoch, which we choose to display in a graph at the end. For this reason the process of updating the list must happen within the **training loop** (covered breifly in the next section).
+```
+self.cost_history.append(self.cost_function(X, y))
+```
+
+
+## Gradient descent and learning rate $\alpha$
+This is the core of learning in machine learning.
+> **Gradient descent**: an algorithm that uses the gradient of the loss function, to find the minimum of the loss function
+
+So how do we get to this minimum, how does it look like?
+![gradient_descent_theory](gradient_descent_theory.png)
+
+Think of the gradient as a ball. The random intialization can be thought of as a person holding the ball in some random location on the graph, which in this case is one dimensional (1D).
+If the person were to let go of the ball, the ball would roll down to until it stops, which can be local minimum or global minimum. 
+
+In more technical terms, the ball can be seen as weights of the network, and we use the gradient $\textemdash$ which tells us the direction of steepest descent **in the current position** $\textemdash$ to move in the 
+direction which leads us to a minimum of the loss function. The arrows on the image represents the location of the ball at each epoch, which is controlled by the **learning rate $\alpha$**. So in each **epoch** the ball recieves a new position, i.e. the weights' values are slightly modified. The ideal situation is to end up in a global minimum (indicated by the picture), not a local minimum.
+
+To calculate the gradient of the loss function we must find the partial derivatives with respect to each weight $\theta_{i}$, where i $\in \mathbb{R}$.
+Using vector and matrix calculus we find that the gradient of the hypothesis function $J(\theta)$ is given by:
+$$\frac{\partial J(\theta)}{\partial \theta} = \frac{1}{n} \cdot \bigr[X^{T} \cdot (X \cdot \theta - y) \bigr]$$
+
+In Python
+```
+ def gradient (self, X: np.ndarray, y: np.ndarray, n: int) -> np.ndarray:
+        y_est = self.predict(X)
+        e = y_est - y # Error vector
+        g = (1/n) * np.dot(X.T, e)
+        return g
+```
+
+This `gradient`function will return a matrix of shape $(2, 1)$ in our example, since we have only two weights (m+1). This result is used in the **training loop** which is located in our `fit`function. 
+```
+for _ in range(self.epochs):
+        step =  self.learning_rate * self.gradient(X, y, n)
+        self.theta = self.theta - step
+```
+
 
 
