@@ -51,17 +51,17 @@ def __init__(self, epochs: int, learning_rate: int):
 ```
 
 The next question is what is needed for creating a linear regression model? \
-➡️ `fit(self, X_features, y)`: the main function of our model, estimates the weights of our network given the training dataset \
+1. `fit(self, X_features, y)`: the main function of our model, estimates the weights of our network given the training dataset \
 
-➡️ `standardize(self, X)`: standardizes the data, by subtracting the mean and dividing by the standard deviation \
+2. `standardize(self, X)`: standardizes the data, by subtracting the mean and dividing by the standard deviation \
 
-➡️ `predict(self, X)`: computes an estimated response given the features design matrix X, and model weights $\theta$ \
+3. `predict(self, X)`: computes an estimated response given the features design matrix X, and model weights $\theta$ \
 
-➡️ `cost_function(self, X,y)`: computes the distance score using mean squared error (MSE), we append this loss value to our `cost_history` array \
+4. `cost_function(self, X,y)`: computes the distance score using mean squared error (MSE), we append this loss value to our `cost_history` array \
 
-➡️ `gradient(self, X, y, n)`: computes the gradient of the given cost function \
+5. `gradient(self, X, y, n)`: computes the gradient of the given cost function \
 
-➡️ `r_square(self, X, y)`: computes the coefficient of determination, useful for metric for understanding how well the model performs \
+6. `r_square(self, X, y)`: computes the coefficient of determination, useful for metric for understanding how well the model performs \
 
 Do not worry if you do not understand everything yet, we will go through each component of the list. 
 
