@@ -163,7 +163,7 @@ Adjusting the matrix to our given dataset we get the following
 Thus we can represent the hypothesis function $h_{\theta}(x)$ as a matrix product between the design matrix $X$ and the weight vector/matrix $\theta$!
 $$h_{\theta}(x) = \theta_{0} + \theta_{1} \cdot x_{1} + \dots + \theta_{n-1} \cdot x_{n-1} + \theta_{n} \cdot x_{n} \equiv X \cdot \theta$$
 
-To verify this, we can check the shape of both matrices: \
+To verify this, we can check the shape of both matrices: 
 * Design matrix $X$ has a shape of $(n, m+1)$ which translates to (695, 2) in our training set 
 * Weight matrix $\theta$ has a shape of $(m+1, 1)$ which translates to (2, 1) in our training set
   
@@ -180,7 +180,9 @@ $$MSE = \frac{1}{n} \cdot \sum_{i=1}^{n} (\hat{Y_{i}} - Y_{i} )^{2}$$
 Where we have the following
 
 > **n** : number of samples
-> **$\hat{Y_{i}}$**: the estimated response evaluated for a given sample (indicated by i) 
+> 
+> **$\hat{Y_{i}}$**: the estimated response evaluated for a given sample (indicated by i)
+> 
 > **$Y_{i}$**: the actual response for a given sample (indicated by i)
 
 
