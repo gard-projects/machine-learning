@@ -169,7 +169,13 @@ To verify this, we can check the shape of both matrices:
   
 **Check matrix multiplication**: $X \cdot \theta = (695,2) \times (2,1) = (695,1)$ ✅ 
 
-Since the two inner terms of the multiplication is equal, the matrix multiplication is successful. 
+Since the two inner terms of the multiplication is equal, the matrix multiplication is successful. Here is how you can implement the formula for the hypothesis function $h_{\theta}(x)$
+```
+ def predict(self, X: np.ndarray) -> np.ndarray:
+        y_est = np.dot(X, self.theta)
+        return y_est
+```
+
 > [!TIP]
 > As a question for the reader, what would happen if the multiplication was in the reverse order, that is $\theta \cdot X$?
 
@@ -196,13 +202,7 @@ $$MSE = J(\theta) = \frac{1}{n} \cdot \bigr[(X\theta - y)^{T} \cdot (X\theta - y
 > Whenever you take the dot product between two vectors, the result is a scalar. This also applies to matrix multiplication of two matrices, where one matrix is the transpose of the other.
 > The reason for this behaviour is due to **duality** between dot product and matrix multiplication. Thus the result of this matrix multiplication is a **scalar** not a matrix!
 
-The following code illustrates how this can be implemented in Python. First we must calculate the estimated response, using the following function
-```
- def predict(self, X: np.ndarray) -> np.ndarray:
-        y_est = np.dot(X, self.theta)
-        return y_est
-```
-Then we can calculate the mean squared error, and the residuals from
+The following code illustrates how this can be implemented in Python. 
 ```
 def cost_function(self, X: np.ndarray, y: np.ndarray) -> float:
         n = len(y) 
