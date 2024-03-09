@@ -179,12 +179,19 @@ Since the two inner terms of the multiplication is equal, the matrix multiplicat
 Now that we have a way to estimate responses using our weights and features, we want to measure how well our model is doing. Upon each epoch, we calculate the gradient of the given cost function, where the weight matrix $\theta$ is changed slightly in each iteration. The cost function we will be using is based on the mean squared error, which is a popular choice for linear regression. The general formula for MSE is given by
 
 $$MSE = \frac{1}{n} \cdot \sum_{i=1}^{n} (\hat{Y_{i}} - Y_{i} )^{2}$$
-Where we have the following
+> [!NOTE]
+> You may wonder where the "error" part of the MSE name comes from. The error, e, is the difference between the predicted response and the actual response, i.e.
+> $$e = \hat{Y_{i}} - Y_{i}$$
 
 > **n** : number of samples
 > 
 > **$\hat{Y_{i}}$**: the estimated response for a given sample (indicated by i)
 > 
 > **$Y_{i}$**: the actual response for a given sample (indicated by i)
+
+We can optimize this equation for matrices by using what we derived for the hypothesis function $h_{\theta}(x)$. We will follow the convention and call the cost function $J(\theta)$, thus
+$$ MSE = J(\theta) = 
+
+
 
 
