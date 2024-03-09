@@ -194,8 +194,22 @@ $$MSE = J(\theta) = \frac{1}{n} \cdot \bigr[(X\theta - y)^{T} \cdot (X\theta - y
 
 > [!NOTE]
 > Whenever you take the dot product between two vectors, the result is a scalar. This also applies to matrix multiplication of two matrices, where one matrix is the transpose of the other.
-> The reason for this behaviour is due to **duality** between dot product and matrix multiplication. Essentially when you raise a matrix to the second power, we can utilize this behaviour.
+> The reason for this behaviour is due to **duality** between dot product and matrix multiplication. Thus the result of this matrix multiplication is a **scalar** not a matrix!
 
-
+The following code illustrates how this can be implemented in Python. First we must calculate the estimated response, using the following function
+```
+ def predict(self, X: np.ndarray) -> np.ndarray:
+        y_est = np.dot(X, self.theta)
+        return y_est
+```
+Then we can calculate the mean squared error, and the residuals from
+```
+def cost_function(self, X: np.ndarray, y: np.ndarray) -> float:
+        n = len(y) 
+        y_est = self.predict(X)
+        e = y_est - y 
+        J = 1/(2*n) * np.dot(e.T, e).item() # Translate 1x1 matrix into a scalar
+        return J
+```
 
 
