@@ -14,4 +14,18 @@ Before we begin it is useful and necessary to understand the dataset you are wor
 **m** : number of predictors (independent variables)
 
 If we take a look at the dataset for our training set we note the following: \
-$n =  696 - 1 = 695$ (we decrease by one to not account for the header label)
+$n =  696 - 1 = 695$ (we decrease by one to not account for the header label) \
+$m = 2 - 1 = 1$ (there is only one dependent variable, y) \
+
+I encourage you as the reader to calculate the respective size (m and n) for the testing set for some practice. \
+
+# Extracting data from CSV file
+Now that we know the number of independent variables, we can use the variable **m** to extract data from the CSV file into a numpy array. \
+Why do we use Numpy arrays? Simply because we can do operations on multiple elements at once (using matrices) instead of doing it one element at a time. This allows for more efficient computation and parallelization. \
+To extract data from CSV file we use a Python library called "Pandas". This library provides a function called `read_csv(...)` which takes the file location as an argument. \
+Pairing this function with the `to_numpy()` function allows us to put the data into numpy arrays, see code below.
+
+``
+training_set = pd.read_csv('./dataset/l1_train.csv').to_numpy()
+testing_set = pd.read_csv('./dataset/l1_test.csv').to_numpy()
+```
