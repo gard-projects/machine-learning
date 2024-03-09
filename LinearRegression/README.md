@@ -81,5 +81,5 @@ $x^{(1)} = [1, 2, 3]$ and $y^{(1)} = [10]$ \
 $x^{(2)} = [2, 3, 4]$ and $y^{(2)} = [12]$ \
 $x^{(4)} = [4, 5, 6]$ and $y^{(4)} = [16]$ 
 
-![IMPORTANT]
->Try understand why this is the case, as this will help in understanding the equations that come later (e.g. **hypothesis function $h_{\theta}(x)$** and **gradient vector $\nabla_{\theta}J(\theta)$**)
+> [!IMPORTANT]
+> Try understand why this is the case, as this will help in understanding the equations that come later (e.g. **hypothesis function $h_{\theta}(x)$** and **gradient vector $\nabla_{\theta}J(\theta)$**)
