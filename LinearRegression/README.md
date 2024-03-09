@@ -249,5 +249,6 @@ for _ in range(self.epochs):
         self.theta = self.theta - step
 ```
 
+# Plotting and final results
 
 
