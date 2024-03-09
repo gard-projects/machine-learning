@@ -181,7 +181,7 @@ Where we have the following
 
 > **n** : number of samples
 > 
-> **$\hat{Y_{i}}$**: the estimated response evaluated for a given sample (indicated by i)
+> **$\hat{Y_{i}}$**: the estimated response for a given sample (indicated by i)
 > 
 > **$Y_{i}$**: the actual response for a given sample (indicated by i)
 
