@@ -180,6 +180,13 @@ Since the two inner terms of the multiplication is equal, the matrix multiplicat
 > As a question for the reader, what would happen if the multiplication was in the reverse order, that is $\theta \cdot X$?
 
 ## Gradient descent and learning rate $\alpha$
+This is the core of learning in machine learning.
+> **Gradient descent**: an algorithm that uses the gradient of the loss function, to find the minimum of the loss function
+
+So how do we get to this minimum, how does it look like?
+
+
+
 
 ## Cost function and cost history
 Now that we have a way to estimate responses using our weights and features, we want to measure how well our model is doing. Upon each epoch, we calculate the gradient of the given cost function, where the weight matrix $\theta$ is changed slightly in each iteration. The cost function we will be using is based on the mean squared error, which is a popular choice for linear regression. The general formula for MSE is given by
