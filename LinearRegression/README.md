@@ -34,7 +34,7 @@ testing_set = pd.read_csv('./dataset/l1_test.csv').to_numpy()
 
 # Creating the model structure
 > [!IMPORTANT]
-> I assume you have some grasp of classes in Python, thus I will not elaborate on this syntax.
+> I assume you have some grasp of classes in Python, thus I will not elaborate on this syntax. \
 To make the coding experience easier I make use of Python classes. Our constructor takes in two arguments, **epochs** and **learning_rate $\alpha$**. The cost history field is used to keep track of the loss value during each epoch.
 
 > **Epoch**: the number of iterations in our training loop 
