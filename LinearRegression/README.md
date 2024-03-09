@@ -147,4 +147,4 @@ Using one of the methods defined on the class:
 ## Predicting values and design matrix
 At this stage we are ready to start predicting values using the weights in our model, and the samples representing the features --- i.e. features matrix.
 To estimate responses we use a **hypothesis function $h_{\theta}(x)$, also called a regression function. The generalized regression function takes in a single value of some predictor variable (in our case x), but what if we had 10+ predictors?
-$$h_{theta}(x) = \theta_{0} + \theta_{1} \cdot x_{1} + \dots + \theta_{n-1} \cdot x_{n-1} + \theta_{n} \cdot x_{n}$$
+$$h_{\theta}(x) = \theta_{0} + \theta_{1} \cdot x_{1} + \dots + \theta_{n-1} \cdot x_{n-1} + \theta_{n} \cdot x_{n}$$
