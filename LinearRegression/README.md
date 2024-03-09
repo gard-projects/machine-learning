@@ -36,9 +36,9 @@ testing_set = pd.read_csv('./dataset/l1_test.csv').to_numpy()
 **NB!** I assume you have some grasp of classes in Python, thus I will not elaborate on this syntax.
 To make the coding experience easier I make use of Python classes. Our constructor takes in two arguments, **epochs** and **learning_rate $\alpha$**.
 
-> **Epoch** : the number of iterations in our training loop \
+> **Epoch** : the number of iterations in our training loop 
 > 
-> **Training loop**: the learning process in which the model adjusts its weights (in our case $\theta$) to better map predictors to actual responses \
+> **Training loop**: the learning process in which the model adjusts its weights (in our case $\theta$) to better map predictors to actual responses 
 >
 > **Learning rate $\alpha$**: a number that influences how much the model tweaks itself in each epoch
 
