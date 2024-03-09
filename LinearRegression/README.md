@@ -73,15 +73,15 @@ Mathematically we can represent these matrices as the following: \
 
 The exponent of each element does **not denote x raised to some power i**, but represents all the values of the predictors at a specific row in some matrix. These values are represented as a some collection (like an array or tuple). For the training dataset we have: \
 $x^{(1)} = [24] \quad$ and $\quad y^{(1)} = [21.54945196]$ \
-$x^{(2)} = [50]$ and $y^{(2)} = [47.46446305]$ \
-$x^{(4)} = [38]$ and $y^{(4)} = [36.58639803]$ 
+$x^{(2)} = [50] \quad$ and $\quad y^{(2)} = [47.46446305]$ \
+$x^{(4)} = [38] \quad$ and $\quad y^{(4)} = [36.58639803]$ 
 
 Lets do another example, but in this scenario we are going to use a dataset with three predictors, and one dependent variable.
 ![Dataset_example](matrix_ex.png) 
 
-$x^{(1)} = [1, 2, 3]$ and $y^{(1)} = [10]$ \
-$x^{(2)} = [2, 3, 4]$ and $y^{(2)} = [12]$ \
-$x^{(4)} = [4, 5, 6]$ and $y^{(4)} = [16]$ 
+$x^{(1)} = [1, 2, 3] \quad$ and $\quad y^{(1)} = [10]$ \
+$x^{(2)} = [2, 3, 4] \quad$ and $\quad y^{(2)} = [12]$ \
+$x^{(4)} = [4, 5, 6] \quad$ and $\quad y^{(4)} = [16]$ 
 
 > [!IMPORTANT]
 > Try understand why this is the case, as this will help in understanding the equations that come later (e.g. **hypothesis function $h_{\theta}(x)$** and **gradient vector $\nabla_{\theta}J(\theta)$**)
