@@ -171,13 +171,16 @@ To verify this, we can check the shape of both matrices: \
 
 Since the two inner terms of the multiplication is equal, the matrix multiplication is successful. As a question for the reader, what would happen if the multiplication was in the reverse order, that is $\theta \cdot X$?
 
+## Gradient descent and learning rate $\alpha$
+
 ## Cost function and cost history
 Now that we have a way to estimate responses using our weights and features, we want to measure how well our model is doing. Upon each epoch, we calculate the gradient of the given cost function, where the weight matrix $\theta$ is changed slightly in each iteration. The cost function we will be using is based on the mean squared error, which is a popular choice for linear regression. The general formula for MSE is given by
 
 $$MSE = \frac{1}{n} \cdot \sum_{i=1}^{n} (\hat{Y_{i}} - Y_{i} )^{2}$$
 Where we have the following
+
 > **n** : number of samples
-> **$\hat{Y_{i}}$**: the estimated response evaluated for a given sample (indicated by i)
+> **$\hat{Y_{i}}$**: the estimated response evaluated for a given sample (indicated by i) 
 > **$Y_{i}$**: the actual response for a given sample (indicated by i)
 
 
