@@ -164,8 +164,8 @@ Thus we can represent the hypothesis function $h_{\theta}(x)$ as a matrix produ
 $$h_{\theta}(x) = \theta_{0} + \theta_{1} \cdot x_{1} + \dots + \theta_{n-1} \cdot x_{n-1} + \theta_{n} \cdot x_{n} \equiv X \cdot \theta$$
 
 To verify this, we can check the shape of both matrices: \
-Design matrix $X$ has a shape of $(n, (m+1))$ which translates to (695, 2) in our training set \
-Weight matrix $\theta$ has a shape of $(m+1, 1)$ which translates to (2, 1) in our training set \
+* Design matrix $X$ has a shape of $(n, (m+1))$ which translates to (695, 2) in our training set 
+* Weight matrix $\theta$ has a shape of $(m+1, 1)$ which translates to (2, 1) in our training set 
 **Check matrix multiplication**: $X \cdot \theta = (695,2) \times (2,1) = (695,1) ✔️
 
 
