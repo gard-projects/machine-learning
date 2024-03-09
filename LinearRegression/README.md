@@ -120,18 +120,18 @@ model.fit(X_features=training_set[:,:m], y=training_set[:,m:])
 It is important than the variable **m** is included in the slicing, because if it is omitted the resulting slicing operation will not be of the correct shape expected by the `fit` function. \
 For now we set the **epochs** and **learning rate $\alpha$** to 10 000 and 0.001 respectively. The exact reason for the choice of values will be explained shortly.
 
-At this stage we are almost ready to do gradient descent, but there are two additional steps that need to be done. First we need to intialize the weight matrix, as it is used to estimate responses. We will choose to use random initialization using a normal distribution, as it provides faster convergence compared to intializing all weights to 0. See code below.
+Before we can build the training loop, we need to do two additional steps that need to be done. First we need to intialize the weight matrix, as it is used to estimate responses. We will choose to use random initialization using a normal distribution, as it provides faster convergence compared to intializing all weights to 0. See code below.
 ```
 self.theta = np.random.normal(scale=0.01, size=(m+1, 1))
 ```
 For the second part, we choose to do standardization.
 
-## Standardizing the features/predictors
+## Standardization of the features/predictors
 > [!IMPORTANT]
 > I assume you as the reader have some knowledge on statistics, specifically what the mean and standard deviation represents and also what a statistical distribution is.
 
 Standardization is an important part of this algorithm, as we are able to reduce the time needed to converge towards minimum of the loss function.
-Essentially you are transforming the features such that they have a mean of 0, and a standard deviation of 1. See code below.
+Essentially you are transforming the features such that they have a mean of 0, and a standard deviation of 1. **This is very useful in training loop**. See code below.
 ```
 X_features = self.standardize(X_features)
 ```
@@ -143,3 +143,8 @@ Using one of the methods defined on the class:
         X = (X - mean) / std
         return X
 ```
+
+## Predicting values and design matrix
+At this stage we are ready to start predicting values using the weights in our model, and the samples representing the features --- i.e. features matrix.
+To estimate responses we use a **hypothesis function $h_{\theta}(x)$, also called a regression function. The generalized regression function takes in a single value of some predictor variable (in our case x), but what if we had 10+ predictors?
+$$h_{theta}(x) = \theta_{0} + \theta_{1} \cdot x_{1} + \dots + \theta_{n-1} \cdot x_{n-1} + \theta_{n} \cdot x_{n}$$
