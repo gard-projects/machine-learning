@@ -15,10 +15,18 @@ Before we begin it is useful and necessary to understand the dataset you are wor
 >**m** : number of predictors (independent variables)
 
 If we take a look at the dataset for our training set we note the following: \
-$n =  696 - 1 = 695$ (we decrease by one to not account for the header label) \
-$m = 2 - 1 = 1$ (there is only one dependent variable, y) 
-
+$n =  696 - 1 = 695 \quad$ (we decrease by one to not account for the header label) \
+$m = 2 - 1 = 1 \quad$ (there is only one dependent variable, y) \
 I encourage you as the reader to calculate the respective size (m and n) for the testing set for some practice.
+
+To find **n** and **m** in Python we utilize the shape attribute of a numpy array (which is a np.ndarray object). In the example under we use a matrix `X_features`, which represents the values of the predictors in the training dataset. 
+```
+n = X_features.shape[0] # Number of samples
+m = X_features.shape[1] # Number of predictors (features)
+```
+The shape of X_features is $(695, 1)$, and can be found by using 
+``` X_features_shape = X_features.shape```
+
 
 # Extracting data from CSV file
 Now that we know the number of independent variables, we can use the variable **m** to extract data from the CSV file into a numpy array. 
@@ -85,3 +93,5 @@ $x^{(4)} = [4, 5, 6] \quad$ and $\quad y^{(4)} = [16]$
 
 > [!IMPORTANT]
 > Try understand why this is the case, as this will help in understanding the equations that come later (e.g. **hypothesis function $h_{\theta}(x)$** and **gradient vector $\nabla_{\theta}J(\theta)$**)
+
+
