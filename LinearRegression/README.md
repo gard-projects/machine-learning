@@ -120,9 +120,21 @@ model.fit(X_features=training_set[:,:m], y=training_set[:,m:])
 It is important than the variable **m** is included in the slicing, because if it is omitted the resulting slicing operation will not be of the correct shape expected by the `fit` function. \
 For now we set the **epochs** and **learning rate $\alpha$** to 10 000 and 0.001 respectively. The exact reason for the choice of values will be explained shortly.
 
-At this stage we are almost ready to do gradient descent, but there are two additional steps that need to be done. First we need to intialize the weight matrix, as it is used to estimate responses. \
-I choose to use random initialization using a normal distribution as it provides faster convergence as opposed to intializing all weights to 0. See code below.
+At this stage we are almost ready to do gradient descent, but there are two additional steps that need to be done. First we need to intialize the weight matrix, as it is used to estimate responses. We will choose to use random initialization using a normal distribution, as it provides faster convergence compared to intializing all weights to 0. See code below.
 ```
 self.theta = np.random.normal(scale=0.01, size=(m+1, 1))
 ```
-
+### Standardizing the features/predictors
+Standardization is an important part of this algorithm, as we are able to reduce the time needed to converge towards minimum of the loss function.
+Essentially you are transforming the features such that they have a mean of 0, and a standard deviation of 1. See code below.
+```
+X_features = self.standardize(X_features)
+```
+Using one of the methods defined on the class:
+```
+ def standardize(self, X: np.ndarray) -> np.ndarray:
+        mean = np.mean(X, axis=0)
+        std = np.std(X, axis=0)
+        X = (X - mean) / std
+        return X
+```
