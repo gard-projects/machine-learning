@@ -119,3 +119,8 @@ model.fit(X_features=training_set[:,:m], y=training_set[:,m:])
 ```
 It is important than the variable **m** is included in the slicing, because if it is omitted the resulting slicing operation will not be of the correct shape expected by the `fit` function. \
 For now we set the **epochs** and **learning rate $\alpha$** to 10 000 and 0.001 respectively. The exact reason for the choice of values will be explained shortly.
+
+At this stage we are almost ready to do gradient descent, but there are two additional steps that need to be done. First we need to intialize the weight matrix, as it is used to estimate responses. There are multiple ways to do so including:
+(1) **Random initialization**: use Uniform distribution or Normal distribution to set parameters
+(2) **Zero initialization**: set all the parameters equal to 0
+(3) **Pre-training / Transfer training**: using pre-trained weights from an existing model (not applicable here)
