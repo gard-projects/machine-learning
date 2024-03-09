@@ -82,7 +82,9 @@ As described briefly earlier, we use the `fit(self, X_features: np.ndarray, y: n
 
 Mathematically we can represent these matrices as the following: 
 
-![X_features](x_matrix.png) $\quad$ ![y_matrix](y_matrix.png) $\quad$ ![theta_matrix](theta_matrix.png) 
+![X_features](x_matrix.png)
+![y_matrix](y_matrix.png)
+![theta_matrix](theta_matrix.png) 
 
 The exponent of each element does **not denote x raised to some power i**, but represents all the values of the predictors at a specific row in some matrix. These values are represented as 1D numpy array. For the training dataset we have: \
 $x^{(1)} = [24] \quad$ and $\quad y^{(1)} = [21.54945196]$ \
