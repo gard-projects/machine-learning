@@ -74,4 +74,4 @@ $x^{(1)} = [24]$ and $y^{(1)} = [21.54945196]$ \
 $x^{(2)} = [50]$ and $y^{(2)} = [47.46446305]$ \
 $x^{(4)} = [38]$ and $y^{(4)} = [36.58639803]$ 
 
-Try understand why this is the case, as this will help in understanding the equations that come later for **hypothesis function $h_{\theta}(x)$** and **gradient vector $\del_{\theta}J(\theta)$**
+Try understand why this is the case, as this will help in understanding the equations that come later (e.g. **hypothesis function $h_{\theta}(x)$** and **gradient vector $\nabla_{\theta}J(\theta)$**)
