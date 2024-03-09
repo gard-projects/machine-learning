@@ -184,7 +184,7 @@ This is the core of learning in machine learning.
 > **Gradient descent**: an algorithm that uses the gradient of the loss function, to find the minimum of the loss function
 
 So how do we get to this minimum, how does it look like?
-
+![gradient_descent_theory](gradient_descent_theory.png)
 
 
 
