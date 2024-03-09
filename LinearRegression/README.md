@@ -41,7 +41,8 @@ Pairing this function with the `to_numpy()` function allows us to put the data i
 training_set = pd.read_csv('./dataset/l1_train.csv').to_numpy()
 testing_set = pd.read_csv('./dataset/l1_test.csv').to_numpy()
 ```
-**NB!** Note the location where you may store the CSV files can be different, in that case just replace the location in the `read_csv(...)` with your respective path.
+> [!IMPORTANT]
+> **NB!** Note the location where you may store the CSV files can be different, in that case just replace the location in the `read_csv(...)` with your respective path.
 
 # Creating the model structure
 > [!IMPORTANT]
@@ -108,7 +109,7 @@ $x^{(1)} = [1, 2, 3] \quad$ and $\quad y^{(1)} = [10]$ \
 $x^{(2)} = [2, 3, 4] \quad$ and $\quad y^{(2)} = [12]$ \
 $x^{(4)} = [4, 5, 6] \quad$ and $\quad y^{(4)} = [16]$ 
 
-> [!IMPORTANT]
+> [!TIP]
 > Try understand why this is the case, as this will help in understanding the equations that come later (e.g. **hypothesis function $h_{\theta}(x)$** and **gradient vector $\nabla_{\theta}J(\theta)$**)
 
 
