@@ -33,7 +33,8 @@ testing_set = pd.read_csv('./dataset/l1_test.csv').to_numpy()
 **NB!** Note the location where you may store the CSV files can be different, in that case just replace the location in the `read_csv(...)` with your respective path.
 
 # Creating the model structure
-**NB!** I assume you have some grasp of classes in Python, thus I will not elaborate on this syntax.
+> [!IMPORTANT]
+> I assume you have some grasp of classes in Python, thus I will not elaborate on this syntax.
 To make the coding experience easier I make use of Python classes. Our constructor takes in two arguments, **epochs** and **learning_rate $\alpha$**. The cost history field is used to keep track of the loss value during each epoch.
 
 > **Epoch**: the number of iterations in our training loop 
@@ -69,7 +70,7 @@ As described briefly earlier, we use the `fit(self, X_features: np.ndarray, y: n
 Mathematically we can represent these matrices as the following: \
 ![X_features](x_features.png) ![y_matrix](y_matrix.png) ![theta_matrix](theta_matrix.png) \
 
-The exponent of each element does **not denote x raised to some power i**, but represents all the values of the predictors at a specific row. These values are represented as a some collection (like an array or tuple). For the training dataset we have: \
+The exponent of each element does **not denote x raised to some power i**, but represents all the values of the predictors at a specific row in some matrix. These values are represented as a some collection (like an array or tuple). For the training dataset we have: \
 $x^{(1)} = [24]$ and $y^{(1)} = [21.54945196]$ \
 $x^{(2)} = [50]$ and $y^{(2)} = [47.46446305]$ \
 $x^{(4)} = [38]$ and $y^{(4)} = [36.58639803]$ 
