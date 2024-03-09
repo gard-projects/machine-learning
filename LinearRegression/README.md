@@ -66,5 +66,5 @@ As described briefly earlier, we use the `fit(self, X_features: np.ndarray, y: n
 > 
 > **y**: a vector of shape $n \times 1$, representings the actual responses (the values of the dependent variable)
 
-Mathematically we can represent these matrices as the following:
+Mathematically we can represent these matrices as the following: \
 ![X_features](x_features.png)
