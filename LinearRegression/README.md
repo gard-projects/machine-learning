@@ -180,7 +180,7 @@ Now that we have a way to estimate responses using our weights and features, we 
 
 $$MSE = \frac{1}{n} \cdot \sum_{i=1}^{n} (\hat{Y_{i}} - Y_{i} )^{2}$$
 > [!NOTE]
-> You may wonder where the "error" part of the MSE name comes from. The error, e, is the difference between the predicted response and the actual response, i.e.
+> You may wonder where the "error" part of the MSE name comes from. The error (also known as **residual**), e, is the difference between the predicted response and the actual response, i.e.
 > $$e = \hat{Y_{i}} - Y_{i}$$
 
 > **n** : number of samples
@@ -190,7 +190,7 @@ $$MSE = \frac{1}{n} \cdot \sum_{i=1}^{n} (\hat{Y_{i}} - Y_{i} )^{2}$$
 > **$Y_{i}$**: the actual response for a given sample (indicated by i)
 
 We can optimize this equation for matrices by using what we derived for the hypothesis function $h_{\theta}(x)$. We will follow the convention and call the cost function $J(\theta)$, thus
-$$ MSE = J(\theta) = 
+$$MSE = J(\theta) = \frac{1}{n} \cdot \bigr[X^{T} \cdot (X \cdot \theta - y)\bigr]$$
 
 
 
