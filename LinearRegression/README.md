@@ -51,8 +51,8 @@ def __init__(self, epochs: int, learning_rate: int):
 ```
 
 The next question is what is needed for creating a linear regression model?
-➡️ `fit(self, X_features, y)`: the main function of our model, estimates the weights of our network given the training dataset
-➡️ `standardize(self, X)`: standardizes the data, by subtracting the mean and dividing by the standard deviation
+➡️ `fit(self, X_features, y)`: the main function of our model, estimates the weights of our network given the training dataset \
+➡️ `standardize(self, X)`: standardizes the data, by subtracting the mean and dividing by the standard deviation \
 ➡️ `predict(self, X)`: computes an estimated response given the features design matrix X, and model weights $\theta$
 ➡️ `cost_function(self, X,y)`: computes the distance score using mean squared error (MSE), we append this loss value to our `cost_history` array
 ➡️ `gradient(self, X, y, n)`: computes the gradient of the given cost function
