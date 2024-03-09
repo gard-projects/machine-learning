@@ -35,4 +35,4 @@ testing_set = pd.read_csv('./dataset/l1_test.csv').to_numpy()
 To make the coding experience easier I make use of Python classes. The next question is what is needed for creating a linear regression model?
 
 1. `fit(X_features, y)` : the main function of our model, estimates the weights of our network given the training dataset
-2. `predict(X)` : computes an estimated response given the features design matrix and model weights ($\theta$)
+2. `predict(X)` : computes an estimated response given the features design matrix -- X -- and model weights -- $\theta$
