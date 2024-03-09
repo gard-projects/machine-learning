@@ -62,9 +62,9 @@ Do not worry if you do not understand everything yet, we will go through each co
 
 ## Fitting the data
 As described briefly earlier, we use the `fit(self, X_features: np.ndarray, y: np.ndarray)` function as our main method of running the model. We will now make use of **n** and **m** which we found earlier.
-> X_features: a matrix of shape $ n \times m $, represents all of our samples (i.e. the values of our predictors)
+> X_features: a matrix of shape $n \times m$, represents all of our samples (i.e. the values of our predictors)
 > 
-> y: a vector of shape $ n \times 1$, representings the actual responses (the values of the dependent variable)
+> y: a vector of shape $n \times 1$, representings the actual responses (the values of the dependent variable)
 
 Mathematically we can represent these matrices as the following:
 
