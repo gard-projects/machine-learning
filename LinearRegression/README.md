@@ -34,5 +34,13 @@ testing_set = pd.read_csv('./dataset/l1_test.csv').to_numpy()
 # Creating the model structure
 To make the coding experience easier I make use of Python classes. The next question is what is needed for creating a linear regression model?
 
-1. `fit(X_features, y)` : the main function of our model, estimates the weights of our network given the training dataset
-2. `predict(X)` : computes an estimated response given the features design matrix -- X -- and model weights -- $\theta$
+1. `fit(X_features, y)`: the main function of our model, estimates the weights of our network given the training dataset
+2. `standardize(X)`: standardizes the data, by subtracting the mean and dividing by the standard deviation
+3. `predict(X)`: computes an estimated response given the features design matrix X, and model weights $\theta$
+4. `cost_function(X,y)`: computes the distance score using mean squared error (MSE), we is appended to our `cost_history` array
+5. `gradient(X, y, n)`: computes the gradient of the given cost function
+6. `r_square(X, y)`: computes the coefficient of determination, useful for metric for understanding how well the model performs
+
+Do not worry if you do not understand everything yet, we will go through each function in the list.
+
+## Fitting the data
