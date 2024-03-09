@@ -157,3 +157,10 @@ Adjusting the matrix to our given dataset we get the following
 
 ![design_matrix](design_matrix_trainingset.png)
 
+> [!NOTE]
+> Notice that we have an additional column in the design matrix as opposed to the features matrix, and this difference plays an important role in simplifying the equation for the hypothesis function $h_{\theta}(x)$
+
+Thus we can represent the hypothesis function $h_{\theta}(x)$ as a matrix product between the design matrix $X$ and the weight vector $\theta$!
+$$h_{\theta}(x) = \theta_{0} + \theta_{1} \cdot x_{1} + \dots + \theta_{n-1} \cdot x_{n-1} + \theta_{n} \cdot x_{n} \equiv X \cdot \theta$$
+
+
