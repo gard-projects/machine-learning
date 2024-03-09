@@ -185,6 +185,7 @@ This is the core of learning in machine learning.
 
 So how do we get to this minimum, how does it look like?
 ![gradient_descent_theory](gradient_descent_theory.png)
+
 Think of the gradient as a ball. The random intialization can be thought of as a person holding the ball in some random location on the graph.
 If the person were to let go of the ball, the ball would roll down to until it stops, which can be local minimum or global minimum. In more technical terms, the ball can be seen as weights of the network,
 and we are using the gradient $\textemdash$ telling us the direction of steepest descent **in the current position** \textemdash$ to move in the direction which leads us to a minimum of the loss function.
