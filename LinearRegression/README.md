@@ -160,7 +160,12 @@ Adjusting the matrix to our given dataset we get the following
 > [!NOTE]
 > Notice that we have an additional column in the design matrix as opposed to the features matrix, and this difference plays an important role in simplifying the equation for the hypothesis function $h_{\theta}(x)$
 
-Thus we can represent the hypothesis function $h_{\theta}(x)$ as a matrix product between the design matrix $X$ and the weight vector $\theta$!
+Thus we can represent the hypothesis function $h_{\theta}(x)$ as a matrix product between the design matrix $X$ and the weight vector/matrix $\theta$!
 $$h_{\theta}(x) = \theta_{0} + \theta_{1} \cdot x_{1} + \dots + \theta_{n-1} \cdot x_{n-1} + \theta_{n} \cdot x_{n} \equiv X \cdot \theta$$
+
+To verify this, we can check the shape of both matrices: \
+Design matrix $X$ has a shape of $(n, (m+1))$ which translates to (695, 2) in our training set \
+Weight matrix $\theta$ has a shape of $(m+1, 1)$ which translates to (2, 1) in our training set \
+**Check matrix multiplication**: $X \cdot \theta = (695,2) \times (2,1) = (695,1) ✔️
 
 
