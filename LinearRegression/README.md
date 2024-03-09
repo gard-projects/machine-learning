@@ -13,5 +13,5 @@ Before we begin it is useful and necessary to understand the dataset you are wor
 
 **m** : number of predictors (independent variables)
 
-If we take a look at the dataset for our training set we note the following:
+If we take a look at the dataset for our training set we note the following: \\
 $n =  696 - 1 = 695$ (we decrease by one to not account for the header label)
