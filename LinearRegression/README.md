@@ -55,6 +55,7 @@ To make the coding experience easier I make use of Python classes. Our construct
 >
 > **Learning rate $\alpha$**: a number that influences how much the model tweaks itself in each epoch (more on this later)
 
+In Python code:
 ```
 def __init__(self, epochs: int, learning_rate: int):
         self.epochs = epochs
