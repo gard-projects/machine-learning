@@ -127,6 +127,9 @@ self.theta = np.random.normal(scale=0.01, size=(m+1, 1))
 For the second part, we choose to do standardization.
 
 ## Standardizing the features/predictors
+> [!IMPORTANT]
+> I assume you as the reader have some knowledge on statistics, specifically what the mean and standard deviation represents and also what a statistical distribution is.
+
 Standardization is an important part of this algorithm, as we are able to reduce the time needed to converge towards minimum of the loss function.
 Essentially you are transforming the features such that they have a mean of 0, and a standard deviation of 1. See code below.
 ```
