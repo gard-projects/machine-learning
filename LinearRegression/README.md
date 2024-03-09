@@ -67,4 +67,4 @@ As described briefly earlier, we use the `fit(self, X_features: np.ndarray, y: n
 > **y**: a vector of shape $n \times 1$, representings the actual responses (the values of the dependent variable)
 
 Mathematically we can represent these matrices as the following: \
-![X_features](x_features.png)
+![X_features](x_features.png) ![y_matrix](y_matrix.png) ![theta_matrix](theta_matrix.png)
