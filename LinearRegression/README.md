@@ -192,6 +192,10 @@ $$MSE = \frac{1}{n} \cdot \sum_{i=1}^{n} (\hat{Y_{i}} - Y_{i} )^{2}$$
 We can optimize this equation for matrices by using what we derived for the hypothesis function $h_{\theta}(x)$. We will follow the convention and call the cost function $J(\theta)$, thus
 $$MSE = J(\theta) = \frac{1}{n} \cdot \bigr[(X\theta - y)^{T} \cdot (X\theta - y)\bigr]$$
 
+> [!NOTE]
+> Whenever you take the dot product between two vectors, the result is a scalar. This also applies to matrix multiplication of two matrices, where one matrix is the transpose of the other.
+> The reason for this behaviour is due to **duality** between dot product and matrix multiplication. Essentially when you raise a matrix to the second power, we can utilize this behaviour.
+
 
 
 
