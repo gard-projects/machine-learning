@@ -120,7 +120,7 @@ model.fit(X_features=training_set[:,:m], y=training_set[:,m:])
 It is important than the variable **m** is included in the slicing, because if it is omitted the resulting slicing operation will not be of the correct shape expected by the `fit` function. \
 For now we set the **epochs** and **learning rate $\alpha$** to 10 000 and 0.001 respectively. The exact reason for the choice of values will be explained shortly.
 
-Before we can build the training loop, we need to do two additional steps that need to be done. First we need to intialize the weight matrix, as it is used to estimate responses. We will choose to use random initialization using a normal distribution, as it provides faster convergence compared to intializing all weights to 0. See code below.
+Before we can build the training loop, two additional steps need to be done first. First we need to intialize the weight matrix, as it is used to estimate responses. We will choose to use random initialization using a normal distribution, as it provides faster convergence compared to intializing all weights to 0. See code below.
 ```
 self.theta = np.random.normal(scale=0.01, size=(m+1, 1))
 ```
