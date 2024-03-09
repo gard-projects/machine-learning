@@ -87,7 +87,7 @@ Mathematically we can represent these matrices as the following:
 ![y_matrix](y_matrix.png)
 ![theta_matrix](theta_matrix.png) 
 
-The exponent of each element does **not denote x raised to some power i**, but represents all the values of the predictors at a specific row in some matrix. These values are represented as 1D numpy array. For the training dataset we have: \
+The exponent of each element does **not denote x raised to some power i**, but represents all the values of the predictors for a specific sample in the dataset (in our case the training set). These values are represented as 1D numpy array. For the training dataset we have: \
 $x^{(1)} = [24] \quad$ and $\quad y^{(1)} = [21.54945196]$ \
 $x^{(2)} = [50] \quad$ and $\quad y^{(2)} = [47.46446305]$ \
 $x^{(4)} = [38] \quad$ and $\quad y^{(4)} = [36.58639803]$ 
