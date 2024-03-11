@@ -318,7 +318,7 @@ $$\overline{y} = \frac{1}{n} \cdot \sum_{n=1}^{n} y_{i}$$
 > 
 > n: the number of **actual response samples**
 
-You can find $\overline{y} by using the following code:
+You can find $\overline{y}$ by using the following code:
 ```
 y_bar = np.mean(y)
 ```
