@@ -290,7 +290,7 @@ These are the following outputs I got from compiling the model on two computers 
 
 
 ## Comparing with Sklearn and using $R^{2}$
-A typical way to check if your model is doing well is to compare it with the functions provided in the python library Sklearn.
+To check if our model is doing well, we will compare it with Sklearn's implementation of linear regression, and our calculated coefficient of determination $R^{2}$.
 ```
 model_r2 = model.r_square(testing_set[:,:m], testing_set[:,m:])
 print("Custom model R^2: ", model_r2)
@@ -302,11 +302,13 @@ print("Sklearn model R^2: ", r_2_sklearn)
 ```
 To calculate the coefficient of determination $R^{2}$ we use the following formulas:
 
-$$SS_{res} = (y - \hat{y})^{T} \cdot (y - \hat{y})$$
-$$SS_{tot} = (y - \overline{y})^{T} \cdot (y - \overline{y})$$
-$$R^{2} = 1 - \frac{SS_{res}}{SS_{tot}}$$
+$$SS_{res} = (y - \hat{y})^{T} \cdot (y - \hat{y})$$ \
 
-Where $\overline{y} = \frac{1}{n} \cdot \sum_{1}^{n} y_{i}$
+$$SS_{tot} = (y - \overline{y})^{T} \cdot (y - \overline{y})$$ \
+
+$$R^{2} = 1 - \frac{SS_{res}}{SS_{tot}}$$ \
+
+Where $\overline{y} = \frac{1}{n} \cdot \sum_{1}^{n} y_{i}$ \
 
 In code this done by calling the `r_square` function:
 ```
