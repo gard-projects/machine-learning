@@ -56,7 +56,7 @@ class LinReg():
         
         n = X_features.shape[0] # Number of samples
         m = X_features.shape[1] # Number of predictors (features)
-        self.theta = np.random.rand(m+1, 1)
+        self.theta = np.random.normal(scale=0.01, size=(m+1, 1))
     
         X_features = self.standardize(X_features)
         X = np.c_[np.ones(n), X_features] # Design matrix
