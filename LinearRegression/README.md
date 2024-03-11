@@ -344,4 +344,8 @@ Running this function we can compare it to sklearn giving us
 
 ![coefficient_determination](coefficient_determination.png)
 
+As you can see the model is doing quite well! 
 
+# After thoughts
+That is all for this project, I hope this code was of help to you or perhaps you learned something new. 
+Thank you for reading! ❤️
