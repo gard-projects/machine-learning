@@ -71,7 +71,6 @@ The next question is what is needed for creating a linear regression model?
 3. `predict(self, X)`: computes an estimated response given the features design matrix X, and model weights $\theta$ 
 4. `cost_function(self, X,y)`: computes the distance score using mean squared error (MSE), we append this loss value to our `cost_history` array 
 5. `gradient(self, X, y, n)`: computes the gradient of the given cost function 
-6. `r_square(self, X, y)`: computes the coefficient of determination, useful for metric for understanding how well the model performs 
 
 Do not worry if you do not understand everything yet, we will go through each component of the list. 
 
@@ -250,5 +249,38 @@ for _ in range(self.epochs):
 ```
 
 # Plotting and final results
+To visualize our results I chose to use Matplotlib. The following code sample plots the cost history up to the epochs:
+```
+  plt.figure()
+    plt.plot(np.arange(1, model.epochs + 1), model.cost_history, 'r', label='Cost history')
+    plt.xlabel('Epochs')
+    plt.ylabel('Cost')
+    plt.legend()
+    plt.grid()
+    plt.savefig('cost_history.png')
+```
 
+To plot the linear regression line up against the actual responses we need to acquire the linear regression equation:
+```
+predicted_response = np.dot(model.standardize(testing_set[:,:m]), model.theta[1:]) + model.theta[0]
+```
+Now we can plot the linear regression line and the actual responses using a scatter plot. 
+>[!NOTE]
+> The data we are using is 1D, since we have one predictor only. For higher dimensional data plotting becomes harder, therefore you could rather use coefficients to check the model's performance, like coefficient of determination.
 
+```
+ plt.figure()
+    plt.scatter(testing_set[:,:m], testing_set[:,m:], label='True response', color='blue')
+    plt.plot(testing_set[:,:m], predicted_response, label='Predicted response', color='red')
+    plt.title('Linear Regression')
+    plt.xlabel('Predictor (X)')
+    plt.ylabel('Response (y)')
+    plt.legend()
+    plt.savefig('prediction.png')
+```
+These are the following outputs I got from compiling the model on two computers A and B. Computer B is quite old (comapred to computer A), and you can see that the model performance is a lot worse!
+**Results from running model on computer A:**
+![prediction1](prediction1.png) ![cost_history1](cost_history1.png)
+
+**Results from running model on computer B:**
+![prediction2](prediction2.png) ![cost_history2](cost_history2.png)
