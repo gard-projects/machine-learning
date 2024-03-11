@@ -300,7 +300,7 @@ reg = LinearRegression().fit(training_set[:,:m], training_set[:,m:])
 r_2_sklearn = reg.score(testing_set[:,:m], testing_set[:,m:])
 print("Sklearn model R^2: ", r_2_sklearn)
 ```
-To calculate the coefficient of determination $R^{2}$ we use the following formulas:
+To calculate the coefficient of determination $R^{2}$ we use equations involving matrices. 
 
 $$SS_{res} = (y - \hat{y})^{T} \cdot (y - \hat{y})$$ 
 
@@ -308,7 +308,9 @@ $$SS_{tot} = (y - \overline{y})^{T} \cdot (y - \overline{y})$$
 
 $$R^{2} = 1 - \frac{SS_{res}}{SS_{tot}}$$ 
 
-Where $\overline{y} = \frac{1}{n} \cdot \sum_{n=1}^{n} y_{i}$ 
+Where 
+
+$$\overline{y} = \frac{1}{n} \cdot \sum_{n=1}^{n} y_{i}$$ 
 
 In code this done by calling the `r_square` function:
 ```
