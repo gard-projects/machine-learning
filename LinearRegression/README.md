@@ -283,5 +283,7 @@ These are the following outputs I got from compiling the model on two computers 
 **Results from running model on computer A:** \
 ![prediction1](prediction1.png) ![cost_history1](cost_history1.png) 
 
+
+
 **Results from running model on computer B:** \
 ![prediction2](prediction2.png) ![cost_history2](cost_history2.png)
