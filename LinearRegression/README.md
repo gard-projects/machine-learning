@@ -308,9 +308,12 @@ $$SS_{tot} = (y - \overline{y})^{T} \cdot (y - \overline{y})$$
 
 $$R^{2} = 1 - \frac{SS_{res}}{SS_{tot}}$$ 
 
-Where 
-
 $$\overline{y} = \frac{1}{n} \cdot \sum_{n=1}^{n} y_{i}$$ 
+
+> y: the response matrix, shape $(n,1)$
+> $\hat{y}$: matrix representing the estimated response, shape $(n,1)$
+> $\overline{y}$: matrix representing the mean, shape $(n,1)$
+> n: the number of **actual response samples**
 
 In code this done by calling the `r_square` function:
 ```
