@@ -279,8 +279,9 @@ Now we can plot the linear regression line and the actual responses using a scat
     plt.savefig('prediction.png')
 ```
 These are the following outputs I got from compiling the model on two computers A and B. Computer B is quite old (comapred to computer A), and you can see that the model performance is a lot worse!
+
 **Results from running model on computer A:**
-![prediction1](prediction1.png) ![cost_history1](cost_history1.png)
+![prediction1](prediction1.png) ![cost_history1](cost_history1.png) \
 
 **Results from running model on computer B:**
 ![prediction2](prediction2.png) ![cost_history2](cost_history2.png)
