@@ -287,3 +287,44 @@ These are the following outputs I got from compiling the model on two computers 
 \
 **Results from running model on computer B:** \
 ![prediction2](prediction2.png) ![cost_history2](cost_history2.png)
+
+
+## Comparing with Sklearn and using $R^{2}$
+A typical way to check if your model is doing well is to compare it with the functions provided in the python library Sklearn.
+```
+model_r2 = model.r_square(testing_set[:,:m], testing_set[:,m:])
+print("Custom model R^2: ", model_r2)
+    
+# Compare with sklearn implementation
+reg = LinearRegression().fit(training_set[:,:m], training_set[:,m:])
+r_2_sklearn = reg.score(testing_set[:,:m], testing_set[:,m:])
+print("Sklearn model R^2: ", r_2_sklearn)
+```
+To calculate the coefficient of determination $R^{2}$ we use the following formulas:
+
+$$SS_{res} = (y - \hat{y})^{T} \cdot (y - \hat{y})$$
+$$SS_{tot} = (y - \overline{y})^{T} \cdot (y - \overline{y})$$
+$$R^{2} = 1 - \frac{SS_{res}}{SS_{tot}}$$
+
+Where $\overline{y} = \frac{1}{n} \cdot \sum_{1}^{n} y_{i}$
+
+In code this done by calling the `r_square` function:
+```
+def r_square(self, X: np.ndarray, y: np.ndarray) -> float:
+        X = self.standardize(X)
+        y_est = self.predict(np.c_[np.ones(X.shape[0]), X])
+        e = y - y_est
+        # Residual sum of squares (SS_res)
+        SS_res = np.dot(e.T, e).item() 
+        
+        y_bar = np.mean(y)
+        s = y - y_bar
+        # Total sum of squares (SS_tot)
+        SS_tot = np.dot(s.T, s).item()
+        
+        r_2 = 1 - SS_res/SS_tot
+        return r_2
+```
+Running this function we can compare it to sklearn giving us
+
+
