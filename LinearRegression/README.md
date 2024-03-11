@@ -341,5 +341,6 @@ def r_square(self, X: np.ndarray, y: np.ndarray) -> float:
         return r_2
 ```
 Running this function we can compare it to sklearn giving us
+![coefficient_determination](coefficient_determination.png)
 
 
