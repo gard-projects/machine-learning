@@ -1,0 +1,1 @@
+Dataset gotten from: https://www.kaggle.com/datasets/wenruliu/adult-income-dataset?resource=download
