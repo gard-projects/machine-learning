@@ -80,9 +80,30 @@ class KNN:
                 result[validation_data == u] = mean_target
         return result
     
-    def leave_one_out_target_encoding(self):
-        return 0
+    def leave_one_out_target_encoding(self, column: np.ndarray, target: np.ndarray):
+        unique_categories = np.unique(column)
+        
+        # Map each category to respective indices in target variable
+        category_indices = {c: np.where(column==c) for c in unique_categories}
+        column_encoded = np.zeros_like(target)
+        
+        for category, indices in category_indices.items():
+            category_sum = np.sum(target[indices])
+            category_count = len(indices)-1
+            
+            if category_count == 0:
+                # If there is only one sample in the category, use the global mean
+                column_encoded[indices] = np.mean(target)
+            else:
+                # More than one sample in the category
+                for i in indices:
+                    column_encoded[i] = (category_sum - target[i]) / category_count
+            
+        return column_encoded
     
+    
+    
+     
 if __name__ == '__main__':
     custom_model = KNN(k=3)
     # Target income - dependent variable
