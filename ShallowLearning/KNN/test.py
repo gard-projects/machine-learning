@@ -1,3 +1,9 @@
 import numpy as np
-data = np.array([10, 20, 30, 40, 50, 70, 10, 20, 40, 80, 90, 100, 200, 20])
-test = {val: np.where(data == val) for val in np.unique(data)}
+
+q = np.array([[1,2,2], [2,3,3]])
+p  = np.array([5,5,6])
+
+t = np.dot(p,q.T)
+t2 = np.linalg.norm(q, axis=1)
+print(t2)
+print(t)

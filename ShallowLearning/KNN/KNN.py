@@ -12,11 +12,23 @@ class KNN:
         self.X_features = data[:, :m]
         self.y = data[:, m]
         
-        self.k_fold_target_encoding(self.X_features, self.y)
         return 0
 
-    def eculedian_distance(self):
-        return 0
+    def euclidean_distance(self, x1: np.ndarray, x2: np.ndarray):
+        d = np.sqrt(np.sum((x1-x2)**2, axis=1))
+        return d
+    
+    def manhattan_distance(self, x1: np.ndarray, x2: np.ndarray):
+        d = np.sum(np.abs(x1-x2), axis=1)
+        return d
+    
+    def minkowski_distance(self, x1: np.ndarray, x2: np.ndarray, p: int):
+        d = np.sum(np.abs(x1-x2)**p,axis=1)**(1/p)
+        return d
+    
+    def cosine_similarity(self, x1: np.ndarray, x2: np.ndarray):
+        c = np.dot(x1, x2.T) / (np.linalg.norm(x1, axis=1) * np.linalg.norm(x2))
+        return c
     
     def predict(self):
         return 0
