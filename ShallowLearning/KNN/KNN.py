@@ -11,8 +11,20 @@ class KNN:
         
         self.X_features = data[:, :m]
         self.y = data[:, m]
+        encoded_y = self.label_encoding(self.y)
         
-        return 0
+        # Encoding variables
+        self.one_hot_encoding(1) # Workclass
+        self.target_encoding(3, encoded_y) # Education
+        self.one_hot_encoding(5) # Marital status
+        self.target_encoding(6, encoded_y) # Occupation
+        self.one_hot_encoding(7) # Relationship
+        self.one_hot_encoding(8) # Race
+        self.one_hot_encoding(9) # Gender
+        self.target_encoding(13, encoded_y) # Native country
+        
+        print(self.X_features[:5])
+        
 
     def euclidean_distance(self, x1: np.ndarray, x2: np.ndarray):
         d = np.sqrt(np.sum((x1-x2)**2, axis=1))
@@ -30,31 +42,31 @@ class KNN:
         c = np.dot(x1, x2.T) / (np.linalg.norm(x1, axis=1) * np.linalg.norm(x2))
         return c
     
-    def predict(self):
-        return 0
-    
-    def score(self):
-        return 0
-    
-    def one_hot_encoding(self, column: np.ndarray):
+    def one_hot_encoding(self, column_index: int):
+        column = self.X_features[:, column_index]
+        self.X_features = np.delete(self.X_features, column_index, axis=1)
+        
         u = np.unique(column)
-        result = np.zeros((column.shape[0], len(u)))
+        encoded_column = np.zeros((column.shape[0], len(u)))
         for i, unique_value in enumerate(u):
-            result[np.where(column == unique_value), i] = 1
-        return result
-    
-    def label_encoding(self, column: np.ndarray):
+            encoded_column[np.where(column == unique_value), i] = 1
+        self.X_features = np.concatenate((self.X_features, encoded_column), axis=1) 
+           
+    def label_encoding(self, column: np.ndarray) -> np.ndarray:
         u = np.unique(column)
         v = {value: i for i, value in enumerate(u)}
-        result = np.array(v[value] for value in column)
+        result = np.array([v[value] for value in column])
         return result
     
-    def target_encoding(self, column: np.ndarray, target: np.ndarray):
+    def target_encoding(self, column_index: int, target: np.ndarray):
+        column = self.X_features[:, column_index]
+        
+        self.X_features = np.delete(self.X_features, column_index, axis=1)
         unique_values = np.unique(column)
-        result = np.zeros((column.shape[0], 1))
+        encoded_column = np.zeros((column.shape[0], 1))
         for u in unique_values:
-            result[np.where(column == u)] = np.mean(target[np.where(column == u)])
-        return result
+                encoded_column[np.where(column == u)] = np.mean(target[np.where(column == u)])
+        self.X_features = np.concatenate((self.X_features, encoded_column), axis=1)
     
     def k_folds(self, data: np.ndarray):
         # Shuffle samples in dataset
@@ -63,13 +75,13 @@ class KNN:
         # Split data into k folds
         fold_size = data.shape[0] // self.k
         # An array of k folds
-        folds = [data[i*fold_size:(i+1)*fold_size] for i in range(k)]
-        print(data[k*fold_size:])
-        print(data[k*fold_size:].shape)
+        folds = [data[i*fold_size:(i+1)*fold_size] for i in range(self.k)]
+        print(data[self.k*fold_size:])
+        print(data[self.k*fold_size:].shape)
         
         # Check if data can be split in equal folds
-        if data.shape[0] % k != 0:
-            folds[-1] = np.concatenate((folds[-1], data[k*fold_size:]))
+        if data.shape[0] % self.k != 0:
+            folds[-1] = np.concatenate((folds[-1], data[self.k*fold_size:]))
         return folds
     
     def k_fold_target_encoding(self, column: np.ndarray, target: np.ndarray):
@@ -121,15 +133,7 @@ if __name__ == '__main__':
     # Target income - dependent variable
     
     # Fetch data from csv
-    training_data = pd.read_csv('dataset/adult.csv').to_numpy()
-    custom_model.fit(training_data)
-    
-    # One hot encoding (create a column for each category)
-    
-    # Label encoding
-    
-    # Target encoding / Bayesian Mean Encoding
-    
-    # K-Fold Target Encoding (varient of Target Encoding)
-    
-    # Leave-One-Out Target Encoding (varient of Target Encoding)
+    data = pd.read_csv('dataset/adult.csv').to_numpy()
+    split_index = int(0.8*data.shape[0])
+    training_set, testing_set = data[:split_index], data[split_index:]
+    custom_model.fit(training_set)
