@@ -14,17 +14,21 @@ class KNN:
         encoded_y = self.label_encoding(self.y)
         
         # Encoding variables
-        self.one_hot_encoding(1) # Workclass
-        self.target_encoding(3, encoded_y) # Education
-        self.one_hot_encoding(5) # Marital status
-        self.target_encoding(6, encoded_y) # Occupation
-        self.one_hot_encoding(7) # Relationship
-        self.one_hot_encoding(8) # Race
-        self.one_hot_encoding(9) # Gender
-        self.target_encoding(13, encoded_y) # Native country
+        indices_one_hot = [1, 5, 7, 8, 9]
+        indices_target_encoding = [3, 6, 13]
+        encoded_columns = np.zeros((self.X_features.shape[0],0))
+        remaining_columns = np.zeros((self.X_features.shape[0],0))
+
+        for i in range(m):
+            if i in indices_one_hot:
+                encoded_columns = np.concatenate((encoded_columns, self.one_hot_encoding(i)), axis=1)
+            elif i in indices_target_encoding:
+                encoded_columns = np.concatenate((encoded_columns, self.target_encoding(i, encoded_y)), axis=1)
+            else:
+                remaining_columns = np.concatenate((remaining_columns, self.X_features[:, i].reshape(-1,1)), axis=1)
+        self.X_features = np.concatenate((encoded_columns, remaining_columns), axis=1)
         
-        print(self.X_features[:5])
-        
+        # Implement KNN algorithm (compute distances and find k nearest neighbors)
 
     def euclidean_distance(self, x1: np.ndarray, x2: np.ndarray):
         d = np.sqrt(np.sum((x1-x2)**2, axis=1))
@@ -44,13 +48,13 @@ class KNN:
     
     def one_hot_encoding(self, column_index: int):
         column = self.X_features[:, column_index]
-        self.X_features = np.delete(self.X_features, column_index, axis=1)
         
         u = np.unique(column)
         encoded_column = np.zeros((column.shape[0], len(u)))
         for i, unique_value in enumerate(u):
             encoded_column[np.where(column == unique_value), i] = 1
-        self.X_features = np.concatenate((self.X_features, encoded_column), axis=1) 
+        
+        return encoded_column
            
     def label_encoding(self, column: np.ndarray) -> np.ndarray:
         u = np.unique(column)
@@ -61,12 +65,12 @@ class KNN:
     def target_encoding(self, column_index: int, target: np.ndarray):
         column = self.X_features[:, column_index]
         
-        self.X_features = np.delete(self.X_features, column_index, axis=1)
         unique_values = np.unique(column)
         encoded_column = np.zeros((column.shape[0], 1))
         for u in unique_values:
                 encoded_column[np.where(column == u)] = np.mean(target[np.where(column == u)])
-        self.X_features = np.concatenate((self.X_features, encoded_column), axis=1)
+        
+        return encoded_column
     
     def k_folds(self, data: np.ndarray):
         # Shuffle samples in dataset
