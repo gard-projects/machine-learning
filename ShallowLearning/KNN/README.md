@@ -4,8 +4,8 @@ Dataset gotten from: https://www.kaggle.com/datasets/wenruliu/adult-income-datas
 This project is about implementing KNN from scratch. K-Nearest Neighbors (KNN) is a type of algorithm in machine learning used for classification and regression problems.
 In this project I implemented KNN for the purpose of classification. The dataset used can be found in the dataset folder under the name `adult.csv`. The dataset contains the following:
 
-> 15 variables:  9 of which are categorical, 6 being numerical
-> Categorical variables: work-class, education, martial-status, occupation, relationship, race, gender, native-country, income
+> 15 variables:  9 of which are categorical, 6 being numerical \
+> Categorical variables: work-class, education, martial-status, occupation, relationship, race, gender, native-country, income \
 > Numerical variables: age, fnlwgt, educational-num, capital-gain, capital-loss, hours-per-week
 
 We want to classify whether the income of a given individual is above 50K or less than 50K. Thus, income is the **dependent variable** in our dataset. 
@@ -34,7 +34,7 @@ dist_batch = np.sqrt(np.sum((x1_batch[np.newaxis, :, :].astype(float) - x2_batch
 distances[i:end_i_index, j:end_j_index] = dist_batch.T
 ```
 
-> ![NOTE]
+![NOTE]
 > The reason we need to increase the dimension is due to the fact that Numpy is not able to broadcast the first axis (of x1) to match the first axis of x2 array. By adding a new dimension, we can effectively account for broadcasting to allow the distances from each batch to be stored in the `distances` numpy array.
 
 
