@@ -1,4 +1,5 @@
-Dataset gotten from: https://www.kaggle.com/datasets/wenruliu/adult-income-dataset?resource=download
+> [!NOTE]
+> Dataset used in this project can be found at: https://www.kaggle.com/datasets/wenruliu/adult-income-dataset?resource=download
 
 # Project description
 This project is about implementing KNN from scratch. K-Nearest Neighbors (KNN) is a type of algorithm in machine learning used for classification and regression problems.
