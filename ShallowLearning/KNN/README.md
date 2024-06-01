@@ -27,8 +27,7 @@ I chose to apply target encoding to education, occupation and native-country as 
 > Occupation = 15 unique categories
 > Native-country = 42 unique categories
 
-This is why I have applied **target encoding**, instead of **one-hot encoding** to these specific categorical variables. If we were to apply one-hot encoding, it would slow down model performance due to an increased
-dimensionality in the encoded training set. All the other categorical variables (except income) are one-hot encoded due to fewer number of unique categories. **Label encoding** is applied to the dependent attribute column as there are only two unique categories, thus suitable for this technique.
+We use **target encoding** for `education`, `occupation`, and `native-country` due to their large number of categories (16, 15, and 42 respectively). This reduces dimensionality compared to **one-hot encoding**, which is used for other categorical variables with fewer categories. **Label encoding** is applied to the dependent variable since it has only two categories.
 
 Batch processing has been used in this project due to a relatively large dataset. The reason is simple, due to the increased dimensionality of each `dist-batch`, I ran out of memory when running the model. Thus, I made us of batch processing to be able to properly compute the distances between each data point in testing set to all data points in the training set.
 ```
@@ -41,9 +40,7 @@ distances[i:end_i_index, j:end_j_index] = dist_batch.T
 
 
 # Main body of the KNN algorithm
-The main part of the algorithm is split into two parts, one part handled by the `fit()` function, and the other handled by the `predict()` function. 
-The `fit()` function is responsible for encoding the training and testing set, to allow for computing of distances. The `predict()` function is responsible computing the distances, and finding the K nearest neighbors. 
-The `euclidean_distance()` function and `manhattan_distance()` function returns a numpy array of dimension 2. First axis representing the samples (individuals), and the second axis being the features axis. 
+The algorithm is divided into two main parts: `fit()` and `predict()`. The `fit()` function encodes the training and testing sets, while `predict()` computes distances and finds the K nearest neighbors. The algorithm sorts these distances and uses majority voting to classify the test points:
 
 The KNN algorithm sorts this returned numpy arrays, and chooses the k nearest data points, in our example k is set to 5. Since k = 5, we retrieve the 5 closest points and look at the labels of these points.
 The category with the most data points out of the 5 is chosen as the estimated classification of a given point. This is explicitly highlighted in the code below:
