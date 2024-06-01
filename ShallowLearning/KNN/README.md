@@ -11,7 +11,7 @@ In this project I implemented KNN for the purpose of classification. The dataset
 > 
 > **Numerical** variables: age, fnlwgt, educational-num, capital-gain, capital-loss, hours-per-week
 
-We want to classify whether the income of a given individual is above 50K or less than 50K. Thus, income is the **dependent variable** in our dataset. 
+We want to classify whether the income of a given individual is above 50K or less than 50K. Thus, `income` is the **dependent variable** in our dataset. 
 
 # Assumptions and choises made 
 The first assumption made is that the numerical variables are normally distributed, therefore we apply standardization to improve model performance. See below.
