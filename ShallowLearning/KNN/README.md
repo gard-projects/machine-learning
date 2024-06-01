@@ -57,6 +57,7 @@ for i in range(testing_set.shape[0]):
   predicted_response.append(majority_vote)
 ```
 Once all samples in testing set is classified, we compute the accuracy of the model given by the function `accuracy()`. Here are two examples, first example using Euclidean distance and the second using Manhattan distance formula.
-[manhattan_distance](../images/output2-knn.png)
 
-[euclidean_distance](../images/output3-knn.png)
+![manhattan_distance](../images/output2-knn.png)
+
+![euclidean_distance](../images/output3-knn.png)
