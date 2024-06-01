@@ -25,7 +25,9 @@ self.testing_set[:, numerical_features] = (self.testing_set[:, numerical_feature
 ```
 I chose to apply target encoding to education, occupation and native-country as each of these variables have a good amount of categories.
 > Education = 16 unique categories
+> 
 > Occupation = 15 unique categories
+> 
 > Native-country = 42 unique categories
 
 We use **target encoding** for `education`, `occupation`, and `native-country` due to their large number of categories (16, 15, and 42 respectively). This reduces dimensionality compared to **one-hot encoding**, which is used for other categorical variables with fewer categories. **Label encoding** is applied to the dependent variable since it has only two categories.
