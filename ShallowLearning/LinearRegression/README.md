@@ -1,4 +1,4 @@
-This project is about learning the mathematics and statistics behind linear regression. To make it more challenging I extended this idea of regression to N dimensions using matrices. Before we begin I recommend to have some general understanding of what vectors, differentiation, and matrices are. This will help in understanding the theory and formulas given below.
+This project is about learning the mathematics and statistics behind linear regression. To make it more challenging I extended this idea of regression to N dimensions using matrices. Before we begin I recommend having some general understanding of what vectors, differentiation, and matrices are. This will help in understanding the theory and formulas given below.
 
 The dataset we are working with has the name "l1_test.csv" and "l1_train.csv" which can be found in the dataset folder in my Github repository. The dataset contain two types of variables: 
 
@@ -7,7 +7,7 @@ The dataset we are working with has the name "l1_test.csv" and "l1_train.csv" wh
 >**Dependent variable** (also known as response) : the value of this variable changes depending on the value of the predictor(s), this is what we measure as a result of changing the independent variable
 
 # Understanding the dataset
-It is useful and necessary to understand the dataset we are working with. Thus we introduce two new variables which will be important throughout the code:
+It is useful and necessary to understand the dataset we are working with. Thus, we introduce two new variables which will be important throughout the code:
 
 
 >**n** : number of samples (observations or data points)
@@ -82,9 +82,9 @@ As described earlier, we use the `fit(self, X_features: np.ndarray, y: np.ndarra
 
 Mathematically we can represent these matrices as the following: 
 
-![X_features](x_matrix.png)
-![y_matrix](y_matrix.png)
-![theta_matrix](theta_matrix.png) 
+![X_features](../images/x_matrix.png)
+![y_matrix](../images/y_matrix.png)
+![theta_matrix](../images/theta_matrix.png) 
 
 The exponent of each element, **i**, does **not denote x raised to some power i**. In fact it represents all the values of the predictors for a specific sample in the dataset (in our case the training set). These values are represented as 1D numpy array. For the training dataset we have: \
 $x^{(1)} = [24] \quad$ and $\quad y^{(1)} = [21.54945196]$ \
@@ -94,11 +94,11 @@ $x^{(4)} = [38] \quad$ and $\quad y^{(4)} = [36.58639803]$
 ### Example dataset
 Let us do an example with more than one predictor to become more comfortable with this notation $x^{(i)}$. In this scenario we are going to use a dataset with three predictors, and one dependent variable. 
 
-![Dataset_example](matrix_ex.png) 
+![Dataset_example](../images/matrix_ex.png) 
 
 The following matrices for the features (predictors), actual responses and weights ($\theta$):
 
-![X_ex1](x_ex1.png) ![y_ex1](y_ex1.png) ![theta_ex1](theta_ex1.png)
+![X_ex1](../images/x_ex1.png) ![y_ex1](../images/y_ex1.png) ![theta_ex1](../images/theta_ex1.png)
 
 > [!NOTE]
 > Notice how the weight matrix always has one more element than the predictor matrix $X_{features}$? \
@@ -150,11 +150,11 @@ $h_{\theta}(x) = \theta_{0} + \theta_{1} \cdot x_{1} + \dots + \theta_{n-1} \cdo
 
 We introduce a new matrix $\textemdash$ called **design matrix $X$** $\textemdash$ to simply the equation above. The design matrix has the following form:
 
-![design_matrix_general](design_matrix.png) 
+![design_matrix_general](../images/design_matrix.png) 
 
 Adjusting the matrix to our given dataset we get the following 
 
-![design_matrix](design_matrix_trainingset.png)
+![design_matrix](../images/design_matrix_trainingset.png)
 
 > [!NOTE]
 > Notice that we have an additional column in the design matrix as opposed to the features matrix, and this difference plays an important role in simplifying the equation for the hypothesis function $h_{\theta}(x)$
@@ -220,7 +220,7 @@ This is the core of learning in machine learning.
 > **Gradient descent**: an algorithm that uses the gradient of the loss function, to find the minimum of the loss function
 
 So how do we get to this minimum, how does it look like?
-![gradient_descent_theory](gradient_descent_theory.png)
+![gradient_descent_theory](../images/gradient_descent_theory.png)
 >[!NOTE]
 > The image is not mine, all credits goes to Ekamperi [See more here](https://ekamperi.github.io/machine%20learning/2019/07/28/gradient-descent.html)
 
@@ -283,12 +283,12 @@ Now we can plot the linear regression line and the actual responses using a scat
 These are the following outputs I got from compiling the model on two computers A and B. Computer B is quite old (compared to computer A), and you can see that the model performance is a lot worse!
 
 **Results from running model on computer A:** \
-![prediction1](prediction1.png) ![cost_history1](cost_history1.png) 
+![prediction1](../images/prediction1.png) ![cost_history1](../images/cost_history1.png) 
 
 \
 \
 **Results from running model on computer B:** \
-![prediction2](prediction2.png) ![cost_history2](cost_history2.png)
+![prediction2](../images/prediction2.png) ![cost_history2](../images/cost_history2.png)
 
 
 ## Comparing with Sklearn and using $R^{2}$
@@ -344,6 +344,6 @@ def r_square(self, X: np.ndarray, y: np.ndarray) -> float:
 ```
 Compare the results with Sklearn:
 
-![coefficient_determination](coefficient_determination.png)
+![coefficient_determination](../images/coefficient_determination.png)
 
 As you can see the model is doing quite well!
