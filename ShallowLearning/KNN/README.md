@@ -24,11 +24,11 @@ self.X_features[:, numerical_features] = (self.X_features[:, numerical_features]
 self.testing_set[:, numerical_features] = (self.testing_set[:, numerical_features] - self.mean) / self.std
 ```
 I chose to apply target encoding to education, occupation and native-country as each of these variables have a good amount of categories.
-> Education = 16 unique categories
+> **Education** = 16 unique categories
 > 
-> Occupation = 15 unique categories
+> **Occupation** = 15 unique categories
 > 
-> Native-country = 42 unique categories
+> **Native-country** = 42 unique categories
 
 We use **target encoding** for `education`, `occupation`, and `native-country` due to their large number of categories (16, 15, and 42 respectively). This reduces dimensionality compared to **one-hot encoding**, which is used for other categorical variables with fewer categories. **Label encoding** is applied to the dependent variable since it has only two categories.
 
@@ -39,7 +39,7 @@ distances[i:end_i_index, j:end_j_index] = dist_batch.T
 ```
 
 > [!NOTE]
-> The reason we need to increase the dimension is due to the fact that Numpy is not able to broadcast the first axis (of x1) to match the first axis of x2 array. By adding a new dimension, we can effectively account for broadcasting to allow the distances from each batch to be stored in the `distances` numpy array.
+> The reason we need to increase the dimension is due to the fact that Numpy is not able to broadcast the first axis (of `x1`) to match the first axis of `x2` array. By adding a new dimension, we can effectively account for broadcasting to allow the distances from each batch to be stored in the `distances` numpy array.
 
 
 # Main body of the KNN algorithm
