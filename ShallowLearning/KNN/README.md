@@ -5,9 +5,9 @@
 This project is about implementing KNN from scratch. K-Nearest Neighbors (KNN) is a type of algorithm in machine learning used for classification and regression problems.
 In this project I implemented KNN for the purpose of classification. The dataset used can be found in the dataset folder under the name `adult.csv`. The dataset contains the following:
 
-> 15 variables:  9 of which are categorical, 6 being numerical \
+> 15 variables:  9 of which are categorical, 6 being numerical 
 > 
-> **Categorical** variables: work-class, education, martial-status, occupation, relationship, race, gender, native-country, income \
+> **Categorical** variables: work-class, education, martial-status, occupation, relationship, race, gender, native-country, income 
 > 
 > **Numerical** variables: age, fnlwgt, educational-num, capital-gain, capital-loss, hours-per-week
 
