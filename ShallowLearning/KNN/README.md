@@ -58,8 +58,8 @@ for i in range(testing_set.shape[0]):
 ```
 Once all samples in testing set is classified, we compute the accuracy of the model given by the function `accuracy()`. Here are two examples.
 
-** Accuracy of custom model using Manhattan distance**
+**Accuracy of custom model using Manhattan distance** \
 ![manhattan_distance](../images/output2-knn.png)
 
-** Accuracy of custom model using Euclidean distance**
+**Accuracy of custom model using Euclidean distance** \
 ![euclidean_distance](../images/output3-knn.png)
