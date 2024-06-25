@@ -39,7 +39,8 @@ $(2)\quad \vec{w} \cdot \vec{x} + b = 0$
 
 $(3)\quad \vec{w} \cdot \vec{x} + b = -1$
 
-
+Therefore the main goal is to find the weight vector **w** and the bias term **b**. We can find these variables by solving the primal problem. The margin size is given by: 
+$ K = \frac{2}{\|\vec{w}\|}
 
 # Sources
 Singh, N. (2023). Soft Margin SVM / Support Vector Classifier (SVC) [Graph]. https://pub.aimind.so/soft-margin-svm-exploring-slack-variables-the-c-parameter-and-flexibility-1555f4834ecc
