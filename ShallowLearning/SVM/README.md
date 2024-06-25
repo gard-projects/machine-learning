@@ -30,5 +30,5 @@ Support Vector Machine (SVM) is a type of algorithm that aims to classify new po
 So how exactly is the data separated? By maximizing the distance between **support vectors** and the **decision boundary**. A support vector is a data point (or individual) which lies within the margin, or on the margin. These are the data points that matter the most when optimizing the decision boundary. The Hard Margin Classifier focuses only on maximizing distance, while the Soft Margin Classifier focuses on both maximizing the margin, **but also** minimizing the misclassifications through a **hyperparameter** called the **regularization** parameter. 
 
 
-Sources:
-Singh, Nimisha. (2023). Soft Margin SVM / Support Vector Classifier (SVC) [Graph]. https://pub.aimind.so/soft-margin-svm-exploring-slack-variables-the-c-parameter-and-flexibility-1555f4834ecc
+# Sources:
+Singh, N. (2023). Soft Margin SVM / Support Vector Classifier (SVC) [Graph]. https://pub.aimind.so/soft-margin-svm-exploring-slack-variables-the-c-parameter-and-flexibility-1555f4834ecc
