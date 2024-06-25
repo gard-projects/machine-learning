@@ -30,7 +30,13 @@ Support Vector Machine (SVM) is a type of algorithm that aims to classify new po
 ![Image of both Soft Margin Classifier and Hard Margin Classifier](../images/svm_types.png)
 
 
-So how exactly is the data separated? By maximizing the distance between **support vectors** and the **decision boundary**. A support vector is a data point (or individual) which lies within the margin, or on the margin. These are the data points that matter the most when optimizing the decision boundary. The Hard Margin Classifier focuses only on maximizing distance, while the Soft Margin Classifier focuses on both maximizing the margin, **but also** minimizing the misclassifications through a **hyperparameter** called the **regularization** parameter. 
+So how exactly is the data separated? By maximizing the distance between **support vectors** and the **decision boundary**. A support vector is a data point (or individual) which lies within the margin, or on the margin. These are the data points that matter the most when optimizing the decision boundary. The Hard Margin Classifier focuses only on maximizing distance, while the Soft Margin Classifier focuses on both maximizing the margin, **but also** minimizing the misclassifications through a **hyperparameter** called the **regularization** parameter `C`. A hyperparameter is a parameter that is not learned by the model, but has to be set manually by a human. From the image we have the following equations:
+
+\begin{align*}
+\Vec{w} \cdot \Vec{x} + b &= 1 \\[5pt]
+\Vec{w} \cdot \Vec{x} + b &= 0 \\[5pt]
+\Vec{w} \cdot \Vec{x} + b &= -1 
+\end{align*}
 
 
 # Sources
