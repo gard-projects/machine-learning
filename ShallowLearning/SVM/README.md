@@ -43,5 +43,7 @@ Therefore the main goal is to find the weight vector **w** and the bias term **b
 $K = \frac{2}{\|\vec{w}\|}$. Thus to maximize `K` we must minimize `w`.  To do so we introduce some constraints.
 $y_{i} \cdot \left(\vec{w} \cdot \vec{x_{i}} -b \right) \geq 1$, $\quad$ where $y_{i} \in \lbrace{-1,1 \rbrace}$
 
+If $y_{i}$ is negative, then we expect a negative score indicating for example class 1, or class 2. A positive score will yield the opposite classification. The support vectors will lie on the lines represented by equation (1) and (3) respectively. 
+
 # Sources
 Singh, N. (2023). Soft Margin SVM / Support Vector Classifier (SVC) [Graph]. https://pub.aimind.so/soft-margin-svm-exploring-slack-variables-the-c-parameter-and-flexibility-1555f4834ecc
