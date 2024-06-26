@@ -40,12 +40,7 @@ $(2)\quad \vec{w} \cdot \vec{x} + b = 0$
 $(3)\quad \vec{w} \cdot \vec{x} + b = -1$
 
 Therefore the main goal is to find the weight vector **w** and the bias term **b**. We can find these variables by solving the primal problem given by:
-
-$\min_{w, b, \xi} \quad \frac{1}{2} \|w\|^2 + C \sum_{i=1}^n \xi_i$ 
-
-subject to $\quad y_i (w \cdot x_i + b) \geq 1 - \xi_i, \quad \forall i = 1, \ldots, n$ 
-
-$\xi_i \geq 0, \quad \forall i = 1, \ldots, n$
+$\text{min}\| w^{2} \| + C \sum_{i=1}^{n}{\xi}$
 
 
 If $y_{i}$ is negative, then we expect a negative score indicating for example class 1, or class 2. A positive score will yield the opposite classification. The support vectors will lie on the lines represented by equation (1) and (3) respectively. 
