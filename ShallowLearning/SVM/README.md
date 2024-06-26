@@ -57,13 +57,13 @@ The penalty $\xi$ in the context of SVM is used to handle misclassifications and
 $$\ell(x) = max(0, 1 - y_{i}\left(w \cdot x - b \right))$$
 
 There are 3 possible cases that can occur when deciding on the penalty of a point. \
-🟧**Case 1: Correctly classified and outside the margin**
+🟧 **Case 1: Correctly classified and outside the margin**
 If $y_{i}\left(w \cdot x - b \right) > 1$, the output of the classification function is outside the boundary of the margin
 
-🟪**Case 2: On the margin or misclassified**
+🟪 **Case 2: On the margin or misclassified**
 If $y_{i}\left(w \cdot x - b \right) < 1$, either the point is on the wrong side of the margin but correctly classified (between the decision boundary and the margin), or the point is misclassified
 
-🟥**Case 3: Exactly on the decision boundary**
+🟥 **Case 3: Exactly on the decision boundary**
 If $y_{i}\left(w \cdot x - b \right) = 0$ the point lies exactly on the decision boundary.
 
 The expression above does to things, \
