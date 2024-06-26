@@ -43,8 +43,8 @@ Therefore the main goal is to find the weight vector **w** and the bias term **b
 $$\text{min}\|| w^{2} \|| + C \sum_{i=1}^n \xi$$ 
 $$s.t. \quad y_{i}\left(w^{T}x_{i} + b\right) \geq 1 - \xi_{i} \quad \forall i = 1, \dots, n$$
 
+Where $y_{i}\left(w^{T}x_{i} + b\right)$ is the **decision function** of the SVM. It provides the functionality to determine which class a point belongs to, and allows us to compute the error/loss of each point.
 
-If $y_{i}$ is negative, then we expect a negative score indicating for example class 1, or class 2. A positive score will yield the opposite classification. The support vectors will lie on the lines represented by equation (1) and (3) respectively. 
 
 # Sources
 Singh, N. (2023). Soft Margin SVM / Support Vector Classifier (SVC) [Graph]. https://pub.aimind.so/soft-margin-svm-exploring-slack-variables-the-c-parameter-and-flexibility-1555f4834ecc
