@@ -50,7 +50,7 @@ $y_{i}\left(w^{T}x_{i} + b\right)$ is the decision function, used to compute th
 $w$ is the weight vector, it represents all the weights of the hyperplane 
 
 Sum of all the penalties $\xi_{i}$ given by:
-$$\sum_{i=1}^n \xi$$
+$$\sum_{i=1}^n \xi = \xi_{1} + \xi_{2} + \dots + \xi_{n}$$
 
 ## Defining the meaning of penalty
 The penalty, $\xi$, in the context of SVM is used to handle misclassifications, and points that fall within the margin. Each penalty calculated by using the **hinge loss function**:
