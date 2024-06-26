@@ -43,7 +43,18 @@ Therefore the main goal is to find the weight vector **w** and the bias term **b
 $$\text{min}\|| w^{2} \|| + C \sum_{i=1}^n \xi$$ 
 $$s.t. \quad y_{i}\left(w^{T}x_{i} + b\right) \geq 1 - \xi_{i} \quad \forall i = 1, \dots, n$$
 
-Where $y_{i}\left(w^{T}x_{i} + b\right)$ is the **decision function / classification function** of the SVM. It provides the functionality to determine which class a data point belongs to, and allows us to compute the error/loss of each data point.
+Where:
+> $$y_{i}\left(w^{T}x_{i} + b\right) \quad$$ is the decision function, used to compute the distance between each point and the hyperplane (Support Vector Classifier)
+>
+> `w` is the weight vector, it contains represents all the weights of the hyperplane
+>
+> $$\sum_{i=1}^n \xi \quad$$ is the sum of all the penalties $\xi_{i}$
+
+The expression above does to things, \
+(1) It maximizes the margin through minimizing `w` \
+(2) It minimizes misclassifications through the second term using the hyperparameter `C`
+
+It turns out solving the dual problem is better in terms of performance, as typically most of the Lagrange multipliers are zero (non support vectors), and the kernel trick can be utilized. 
 
 
 # Sources
