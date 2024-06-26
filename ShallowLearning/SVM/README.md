@@ -52,18 +52,19 @@ $w$ is the weight vector, it represents all the weights of the hyperplane
 $\sum_{i=1}^n \xi$ is the sum of all the penalties $\xi_{i}$
 
 ## Defining the meaning of penalty
-The penalty $\xi$ is used to minimize the number of misclassifications. A penalty is computed by evaluating the following expression:
+The penalty $\xi$ in the context of SVM is used to handle misclassifications and points that fall within the margin. Each penalty calculated by using the **hinge loss function**:
 
 $$\ell(x) = max(0, 1 - y_{i}\left(w \cdot x - b \right))$$
 
-This is actually the mathematical definition of the **hinge loss** function. There are 3 possible cases that can occur when deciding on the penalty of a point. \
-**Case 1** The decision function returns some value $\beta \leq -1$, in which the penalty becomes $1 - y_{i}\left(w \cdot x - b \right)$
+There are 3 possible cases that can occur when deciding on the penalty of a point. \
+**Case 1: Correctly classified and outside the margin**
+If $y_{i}\left(w \cdot x - b \right) > 1$, the output of the classification function is outside the boundary of the margin
 
-**Case 2** The decision functions returns some value $\beta \geq 1$, in which the penalty becomes $1 - y_{i}\left(w \cdot x - b \right)$
+**Case 2: On the margin or misclassified**
+If $y_{i}\left(w \cdot x - b \right) < 1$, either the point is on the wrong side of the margin but correctly classified (between the decision boundary and the margin), or the point is misclassified
 
-**Case 3** The decision functions returns the value $\beta = 1$, in which the penalty becomes 0
-
-This means that in both case 1 and 2 the point is away from the corresponding margin of the class, thus we apply some penalty to it. However in case 3, the point is exactly on the margin, in which we apply no penalty.
+**Case 3: Exactly on the decision boundary**
+If $y_{i}\left(w \cdot x - b \right) = 0$ the point lies exactly on the decision boundary.
 
 The expression above does to things, \
 (1) It maximizes the margin through minimizing `w` \
