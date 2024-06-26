@@ -43,7 +43,7 @@ Therefore the main goal is to find the weight vector **w** and the bias term **b
 $$\text{min}\|| w^{2} \|| + C \sum_{i=1}^n \xi$$ 
 $$s.t. \quad y_{i}\left(w^{T}x_{i} + b\right) \geq 1 - \xi_{i} \quad \forall i = 1, \dots, n$$
 
-Where $y_{i}\left(w^{T}x_{i} + b\right)$ is the **decision function** of the SVM. It provides the functionality to determine which class a point belongs to, and allows us to compute the error/loss of each point.
+Where $y_{i}\left(w^{T}x_{i} + b\right)$ is the **decision function** of the SVM. It provides the functionality to determine which class a data point belongs to, and allows us to compute the error/loss of each data point.
 
 
 # Sources
