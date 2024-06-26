@@ -52,7 +52,7 @@ $w$ is the weight vector, it represents all the weights of the hyperplane
 $\sum_{i=1}^n \xi$ is the sum of all the penalties $\xi_{i}$
 
 ## Defining the meaning of penalty
-The penalty $\xi$ in the context of SVM is used to handle misclassifications and points that fall within the margin. Each penalty calculated by using the **hinge loss function**:
+The penalty, $\xi$, in the context of SVM is used to handle misclassifications, and points that fall within the margin. Each penalty calculated by using the **hinge loss function**:
 
 $$\ell(x) = max(0, 1 - y_{i}\left(w \cdot x - b \right))$$
 
