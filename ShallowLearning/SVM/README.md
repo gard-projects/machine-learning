@@ -56,6 +56,15 @@ The penalty $\xi$ is used to minimize the number of misclassifications. A penalt
 
 $$\ell(x) = max(0, 1 - y_{i}\left(w \cdot x - b \right))$$
 
+This is actually the mathematical definition of the **hinge loss** function. There are 3 possible cases that can occur when deciding on the penalty of a point. \
+**Case 1** The decision function returns some value $\beta \leq -1$, in which the penalty becomes $1 - y_{i}\left(w \cdot x - b \right)$
+
+**Case 2** The decision functions returns some value $\beta \geq 1$, in which the penalty becomes $1 - y_{i}\left(w \cdot x - b \right)$
+
+**Case 3** The decision functions returns the value $\beta = 1$, in which the penalty becomes 0
+
+This means that in both case 1 and 2 the point is away from the corresponding margin of the class, thus we apply some penalty to it. However in case 3, the point is exactly on the margin, in which we apply no penalty.
+
 The expression above does to things, \
 (1) It maximizes the margin through minimizing `w` \
 (2) It minimizes misclassifications through the second term using the hyperparameter `C`
