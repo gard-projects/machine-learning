@@ -43,12 +43,12 @@ Therefore the main goal is to find the weight vector **w** and the bias term **b
 $$\text{min}\|| w^{2} \|| + C \sum_{i=1}^n \xi$$ 
 $$s.t. \quad y_{i}\left(w^{T}x_{i} + b\right) \geq 1 - \xi_{i} \quad \forall i = 1, \dots, n$$
 
-Where:
+Where: \
 $y_{i}\left(w^{T}x_{i} + b\right)$ is the decision function, used to compute the distance between each point and the hyperplane (Support Vector Classifier) 
 
-$w$ is the weight vector, it represents all the weights of the hyperplane 
+**w** is the weight vector, it represents all the weights of the hyperplane 
 
-$\sum_{i=1}^n \xi $ is the sum of all the penalties $\xi_{i}$
+$\sum_{i=1}^n \xi$ is the sum of all the penalties $\xi_{i}$
 
 The expression above does to things, \
 (1) It maximizes the margin through minimizing `w` \
