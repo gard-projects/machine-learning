@@ -41,8 +41,10 @@ $(3)\quad \vec{w} \cdot \vec{x} + b = -1$
 
 Therefore the main goal is to find the weight vector **w** and the bias term **b**. We can find these variables by solving the primal problem given by:
 
-$\min_{w, b, \xi} \quad \frac{1}{2} \|w\|^2 + C \sum_{i=1}^n \xi_i$ \\
-subject to $\quad y_i (w \cdot x_i + b) \geq 1 - \xi_i, \quad \forall i = 1, \ldots, n$ \\
+$\min_{w, b, \xi} \quad \frac{1}{2} \|w\|^2 + C \sum_{i=1}^n \xi_i$ 
+
+subject to $\quad y_i (w \cdot x_i + b) \geq 1 - \xi_i, \quad \forall i = 1, \ldots, n$ 
+
 $\xi_i \geq 0, \quad \forall i = 1, \ldots, n$
 
 
