@@ -73,6 +73,8 @@ In optimization theory, there exists a corresponding problem to the primal probl
 
 $$max_{\alpha} \hspace{0.1cm} \sum_{i=1}^{n} \alpha_i - \frac{1}{2}\sum_{i=1}^n\sum_{j=1}^{n}\alpha_{i}\alpha_{j}y_{i}y_{j}\left(x_{i} \boldsymbol\cdot x_{j}\right)$$
 
+$$ \text{subject to} 0 \leq \alpha_{i} \leq C \quad \forall i \quad \text{and} \quad \sum_{i=1}^{n} \alpha_{i}y_{i} = 0
+
 
 
 The expression above does to things, \
