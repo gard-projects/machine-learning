@@ -40,7 +40,7 @@ $(2)\quad \vec{w} \cdot \vec{x} + b = 0$
 $(3)\quad \vec{w} \cdot \vec{x} + b = -1$
 
 Therefore the main goal is to find the weight vector **w** and the bias term **b**. We can find these variables by solving the primal problem for soft margin SVM given by: \
-$$\text{min}\|| w^{2} \|| + C \sum_{i=1}^n \xi$$ 
+$$\text{min}_{w,b,\xi}\|| w^{2} \|| + C \sum_{i=1}^n \xi$$ 
 $$s.t. \quad y_{i}\left(w^{T}x_{i} + b\right) \geq 1 - \xi_{i} \quad \forall i = 1, \dots, n$$
 
 From the equation we have the following: 
@@ -67,6 +67,13 @@ If $y_{i}\left(w \cdot x - b \right) < 1$, either the point is on the wrong side
 
 🟥 **Case 3: Exactly on the decision boundary**
 If $y_{i}\left(w \cdot x - b \right) = 0$ the point lies exactly on the decision boundary.
+
+## The Dual Problem
+In optimization theory, there exists a corresponding problem to the primal problem known as the **dual problem**. Solving the dual problem can offer different computational or theoretical advantages, and in some cases, it might be less computationally intensive. A part of our implementation focuses on the dual problem because it allows us to employ the kernel trick. This approach is particularly beneficial in scenarios like support vector machines, where it enables the handling of high-dimensional feature spaces more efficiently. The dual problem for primal problem specified above is given as:
+
+
+
+
 
 The expression above does to things, \
 (1) It maximizes the margin through minimizing `w` \
