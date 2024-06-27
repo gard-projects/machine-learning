@@ -75,7 +75,7 @@ $$max_{\alpha} \hspace{0.1cm} \sum_{i=1}^{n} \alpha_i - \frac{1}{2}\sum_{i=1}^n\
 
 $$\text{subject to} \quad 0 \leq \alpha_{i} \leq C \quad \forall i \quad \text{and} \quad \sum_{i=1}^{n} \alpha_{i}y_{i} = 0$$
 
-The interesting part about this equation is the **dot product** between $x_i$ and $x_j$, since we can replace this with a kernel matrix, called the **Gram matrix**. 
+The interesting part about this equation is the **dot product** between $x_i$ and $x_j$, since we can replace this with a kernel matrix, called the **Gram matrix**.
 
 $$G_{ij} = \langle x_{i}, x_{j} \rangle$$
 
@@ -110,11 +110,15 @@ def polynomial_kernel(X, Y=None, r=0, d=3, gamma=None):
     return (gamma * K + r)**d
 ``` 
 
-The expression above does to things, \
-(1) It maximizes the margin through minimizing `w` \
-(2) It minimizes misclassifications through the second term using the hyperparameter `C`
+# Sequential Minimal Optimization (SMO)
+Is an algorithm that solves the quadratic programming (QP) problem that arises during training in SVM. I noticed that this approach is not as efficient as the QP-solver Sklearn uses on this dataset, thus it take a bit longer to train the model. I chose to create a separate class for this part of the project, as I found it to be more convenient and allowing for organization of code. To start of the main function of this class is `sequential_minimal_optimization(...)`, and it is invoked by the `fit(...)` method in the SVM class.
 
-It turns out solving the dual problem is better in terms of performance, as typically most of the Lagrange multipliers are zero (non support vectors), and the kernel trick can be utilized. 
+This function uses hyperparameters to find the alphas $\alpha_i$. Lets cover them.
+> **max_iters** - the number of iterations for updating the $\alpha_i$
+>
+> **tol** - a tolerance level that decides what we consider a optimal solution
+>
+> **C** - the regularization parameter, used to reduce the misclassifications by choosing suitable $\alpha_i$ that reduces the amount of error
 
 
 # Sources
