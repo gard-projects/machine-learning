@@ -128,9 +128,13 @@ Other useful variables used are:
 ## Compilation steps in the SMO alogrithm
 For each iteration we check the **Karush-Kuhn-Tucker (KKT)** conditions. Which are first derivative tests for a solution in non-linear programming to be optimal. This theorem is also known as **saddle-point theorem**. We have the following.
 
-**1.** Check if the given $\alpha_i$ should be optimized \
+**1.** Check two conditions to determine if the given $\alpha_i$ should be optimized \
 🟢 $y_i = -1 \quad \Rightarrow \quad y_i \cdot E_i < -tol \quad \text{and} \quad \alpha_{i} < C$ \
-🔵 $y_i = 1 \quad \Rightarrow \quad y_i \cdot E_i > tol \quad \text{and} \quad \alpha_{i} > 0$
+🔵 $y_i = 1 \quad \Rightarrow \quad y_i \cdot E_i > tol \quad \text{and} \quad \alpha_{i} > 0$ \
+This checks the following conditions: \
+➡️ Primal feasibility - the data point is on or outside the margin boundary, $\quad y_i \cdot \text{prediction} \geq 1 \quad \forall i$ \
+➡️ Dual feasibility - the Lagrange multipliers $\alpha_i$ satisfy $\quad 0 \leq \alpha_i \leq C$ \
+➡️ Complementary slackness - If a data point `i` is correctly placed (and not on the margin), then $\alpha_i$ should be 0. If greater than 0, then the data point must be on the margin $\quad y_i \cdot \text{prediction} \eq 1$
 
 # Sources
 Singh, N. (2023). Soft Margin SVM / Support Vector Classifier (SVC) [Graph]. https://pub.aimind.so/soft-margin-svm-exploring-slack-variables-the-c-parameter-and-flexibility-1555f4834ecc
