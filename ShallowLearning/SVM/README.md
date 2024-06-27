@@ -162,7 +162,7 @@ We choose a random alpha to get a more representative solution to the optimizati
 j = np.random.randint(low=0, high=n-1)
 ```
 
-### 3. Updating the alphas $\alpha_i$ and $alpha_j$
+### 3. Updating the alphas $\alpha_i$ and $\alpha_j$
 This part is covered in the `update_multipliers(...)` function.
 
 First we calculate the bounds (L, H) for $\alpha_j$. These bounds are determined by the SVM constraints which ensures that the alphas stay within a $\left[0, C\right]$ interval.
@@ -174,7 +174,12 @@ if y_i != y_j:
         L = max(0, alpha_j_old + alpha_i_old - C)
         H = min(C, alpha_j_old + alpha_i_old)
 ```
-Furthermore we calculate the variable $\eta$ (eta), which is a measure of the second derivative of the objective function regarding $\alpha_j$, and determines how much $\alpha_j$ should be adjusted.
+Furthermore we calculate the variable $\eta$ (eta), which is a measure of the second derivative of the objective function regarding $\alpha_j$, and determines how much $\alpha_j$ should be adjusted. If $\eta$ is non-negative, no optimization is performed because the objective function is not reduced in the direction between `i` and `j`. 
+```
+ eta = 2 * kernel_cache[i, j] - kernel_cache[i, i] - kernel_cache[j, j]
+    if eta >= 0:
+        return False, b
+```
 
 
 # Sources
