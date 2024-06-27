@@ -134,11 +134,13 @@ For each iteration we check the **Karush-Kuhn-Tucker (KKT)** conditions. Which a
 
 This checks the following conditions:
 
+
 ➡️ **Primal feasibility** \
 The requirement in context of SVM means that all data points must be on  or outside the margin boundary according to their class labels. For any data point $x_i$ with label $y_i$ the condition is: \
 $$y_{i} \cdot \left(\text{decision function}\right) \geq 1$$
 
 Thus if $y_i = 1$ the point should be on or above the boundary, and if $y_i = -1$ the point show be on or below the boundary.
+
 
 ➡️ **Dual feasibility** \
 Relates to the constraints on the Lagrange multipliers $\alpha_i$. Each $\alpha_i$ corresponds to a training example $x_i$. These coefficients are used to optimize the margin width.
@@ -146,13 +148,15 @@ Relates to the constraints on the Lagrange multipliers $\alpha_i$. Each $\alpha_
 * Each $\alpha_i$ must be non-negative
 * Each $\alpha_i$ must not exceed the upper bound **C** (the regularization parameter)
 
+
 ➡️ **Complementary slackness** \
 This property ensures that the Lagrange multipliers are used efficiently. It states the following:
 
 * If $\alpha_i > 0$, then the corresponding data point $x_i$ lies exactly on the margin boundary, thus $x_i$ is a **support vector**
 * If $\alpha_i = 0$, the data point $x_i$ is either correctly classified beyond the margin, or potentially misclassified or within the margin (in the case of Soft Margin SVM)
 
-### 2. Choose the second $\alpha$
+
+### 2. Choose the second $\alpha$, i.e. $\alpha_j$
 We choose a random alpha to get a more representative solution to the optimization problem without any potential bias.
 ```
 j = np.random.randint(low=0, high=n-1)
