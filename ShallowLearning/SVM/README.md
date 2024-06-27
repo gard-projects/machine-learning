@@ -68,14 +68,70 @@ If $y_{i}\left(w \cdot x - b \right) < 1$, either the point is on the wrong side
 🟥 **Case 3: Exactly on the decision boundary**
 If $y_{i}\left(w \cdot x - b \right) = 0$ the point lies exactly on the decision boundary.
 
-## The Dual Problem
+## The Dual Problem and the Kernel Trick
 In optimization theory, there exists a corresponding problem to the primal problem known as the **dual problem**. Solving the dual problem can offer different computational or theoretical advantages, and in some cases, it might be less computationally intensive. A part of our implementation focuses on the dual problem because it allows us to employ the kernel trick. This approach is particularly beneficial in scenarios like support vector machines, where it enables the handling of high-dimensional feature spaces more efficiently. The dual problem for primal problem specified above is given as:
 
 $$max_{\alpha} \hspace{0.1cm} \sum_{i=1}^{n} \alpha_i - \frac{1}{2}\sum_{i=1}^n\sum_{j=1}^{n}\alpha_{i}\alpha_{j}y_{i}y_{j}\left(x_{i} \boldsymbol\cdot x_{j}\right)$$
 
 $$\text{subject to} \quad 0 \leq \alpha_{i} \leq C \quad \forall i \quad \text{and} \quad \sum_{i=1}^{n} \alpha_{i}y_{i} = 0$$
 
-The interesting part about this equation is the **dot product** between $x_i$ and $x_j$, since we kan replace this by a kernel matrix called a **Gram matrix**. 
+The interesting part about this equation is the **dot product** between $x_i$ and $x_j$, since we can replace this with a kernel matrix, called the **Gram matrix**. In essence, the Gram matrix stores the dot products between every pair of $x_i$ and $x_j$. This allows for using the kernel trick, since we do not perform the operation to move the points to a higher dimensional space, we only compute the transformed dot products. This is done in our SMO class, see the following code below.
+
+```
+def polynomial_kernel(X, Y=None, r=0, d=3, gamma=None):
+    '''
+    Parameters
+    ----------
+    X : np.ndarray
+        A matrix with n samples and m features, shape (n, m)
+    Y : np.ndarray
+        A matrix with n samples and m features, shape (n, m)
+    r : float
+        Coefficient of the polynomial kernel
+    d : int
+        Degree of the polynomial kernel
+    gamma : float
+        Coefficient of the polynomial kernel, used for scaling
+        
+    Returns
+    -------
+    The polynomial kernel matrix for the given data, shape (n, n)
+    '''
+    if Y is None:
+        Y = X
+        
+    K = np.dot(X, Y.T)
+    if gamma is None:
+        gamma = 1 / (X.shape[1]*np.var(X))
+    
+    return (gamma * K + r)**d
+    
+def linear_kernel(X, Y=None):
+    '''
+    Parameters
+    ----------
+    X : np.ndarray
+        A matrix with n samples and m features, shape (n, m)
+    Y : np.ndarray
+        A matrix with n samples and m features, shape (n, m)
+        
+    Returns
+    -------
+    The linear kernel matrix for the given data, shape (n, n)
+    '''
+    if Y is None:
+        Y = X
+    return np.dot(X,Y.T)
+
+def rbf_kernel(X, Y=None, gamma=0.5):
+    if gamma is None:
+        gamma = 1 / (X.shape[1]*np.var(X))
+
+    if Y is None:
+        Y = X
+    return np.exp(-gamma * np.linalg.norm(X[:, np.newaxis] - Y[np.newaxis, :], axis=2)**2)
+```
+
 
 
 The expression above does to things, \
