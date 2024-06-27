@@ -75,6 +75,7 @@ $$max_{\alpha} \hspace{0.1cm} \sum_{i=1}^{n} \alpha_i - \frac{1}{2}\sum_{i=1}^n\
 
 $$\text{subject to} \quad 0 \leq \alpha_{i} \leq C \quad \forall i \quad \text{and} \quad \sum_{i=1}^{n} \alpha_{i}y_{i} = 0$$
 
+The interesting part about this equation is the **dot product** between $x_i$ and $x_j$, since we kan replace this by a kernel matrix called a **Gram matrix**. 
 
 
 The expression above does to things, \
