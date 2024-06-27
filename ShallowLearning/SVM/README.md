@@ -120,6 +120,10 @@ This function uses hyperparameters to find the alphas $\alpha_i$. Lets cover the
 >
 > **C** - the regularization parameter, used to reduce the misclassifications by choosing suitable $\alpha_i$ that reduces the amount of error
 
+Other useful variables used are:
+> **kernel_cache** - used to store the kernel matrix, K, returned by the chosen kernel function. It $\underline{significantly improves performance}, due to less computation!
+>
+> **errors** - uses the result of `compute_error(...)` function to residual between computed score and actual score (the actual score being $y_i \in \lbrace -1, 1 \rbrace$)
 
 # Sources
 Singh, N. (2023). Soft Margin SVM / Support Vector Classifier (SVC) [Graph]. https://pub.aimind.so/soft-margin-svm-exploring-slack-variables-the-c-parameter-and-flexibility-1555f4834ecc
