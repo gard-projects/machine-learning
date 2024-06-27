@@ -125,7 +125,7 @@ Other useful variables used are:
 >
 > **errors** - uses the result of `compute_error(...)` function to residual between computed score and actual score (the actual score being $y_i \in \lbrace -1, 1 \rbrace$)
 
-## Compilation steps in the SMO alogrithm
+## Compilation steps in the SMO algorithm
 For each iteration we check the **Karush-Kuhn-Tucker (KKT)** conditions. Which are first derivative tests for a solution in non-linear programming to be optimal. This theorem is also known as **saddle-point theorem**. We have the following.
 
 ### 1. Check two conditions to determine if the given $\alpha_i$ should be optimized 
@@ -146,7 +146,18 @@ Relates to the constraints on the Lagrange multipliers $\alpha_i$. Each $\alpha_
 * Each $\alpha_i$ must be non-negative
 * Each $\alpha_i$ must not exceed the upper bound **C** (the regularization parameter)
 
-➡️ **Complementary slackness**
+➡️ **Complementary slackness** \
+This property ensures that the Lagrange multipliers are used efficiently. It states the following:
+
+* If $\alpha_i > 0$, then the corresponding data point $x_i$ lies exactly on the margin boundary, thus $x_i$ is a **support vector**
+* If $\alpha_i = 0$, the data point $x_i$ is either correctly classified beyond the margin, or potentially misclassified or within the margin (in the case of Soft Margin SVM)
+
+### 2. Choose the second $\alpha$
+We choose a random alpha to get a more representative solution to the optimization problem without any potential bias.
+```
+j = np.random.randint(low=0, high=n-1)
+```
+
 
 # Sources
 Singh, N. (2023). Soft Margin SVM / Support Vector Classifier (SVC) [Graph]. https://pub.aimind.so/soft-margin-svm-exploring-slack-variables-the-c-parameter-and-flexibility-1555f4834ecc
