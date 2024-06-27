@@ -71,7 +71,7 @@ If $y_{i}\left(w \cdot x - b \right) = 0$ the point lies exactly on the decision
 ## The Dual Problem
 In optimization theory, there exists a corresponding problem to the primal problem known as the **dual problem**. Solving the dual problem can offer different computational or theoretical advantages, and in some cases, it might be less computationally intensive. A part of our implementation focuses on the dual problem because it allows us to employ the kernel trick. This approach is particularly beneficial in scenarios like support vector machines, where it enables the handling of high-dimensional feature spaces more efficiently. The dual problem for primal problem specified above is given as:
 
-$$max_{\alpha} \hspace{0.1cm} \sum_{i=1}^{n} \alpha_i - \frac{1}{2}$$
+$$max_{\hspace{0.05cm} \alpha} \hspace{0.1cm} \sum_{i=1}^{n} \alpha_i - \frac{1}{2}$$
 
 
 
