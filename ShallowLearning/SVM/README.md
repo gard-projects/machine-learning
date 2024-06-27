@@ -126,8 +126,9 @@ Other useful variables used are:
 > **errors** - uses the result of `compute_error(...)` function to residual between computed score and actual score (the actual score being $y_i \in \lbrace -1, 1 \rbrace$)
 
 For each iteration we check the **Karush-Kuhn-Tucker (KKT)** conditions. Which are first derivative tests for a solution in non-linear programming to be optimal. This theorem is also known as **saddle-point theorem**. We have the following.
-1. Check for
-🟢 $y_i = -1 \quad \Rightarrow \quad y_i \cdot E_i < -tol \quad \text{and} \quad \alpha_{i} < C$ \\
+1. Check for \
+🟢 $y_i = -1 \quad \Rightarrow \quad y_i \cdot E_i < -tol \quad \text{and} \quad \alpha_{i} < C$
+
 🔵 $y_i = 1 \quad \Rightarrow \quad y_i \cdot E_i > tol \quad \text{and} \quad \alpha_{i} > 0$
 
 # Sources
