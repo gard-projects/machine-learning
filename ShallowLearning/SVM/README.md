@@ -77,7 +77,7 @@ $$\text{subject to} \quad 0 \leq \alpha_{i} \leq C \quad \forall i \quad \text{a
 
 The interesting part about this equation is the **dot product** between $x_i$ and $x_j$, since we can replace this with a kernel matrix, called the **Gram matrix**. 
 
-$$G_{ij} = \left<x_{i}, x_{j}\right>$$
+$$G_{ij} = \langle x_{i}, x_{j} \rangle$$
 
 In essence, the Gram matrix stores the dot products between every pair of $x_i$ and $x_j$. This allows for using the kernel trick, since we do not perform the operation to move the points to a higher dimensional space, we only compute the transformed dot products. The code below illustrates one of the kernel functions that is implemented in the SMO class. 
 ```
