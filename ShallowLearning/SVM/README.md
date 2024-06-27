@@ -111,7 +111,7 @@ def polynomial_kernel(X, Y=None, r=0, d=3, gamma=None):
 ``` 
 
 # Sequential Minimal Optimization (SMO)
-Is an algorithm that solves the quadratic programming (QP) problem that arises during training in SVM. I noticed that this approach is not as efficient as the QP-solver Sklearn uses on this dataset, thus it take a bit longer to train the model. I chose to create a separate class for this part of the project, as I found it to be more convenient and allowing for organization of code. To start of the main function of this class is `sequential_minimal_optimization(...)`, and it is invoked by the `fit(...)` method in the SVM class.
+Is an algorithm that solves the quadratic programming (QP) problem that arises during training in SVM. I noticed that this approach is not as efficient as the QP-solver Sklearn uses on this dataset, thus it take a bit longer to train the model. I chose to create a separate class for the SMO, since it made it more convenient to handle the large amount of code. To start of, the main function of this class is `sequential_minimal_optimization(...)`, and it is invoked by the `fit(...)` method in the SVM class.
 
 This function uses hyperparameters to find the alphas $\alpha_i$. Lets cover them.
 > **max_iters** - the number of iterations for updating the $\alpha_i$
