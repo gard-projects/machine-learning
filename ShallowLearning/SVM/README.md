@@ -135,7 +135,7 @@ For each iteration we check the **Karush-Kuhn-Tucker (KKT)** conditions. Which a
 This checks the following conditions: \
 ➡️ Primal feasibility - the data point is on or outside the margin boundary, $\quad y_i \cdot \text{prediction} \geq 1 \quad \forall i$ \
 ➡️ Dual feasibility - the Lagrange multipliers $\alpha_i$ satisfy $\quad 0 \leq \alpha_i \leq C$ \
-➡️ Complementary slackness - If a data point **i** is correctly placed (and not on the margin), then $\alpha_i$ should be 0. If greater than 0, then the data point must be on the margin $\quad y_i \cdot \text{prediction} = 1$
+➡️ Complementary slackness - If a data point `i` is correctly placed (and not on the margin), then $\alpha_i$ should be 0. If greater than 0, then the data point must be on the margin $\quad y_i \cdot \text{prediction} = 1$
 
 # Sources
 Singh, N. (2023). Soft Margin SVM / Support Vector Classifier (SVC) [Graph]. https://pub.aimind.so/soft-margin-svm-exploring-slack-variables-the-c-parameter-and-flexibility-1555f4834ecc
