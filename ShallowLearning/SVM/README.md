@@ -156,7 +156,7 @@ This property ensures that the Lagrange multipliers are used efficiently. It sta
 * If $\alpha_i = 0$, the data point $x_i$ is either correctly classified beyond the margin, or potentially misclassified or within the margin (in the case of Soft Margin SVM)
 
 
-### 2. Choose the second $\alpha$, i.e. $\alpha_j$
+### 2. Choose the second alpha, $\alpha_j$
 We choose a random alpha to get a more representative solution to the optimization problem without any potential bias.
 ```
 j = np.random.randint(low=0, high=n-1)
