@@ -40,7 +40,7 @@ $(2)\quad \vec{w} \cdot \vec{x} + b = 0$
 $(3)\quad \vec{w} \cdot \vec{x} + b = -1$
 
 Therefore the main goal is to find the weight vector **w** and the bias term **b**. We can find these variables by solving the primal problem for soft margin SVM given by: \
-$$min_{w \hspace{0.05cm},b \hspace{0.05cm},\xi}\hspace{0.1cm} \|| w^{2} \|| + C \sum_{i=1}^n \xi$$ 
+$$min_{\hspace{0.05cm} w \hspace{0.05cm},b \hspace{0.05cm},\xi}\hspace{0.1cm} \|| w^{2} \|| + C \sum_{i=1}^n \xi$$ 
 $$s.t. \quad y_{i}\left(w^{T}x_{i} + b\right) \geq 1 - \xi_{i} \quad \forall i = 1, \dots, n$$
 
 From the equation we have the following: 
