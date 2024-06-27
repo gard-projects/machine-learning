@@ -136,11 +136,15 @@ This checks the following conditions:
 
 ➡️ **Primal feasibility** \
 The requirement in context of SVM means that all data points must be on  or outside the margin boundary according to their class labels. For any data point $x_i$ with label $y_i$ the condition is: \
-$$y_{i} \cdot \text{decision function} \geq 1$$
+$$y_{i} \cdot \left(\text{decision function}\right) \geq 1$$
 
 Thus if $y_i = 1$ the point should be on or above the boundary, and if $y_i = -1$ the point show be on or below the boundary.
 
-➡️ **Dual feasibility**
+➡️ **Dual feasibility** \
+Relates to the constraints on the Lagrange multipliers $\alpha_i$. Each $\alpha_i$ corresponds to a training example $x_i$. These coefficients are used to optimize the margin width.
+
+* Each $\alpha_i$ must be non-negative
+* Each $\alpha_i$ must not exceed the upper bound **C** (the regularization parameter)
 
 ➡️ **Complementary slackness**
 
