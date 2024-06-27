@@ -132,10 +132,11 @@ For each iteration we check the **Karush-Kuhn-Tucker (KKT)** conditions. Which a
 🟢 $y_i = -1 \quad \Rightarrow \quad y_i \cdot E_i < -tol \quad \text{and} \quad \alpha_{i} < C$ \
 🔵 $y_i = 1 \quad \Rightarrow \quad y_i \cdot E_i > tol \quad \text{and} \quad \alpha_{i} > 0$ 
 
-This checks the following conditions: \
+This checks the following conditions:
+
 ➡️ **Primal feasibility** \
 The requirement in context of SVM means that all data points must be on  or outside the margin boundary according to their class labels. For any data point $x_i$ with label $y_i$ the condition is: \
-$$y_{i} \cross \text{decision function} \geq 1$$
+$$y_{i} \cdot \text{decision function} \geq 1$$
 
 Thus if $y_i = 1$ the point should be on or above the boundary, and if $y_i = -1$ the point show be on or below the boundary.
 
