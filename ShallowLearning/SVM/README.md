@@ -1,4 +1,7 @@
-**Dataset from**: https://www.kaggle.com/datasets/muratkokludataset/raisin-dataset?resource=download
+
+**DATASET FROM**: https://www.kaggle.com/datasets/muratkokludataset/raisin-dataset?resource=download
+
+&nbsp;
 
 This project is rather unique, as it involves implementing both the estimator, but also a form of quadratic programming solver.
 Support Vector Machines are estimators, or rather models that aim to classify new data points into either of two groups. Our dataset covers raisins grown in Turkey, and the goal is to predict whether a new raisin is of type "Kecimen" or "Besni".
