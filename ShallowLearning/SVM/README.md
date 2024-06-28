@@ -66,11 +66,17 @@ $$\ell(x) = max(0, 1 - y_{i}\left(w \cdot x - b \right))$$
 
 There are 3 possible cases that can occur when deciding on the penalty of a point.
 
+&nbsp;
+
 🟧 **Case 1: Correctly classified and outside the margin**
 If $y_{i}\left(w \cdot x - b \right) > 1$, the output of the classification function is outside the boundary of the margin
 
+&nbsp;
+
 🟪 **Case 2: On the margin or misclassified**
 If $y_{i}\left(w \cdot x - b \right) < 1$, either the point is on the wrong side of the margin but correctly classified (between the decision boundary and the margin), or the point is misclassified
+
+&nbsp;
 
 🟥 **Case 3: Exactly on the decision boundary**
 If $y_{i}\left(w \cdot x - b \right) = 0$ the point lies exactly on the decision boundary.
@@ -149,17 +155,23 @@ For each iteration we check the **Karush-Kuhn-Tucker (KKT)** conditions. Which a
 
 This checks the following conditions:
 
+&nbsp;
+
 ➡️ **Primal feasibility** \
 The requirement in context of SVM means that all data points must be on  or outside the margin boundary according to their class labels. For any data point $x_i$ with label $y_i$ the condition is: \
 $$y_{i} \cdot \left(\text{decision function}\right) \geq 1$$
 
 Thus if $y_i = 1$ the point should be on or above the boundary, and if $y_i = -1$ the point show be on or below the boundary.
 
+&nbsp;
+
 ➡️ **Dual feasibility** \
 Relates to the constraints on the Lagrange multipliers $\alpha_i$. Each $\alpha_i$ corresponds to a training example $x_i$. These coefficients are used to optimize the margin width.
 
 * Each $\alpha_i$ must be non-negative
 * Each $\alpha_i$ must not exceed the upper bound **C** (the regularization parameter)
+
+&nbsp;
 
 ➡️ **Complementary slackness** \
 This property ensures that the Lagrange multipliers are used efficiently. It states the following:
