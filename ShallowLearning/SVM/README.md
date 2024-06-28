@@ -176,11 +176,20 @@ if y_i != y_j:
 ```
 Furthermore we calculate the variable $\eta$ (eta), which is a measure of the second derivative of the objective function regarding $\alpha_j$, and determines how much $\alpha_j$ should be adjusted. If $\eta$ is non-negative, no optimization is performed because the objective function is not reduced in the direction between `i` and `j`. 
 ```
- eta = 2 * kernel_cache[i, j] - kernel_cache[i, i] - kernel_cache[j, j]
+eta = 2 * kernel_cache[i, j] - kernel_cache[i, i] - kernel_cache[j, j]
     if eta >= 0:
         return False, b
 ```
-
-
+Next we update $\alpha_j$, which is based on $\eta$, and the difference in errors $E_i$ and $E_j$. To ensure the new $\alpha_j$ value satisfies the constraints, we clip it to the bounds $\left(L, H\right)$.
+```
+alphas[j] -= y_j * (E_i - E_j) / eta
+alphas[j] = max(L, min(H, alphas[j]))
+```
+Like with $\alpha_j$, we must update $\alpha_i$ considering the change in $\alpha_j$. This must be done while ensuring that the sum of the product of the labels and their respective alphas remain constant. See condition below.
+$$\sum_{i=1}^{n} \alpha_{i}y_{i} = 0$$
+Implemented in code: \
+```
+alphas[i] += y_i * y_j * (alpha_j_old - alphas[j])
+```
 # Sources
 Singh, N. (2023). Soft Margin SVM / Support Vector Classifier (SVC) [Graph]. https://pub.aimind.so/soft-margin-svm-exploring-slack-variables-the-c-parameter-and-flexibility-1555f4834ecc
