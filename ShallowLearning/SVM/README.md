@@ -157,6 +157,7 @@ This property ensures that the Lagrange multipliers are used efficiently. It sta
 >[!TIP]
 >Why do we multiply the label $y_i$ with the error $E_i$? The reason for this is to determine the margin violation for each data point. It tells us how much the prediction deviates from the expected result. Thus if the <ins>product is negative</ins>, it means the data point $x_i$ is on the wrong side of the margin (i.e. misclassified). If the <ins>product is positive</ins>, it is either correctly classified and outside of the SVM margin (indicated by a large value), or small and thus close to the margin boundary.
 
+&nbsp;
 
 ### 2. Choose the second alpha, $\alpha_j$
 We choose a random alpha to get a more representative solution to the optimization problem without any potential bias.
@@ -164,6 +165,7 @@ We choose a random alpha to get a more representative solution to the optimizati
 j = np.random.randint(low=0, high=n-1)
 ```
 
+&nbsp;
 
 ### 3. Updating the alphas $\alpha_i$ and $\alpha_j$
 This part is covered in the `update_multipliers(...)` function.
@@ -204,6 +206,8 @@ Lastly we update the bias term `b` based on the changes in $\alpha_i$ and $\alph
     else:
         b = (b1 + b2) / 2
 ```
+
+&nbsp;
 
 # Sources
 Singh, N. (2023). Soft Margin SVM / Support Vector Classifier (SVC) [Graph]. https://pub.aimind.so/soft-margin-svm-exploring-slack-variables-the-c-parameter-and-flexibility-1555f4834ecc
