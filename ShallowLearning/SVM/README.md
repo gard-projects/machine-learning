@@ -282,5 +282,8 @@ Here we have a total of combinations of C = 2 * 2 * 1 * 1 = 4. Thus we run 4 ite
 
 &nbsp;
 
+Thank you for reading this project, I hope it could be to some use!
+~ Gard
+
 # Sources
 Singh, N. (2023). Soft Margin SVM / Support Vector Classifier (SVC) [Graph]. https://pub.aimind.so/soft-margin-svm-exploring-slack-variables-the-c-parameter-and-flexibility-1555f4834ecc
