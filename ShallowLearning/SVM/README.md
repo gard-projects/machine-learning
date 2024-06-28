@@ -1,12 +1,12 @@
-Dataset from: https://www.kaggle.com/datasets/muratkokludataset/raisin-dataset?resource=download
+**Dataset from**: https://www.kaggle.com/datasets/muratkokludataset/raisin-dataset?resource=download
 
-This project is rather unique, as it has involved implementing both the estimator, but also a form of quadratic programming solver.
-Support Vector Machines are estimators, or rather models that aim to classify new data points into either of two groups. Our dataset covers raisins grown in Turkey, and the goal is to predict whether a new raisin is of type "Kecimen" or "Besni". Thus we are interested in understanding how well our custom model can classify a raisin as a Kecimen or Besni type. 
+This project is rather unique, as it involves implementing both the estimator, but also a form of quadratic programming solver.
+Support Vector Machines are estimators, or rather models that aim to classify new data points into either of two groups. Our dataset covers raisins grown in Turkey, and the goal is to predict whether a new raisin is of type "Kecimen" or "Besni".
 
 &nbsp;
 
 # Structure of the raisin dataset
-The shape of the dataset is (900, 8). Meaning a sample axis of 900 dimensions, and a features axis with 8 dimensions. There are the following features:
+The shape of the dataset is (900, 8). Meaning a sample axis of 900 dimensions, and a features axis of 8 dimensions. There are the following features:
 
 > **Area** , type=float
 > 
@@ -29,7 +29,7 @@ Thus there are in total 7 quantitative variables (only continuous), and 1 catego
 &nbsp;
 
 # Feature engineering
-To prepare for training the model, we must first do some data preprocessing. I use the Pandas library to store all the data (from the Excel file) to a DataFrame object, which again supports the convertion to Numpy arrays.
+To prepare for training the model, we must first do some data preprocessing. I use the Pandas library to store all the data (from the Excel file) to a DataFrame object, which again is converted into a Numpy array.
 Additionally I assume the data is normally distributed, thus we perform standardization on the features inside the Pipeline object. Lastly we must set the target values to -1 or 1, see below.
 ```
  data_excel = pd.read_excel("dataset/raisin.xlsx")
@@ -48,14 +48,16 @@ Pipeline([
 &nbsp;
 
 # Introduction to SVM, and what to solve
-Support Vector Machine (SVM) is a type of algorithm that aims to classify new points by using a **decision boundary**. In simple terms, a decision boundary is a N-1 dimensional object (a hyperplane in mathematical terms) which existence is to cleanly separate two groups in some N-space. A SVM can be implemented in two ways, using a **Hard Margin Classifier** and a **Soft Margin Classifier**. A the former requires that the data is **linearly separable**, i.e. that you separate the data without any of the two groups touching each other. This approach is typically not possible to implement in practice, as there is often noise in data leading to messy patterns. The latter (Soft Margin Classifier) is an approach that is suitable in a real-world environment as it allows for misclassifications which is a core problem of machine learning (bias-variance tradeoff). The image below by Singh (2023) illustrates the difference between these two implementations of SVM graphically.
+Support Vector Machine (SVM) is a type of algorithm that aims to classify new points by using a **decision boundary**. In simple terms, a decision boundary is a N-1 dimensional object (a hyperplane in mathematical terms) which existence is to cleanly separate data into two groups in some N-space. A SVM can be implemented in two ways, using a **Hard Margin Classifier** and a **Soft Margin Classifier**. 
+
+The former (Hard Margin Classifier) requires that the data is **linearly separable**, i.e. that you can separate the data without any of the two groups touching each other. This approach is typically not possible to implement in practice, as there is often noise in data leading to messy patterns. The latter (Soft Margin Classifier) is an approach that is suitable in a real-world environment as it allows for misclassifications which is the core problem of machine learning (bias-variance tradeoff). The image below by Singh (2023) illustrates the difference between these two implementations of SVM graphically.
 
 ![Image of both Soft Margin Classifier and Hard Margin Classifier](../images/svm_types.png)
 
 &nbsp;
 
 **How exactly is the data separated?** \
-By maximizing the distance between **support vectors** and the **decision boundary**. A support vector is a data point (or individual) which lies within the margin, or on the margin. These are the data points that matter the most when optimizing the decision boundary. The Hard Margin Classifier focuses only on maximizing distance, while the Soft Margin Classifier focuses on both maximizing the margin, **but also** minimizing the misclassifications through a **hyperparameter** called the **regularization** parameter `C`. A hyperparameter is a parameter that is not learned by the model, but has to be set manually by a human. From the image we have the following equations:
+By maximizing the distance between **support vectors** and the **decision boundary**. A support vector is a data point (or individual) which either lies on or within the margin boundaries. These are the data points that matter the most when optimizing the decision boundary. The Hard Margin Classifier focuses only on maximizing distance, while the Soft Margin Classifier focuses on both maximizing the margin, **but also** minimizing the misclassifications through a **hyperparameter** called the **regularization** parameter `C`. A hyperparameter is a parameter that is not learned by the model, but has to be set manually by a human (more on this later). From the image we have the following equations:
 
 $(1)\quad \vec{w} \cdot \vec{x} + b = 1$
 
@@ -79,7 +81,7 @@ $$\sum_{i=1}^n \xi = \xi_{1} + \xi_{2} + \dots + \xi_{n}$$
 &nbsp;
 
 ## Defining the meaning of penalty
-The penalty, $\xi$, in the context of SVM is used to handle misclassifications, and points that fall within the margin. Each penalty calculated by using the **hinge loss function**:
+The penalty, $\xi$, in the context of SVM is used to handle misclassifications, and points that fall within the margin. Each penalty is calculated by using the **hinge loss function**:
 
 $$\ell(x) = max(0, 1 - y_{i}\left(w \cdot x - b \right))$$
 
@@ -129,19 +131,19 @@ def polynomial_kernel(X, Y=None, r=0, d=3, gamma=None):
 &nbsp;
 
 # Sequential Minimal Optimization (SMO)
-Is an algorithm that solves the quadratic programming (QP) problem that arises during training in SVM. I noticed that this approach is not as efficient as the QP-solver Sklearn uses on this dataset, thus it take a bit longer to train the model. I chose to create a separate class for the SMO, since it made it more convenient to handle the large amount of code. To start of, the main function of this class is `sequential_minimal_optimization(...)`, and it is invoked by the `fit(...)` method in the SVM class.
+Is an algorithm that solves the quadratic programming (QP) problem that arises during training in SVM. I noticed that this approach is not as efficient as the QP-solver Sklearn uses on this dataset, thus it is a bit slower in training the model. I chose to create a separate class for the SMO, since it made it more convenient to handle the large amount of code. To start of, the main function of this class is `sequential_minimal_optimization(...)`, and it is invoked by the `fit(...)` method in the SVM class.
 
 This function uses hyperparameters to find the alphas $\alpha_i$. Lets cover them.
 > **max_iters** - the number of iterations for updating the $\alpha_i$
 >
-> **tol** - a tolerance level that decides what we consider a optimal solution
+> **tol** - a tolerance level, used to determine when the optimization algorithm should stop iterating  (thus finding a optimal solution)
 >
-> **C** - the regularization parameter, used to reduce the misclassifications by choosing suitable $\alpha_i$ that reduces the amount of error
+> **C** - the regularization parameter, controls the trade-off between achieving a low error on the training data and minimizing the model complexity for better generalization
 
 Other useful variables used are:
 > **kernel_cache** - used to store the kernel matrix, `K`, returned by the chosen kernel function. It <ins>significantly improves performance</ins>, due to less computation!
 >
-> **errors** - uses the result of `compute_error(...)` function to residual between computed score and actual score (the actual score being $y_i \in \lbrace -1, 1 \rbrace$)
+> **errors** - represents the residuals calculated as the difference between the predicted scores and the actual labels $y_i \in \lbrace -1,1 \rbrace$
 
 &nbsp;
 
