@@ -283,17 +283,17 @@ Here we have a total of combinations of $C = 2 * 2 * 1 * 1 = 4$. Thus we run 4 i
 &nbsp;
 
 # Results from running the model
-**Polynomial kernel**
+**Polynomial kernel** \
 ![polynomial_kernel_result](../images/polynomial_kernel.png)
 
 &nbsp;
 
-**Linear kernel**
+**Linear kernel** \
 ![linear_kernel_results](../images/linear_kernel.png)
 
 &nbsp;
 
-**Radial Basis Kernel**
+**Radial Basis Kernel** \
 ![radial_basis_kernel_results](../images/rbf_kernel.png)
 
 &nbsp;
