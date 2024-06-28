@@ -148,7 +148,7 @@ Other useful variables used are:
 &nbsp;
 
 ## Compilation steps in the SMO algorithm
-For each iteration we check the **Karush-Kuhn-Tucker (KKT)** conditions. Which are first derivative tests for a solution in non-linear programming to be optimal. This theorem is also known as **saddle-point theorem**. We have the following.
+For each iteration we pick a $\alpha_i$, and check if violates the **Karush-Kuhn-Tucker (KKT)** conditions. Which are first derivative tests for a solution in non-linear programming to be optimal. This theorem is also known as **saddle-point theorem**. We have the following.
 
 &nbsp;
 
@@ -161,7 +161,7 @@ This checks the following conditions:
 &nbsp;
 
 ➡️ **Primal feasibility** \
-The requirement in context of SVM means that all data points must be on  or outside the margin boundary according to their class labels. For any data point $x_i$ with label $y_i$ the condition is: \
+The requirement in context of SVM means that all data points must be on or outside the margin boundary according to their class labels. For any data point $x_i$ with label $y_i$ the condition is: \
 $$y_{i} \cdot \left(\text{decision function}\right) \geq 1$$
 
 Thus if $y_i = 1$ the point should be on or above the boundary, and if $y_i = -1$ the point show be on or below the boundary.
@@ -188,7 +188,7 @@ This property ensures that the Lagrange multipliers are used efficiently. It sta
 &nbsp;
 
 ### 2. Choose the second alpha, $\alpha_j$
-We choose a random alpha to get a more representative solution to the optimization problem without any potential bias.
+We choose a random $\alpha_j$ to ensure that the SMO algorithm efficiently explores the solution space. Random selection prevents the algorithm from getting stuck in a loop, or converging too quickly on a suboptimal solution. A **suboptimal** solution is a solution that is not the best possible outcome, it is inferior to the optimal solution. A **optimal solution** being a solution that perfectly meets all criteria for the best result.
 ```
 j = np.random.randint(low=0, high=n-1)
 ```
@@ -218,14 +218,14 @@ Next we update $\alpha_j$, which is based on $\eta$, and the difference in error
 alphas[j] -= y_j * (E_i - E_j) / eta
 alphas[j] = max(L, min(H, alphas[j]))
 ```
-Like with $\alpha_j$, we must update $\alpha_i$ considering the change in $\alpha_j$. This must be done while ensuring that the sum of the product of the labels and their respective alphas remain constant. See condition below.
+Like with $\alpha_j$, we must update $\alpha_i$ by considering the change in $\alpha_j$. This must be done while ensuring that the sum of the product of the labels, and their respective alphas remain constant. See the condition below.
 $$\sum_{i=1}^{n} \alpha_{i}y_{i} = 0$$
 Implemented in code: 
 ```
 alphas[i] += y_i * y_j * (alpha_j_old - alphas[j])
 ```
 
-Lastly we update the bias term `b` based on the changes in $\alpha_i$ and $\alpha_j$. The reason we use thse conditions is to ensure that we obtain a value for `b` when either of the Lagrange multipliers are within the margin ($0 < \alpha_i < C$). See the code below.
+Lastly we update the bias term `b` based on the changes in $\alpha_i$ and $\alpha_j$. The reason we use these conditions is to ensure that we obtain a value for `b` when either of the Lagrange multipliers are within the margin ($0 < \alpha_i < C$). See the code below.
 ```
  if 0 < alphas[i] < C:
         b = b1
@@ -238,7 +238,7 @@ Lastly we update the bias term `b` based on the changes in $\alpha_i$ and $\alph
 &nbsp;
 
 # Testing SVM model
-By using **SMO** we can fetch the alphas $\alpha$, and the bias term `b` to make predictions about new data points. The decision function is used to compute the score for each individual data point testing set. In simple terms it calculates the distance between the point and the decision boundary, and the `predict(...)` function classifies the distances as either a -1 or +1. The `predict(...)` function is necessary, due to the target values being in the form of ±1. See the code below.
+By using the **SMO** algorithm we can fetch the alphas $\alpha$, and the bias term `b` to make predictions about new data points. The decision function is used to compute the score for each individual data point in testing set. In simple terms it calculates the distance between the point and the decision boundary, and the `predict(...)` function classifies these distances as either a -1 or +1. The `predict(...)` function is necessary, due to the target values being in the form of ±1. See the code below.
 ```
 def decision_function(self, X):        
     kernel_func = smo.rbf_kernel
@@ -251,22 +251,20 @@ def predict(self, test_data):
     return np.sign(self.decision_function(test_data))
 ```
 > [!NOTE]
-> In this sample code we use the Radial Basis Kernel function, but you can change this to `polynomial_kernel` or `linear_kernel` if needed
+> In this sample code we use the Radial Basis Kernel function (indicated by `smo.rbf_kernel`), but you can change this to `polynomial_kernel` or `linear_kernel` if needed
 
-The metric used to determine the model's performance is the accuracy metric, however there exists many other metrics that can be used instead e.g. **specificity** or **sensitivity**.
+The metric I chose to use to determine the model's performance, is the accuracy metric. It is important to note that there exists many other metrics that may be just as suitable, like for example **specificity** or **sensitivity**.
 ```
 def accuracy(self, test_data, labels):
     return np.mean(self.predict(test_data) == labels)
 ```
 
 ## Cross Validation
-The project makes use of a great technique, **cross validation**. It is a technique that gives you a more representative value for the true performance of the model, by exposing the model to various training and testing sets.
-In this project I chose the common 10-fold CV. My own implementation was not efficient, thus I made use of the GridSearchCV class from Sklearn. Essentially it breaks down the data set into 10 folds. For each iteration (equal to number of folds), we choose one fold as the testing set, and the 9 other folds as the training set. This ensures that every single individual in the dataset is used as a testing example, leading to a more precise score of the true performance of the model. 
+In this project, we use a powerful method known as **cross validation** to evaluate the true performance of our model. This technique exposes the model to different combinations of training and testing sets. Specifically, I implemented the common 10-fold cross-validation using the `GridSearchCV` class from Sklearn. This approach divides the dataset into ten parts, using one fold for testing and the remaining nine for training in each iteration. This ensures each data point is used in the testing phase exactly once, offering a comprehensive assessment of model performance.
+Grid Search
 
 ## Grid Search
-I previously mentioned the term **hyperparameters**, but I did not state how to find these. In truth, most of these parameters are found through experience, but also through techniques like **Grid Search**. 
-GridSearchCV expects various arguments like a dictionary of various values for the parameters, the pipeline object, and optionally parameters like the number of folds, the number of cores to use on the processor, and the type of score. 
-It then goes through each combination of the parameters. See the example under.
+Regarding **hyperparameters**, which I mentioned earlier, they are typically determined through a combination of experience and systematic techniques like **Grid Search**. `GridSearchCV` in Sklearn facilitates this by accepting a dictionary of parameter values, the pipeline object, and optional settings such as the number of folds, processor cores to use, and scoring method. It tests every possible combination of parameters to find the best ones. Below is an example of how this is implemented:
 
 ```
 param_grid1 = {
@@ -277,15 +275,34 @@ param_grid1 = {
 }
 ```
 
-Here we have a total of combinations of C = 2 * 2 * 1 * 1 = 4. Thus we run 4 iterations, trying all possible hyperparameter values. Once this is done we can print out the best combination of parameters, leading to the best performance of the model.
+Here we have a total of combinations of $C = 2 * 2 * 1 * 1 = 4$. Thus we run 4 iterations, trying all possible hyperparameter values. Once all iterations are complete, we can print out the best possible combinations of hyperparameters. See below.
 ```
  print("Our implementation: ", grid1.best_score_)
 ```
 
 &nbsp;
 
-Thank you for reading this project, I hope it could be to some use!
+# Results from running the model
+**Polynomial kernel**
+![polynomial_kernel_result](../images/polynomial_kernel.png)
+
+&nbsp;
+
+**Linear kernel**
+![linear_kernel_results](../images/linear_kernel.png)
+
+&nbsp;
+
+**Radial Basis Kernel**
+![radial_basis_kernel_results](../images/rbf_kernel.png)
+
+&nbsp;
+
+# Thank you
+Thank you for reading this project, I hope it could be to some use.
 ~ Gard
+
+&nbsp;
 
 # Sources
 Singh, N. (2023). Soft Margin SVM / Support Vector Classifier (SVC) [Graph]. https://pub.aimind.so/soft-margin-svm-exploring-slack-variables-the-c-parameter-and-flexibility-1555f4834ecc
