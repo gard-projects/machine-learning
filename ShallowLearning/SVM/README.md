@@ -302,7 +302,7 @@ Here we have a total of combinations of $C = 2 * 2 * 1 * 1 = 4$. Thus we run 4 i
 &nbsp;
 
 # Thank you
-Thank you for reading this project, I hope it could be to some use.
+Thank you for reading this project, I hope it could be to some use. \
 ~ Gard
 
 &nbsp;
