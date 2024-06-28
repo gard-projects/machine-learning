@@ -128,7 +128,7 @@ Other useful variables used are:
 ## Compilation steps in the SMO algorithm
 For each iteration we check the **Karush-Kuhn-Tucker (KKT)** conditions. Which are first derivative tests for a solution in non-linear programming to be optimal. This theorem is also known as **saddle-point theorem**. We have the following.
 
-<br>
+\vspace{10cm}
 ### 1. Finding alphas, $\alpha$ that violate KKT-conditions
 🟢 $y_i = -1 \quad \Rightarrow \quad y_i \cdot E_i < -tol \quad \text{and} \quad \alpha_{i} < C$ \
 🔵 $y_i = 1 \quad \Rightarrow \quad y_i \cdot E_i > tol \quad \text{and} \quad \alpha_{i} > 0$ 
@@ -156,14 +156,14 @@ This property ensures that the Lagrange multipliers are used efficiently. It sta
 >[!TIP]
 >Why do we multiply the label $y_i$ with the error $E_i$? The reason for this is to determine the margin violation for each data point. It tells us how much the prediction deviates from the expected result. Thus if the <ins>product is negative</ins>, it means the data point $x_i$ is on the wrong side of the margin (i.e. misclassified). If the <ins>product is positive</ins>, it is either correctly classified and outside of the SVM margin (indicated by a large value), or small and thus close to the margin boundary.
 
-<br>
+
 ### 2. Choose the second alpha, $\alpha_j$
 We choose a random alpha to get a more representative solution to the optimization problem without any potential bias.
 ```
 j = np.random.randint(low=0, high=n-1)
 ```
 
-<br>
+
 ### 3. Updating the alphas $\alpha_i$ and $\alpha_j$
 This part is covered in the `update_multipliers(...)` function.
 
