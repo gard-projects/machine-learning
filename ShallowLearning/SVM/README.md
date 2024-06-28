@@ -134,13 +134,11 @@ For each iteration we check the **Karush-Kuhn-Tucker (KKT)** conditions. Which a
 
 This checks the following conditions:
 
-
 ➡️ **Primal feasibility** \
 The requirement in context of SVM means that all data points must be on  or outside the margin boundary according to their class labels. For any data point $x_i$ with label $y_i$ the condition is: \
 $$y_{i} \cdot \left(\text{decision function}\right) \geq 1$$
 
 Thus if $y_i = 1$ the point should be on or above the boundary, and if $y_i = -1$ the point show be on or below the boundary.
-
 
 ➡️ **Dual feasibility** \
 Relates to the constraints on the Lagrange multipliers $\alpha_i$. Each $\alpha_i$ corresponds to a training example $x_i$. These coefficients are used to optimize the margin width.
@@ -148,13 +146,14 @@ Relates to the constraints on the Lagrange multipliers $\alpha_i$. Each $\alpha_
 * Each $\alpha_i$ must be non-negative
 * Each $\alpha_i$ must not exceed the upper bound **C** (the regularization parameter)
 
-
 ➡️ **Complementary slackness** \
 This property ensures that the Lagrange multipliers are used efficiently. It states the following:
 
 * If $\alpha_i > 0$, then the corresponding data point $x_i$ lies exactly on the margin boundary, thus $x_i$ is a **support vector**
 * If $\alpha_i = 0$, the data point $x_i$ is either correctly classified beyond the margin, or potentially misclassified or within the margin (in the case of Soft Margin SVM)
 
+>[!NOTE]
+>Why do we multiply the label $y_i$ with the error $E_i$? The reason for this is to determine the margin violation for each data point. It tells us how much the prediction deviates from the expected result. Thus if the \underline{product is negative}, it means the data point $x_i$ is on the wrong side of the margin (i.e. misclassified). If the \underline{product is positive}, it is either correctly classified and outside of the SVM margin (indicated by a large value), or small and thus close to the margin boundary.
 
 ### 2. Choose the second alpha, $\alpha_j$
 We choose a random alpha to get a more representative solution to the optimization problem without any potential bias.
@@ -192,7 +191,7 @@ Implemented in code:
 alphas[i] += y_i * y_j * (alpha_j_old - alphas[j])
 ```
 
-Lastly we update the bias term `b` based on the changes in $\alpha_i$ and $\alpha_j$. The reason we use thse conditions is to ensure that we obtain a value for b when either of the Lagrange multipliers are within the margin ($0 < \alpha_i < C$). See the code below.
+Lastly we update the bias term `b` based on the changes in $\alpha_i$ and $\alpha_j$. The reason we use thse conditions is to ensure that we obtain a value for `b` when either of the Lagrange multipliers are within the margin ($0 < \alpha_i < C$). See the code below.
 ```
  if 0 < alphas[i] < C:
         b = b1
