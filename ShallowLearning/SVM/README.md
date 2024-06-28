@@ -187,9 +187,20 @@ alphas[j] = max(L, min(H, alphas[j]))
 ```
 Like with $\alpha_j$, we must update $\alpha_i$ considering the change in $\alpha_j$. This must be done while ensuring that the sum of the product of the labels and their respective alphas remain constant. See condition below.
 $$\sum_{i=1}^{n} \alpha_{i}y_{i} = 0$$
-Implemented in code: \
+Implemented in code: 
 ```
 alphas[i] += y_i * y_j * (alpha_j_old - alphas[j])
 ```
+
+Lastly we update the bias term `b` based on the changes in $\alpha_i$ and $\alpha_j$. The reason we use thse conditions is to ensure that we obtain a value for b when either of the Lagrange multipliers are within the margin ($0 < \alpha_i < C$). See the code below.
+```
+ if 0 < alphas[i] < C:
+        b = b1
+    elif 0 < alphas[j] < C:
+        b = b2
+    else:
+        b = (b1 + b2) / 2
+```
+
 # Sources
 Singh, N. (2023). Soft Margin SVM / Support Vector Classifier (SVC) [Graph]. https://pub.aimind.so/soft-margin-svm-exploring-slack-variables-the-c-parameter-and-flexibility-1555f4834ecc
