@@ -152,8 +152,8 @@ This property ensures that the Lagrange multipliers are used efficiently. It sta
 * If $\alpha_i > 0$, then the corresponding data point $x_i$ lies exactly on the margin boundary, thus $x_i$ is a **support vector**
 * If $\alpha_i = 0$, the data point $x_i$ is either correctly classified beyond the margin, or potentially misclassified or within the margin (in the case of Soft Margin SVM)
 
->[!NOTE]
->Why do we multiply the label $y_i$ with the error $E_i$? The reason for this is to determine the margin violation for each data point. It tells us how much the prediction deviates from the expected result. Thus if the \underline{product is negative}, it means the data point $x_i$ is on the wrong side of the margin (i.e. misclassified). If the \underline{product is positive}, it is either correctly classified and outside of the SVM margin (indicated by a large value), or small and thus close to the margin boundary.
+>[!TIP]
+>Why do we multiply the label $y_i$ with the error $E_i$? The reason for this is to determine the margin violation for each data point. It tells us how much the prediction deviates from the expected result. Thus if the $\underline{product is negative}$, it means the data point $x_i$ is on the wrong side of the margin (i.e. misclassified). If the $\underline{product is positive}$, it is either correctly classified and outside of the SVM margin (indicated by a large value), or small and thus close to the margin boundary.
 
 ### 2. Choose the second alpha, $\alpha_j$
 We choose a random alpha to get a more representative solution to the optimization problem without any potential bias.
