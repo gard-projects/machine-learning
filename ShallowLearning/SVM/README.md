@@ -127,8 +127,9 @@ Other useful variables used are:
 
 ## Compilation steps in the SMO algorithm
 For each iteration we check the **Karush-Kuhn-Tucker (KKT)** conditions. Which are first derivative tests for a solution in non-linear programming to be optimal. This theorem is also known as **saddle-point theorem**. We have the following.
-
-$\vspace{10cm}$
+>
+>
+>
 ### 1. Finding alphas, $\alpha$ that violate KKT-conditions
 🟢 $y_i = -1 \quad \Rightarrow \quad y_i \cdot E_i < -tol \quad \text{and} \quad \alpha_{i} < C$ \
 🔵 $y_i = 1 \quad \Rightarrow \quad y_i \cdot E_i > tol \quad \text{and} \quad \alpha_{i} > 0$ 
