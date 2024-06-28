@@ -234,5 +234,18 @@ Lastly we update the bias term `b` based on the changes in $\alpha_i$ and $\alph
 
 &nbsp;
 
+# Making predictions and computing accuracy of the model
+By using **SMO** we can fetch the alphas $\alpha$, and the bias term `b` to make predictions about new data points. The decision function is used to compute the score for each individual data point testing set. In simple terms it calculates the distance between the point and the decision boundary, and the `predict(...)` function classifies the distances as either a -1 or +1. The `predict(...)` function is necessary, due to the target values being in the form of ±1. See the code below.
+```
+def decision_function(self, X):        
+    kernel_func = smo.rbf_kernel
+    K = kernel_func(X, self.support_vectors)
+
+    return (np.dot(self.alphas*self.labels, K.T) + self.b)
+```
+```    
+def predict(self, test_data):
+    return np.sign(self.decision_function(test_data))
+```
 # Sources
 Singh, N. (2023). Soft Margin SVM / Support Vector Classifier (SVC) [Graph]. https://pub.aimind.so/soft-margin-svm-exploring-slack-variables-the-c-parameter-and-flexibility-1555f4834ecc
