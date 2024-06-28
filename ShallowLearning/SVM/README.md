@@ -28,6 +28,25 @@ Thus there are in total 7 quantitative variables (only continuous), and 1 catego
 
 &nbsp;
 
+# Feature engineering
+To prepare for training the model, we must first do some data preprocessing. I use the Pandas library to store all the data (from the Excel file) to a DataFrame object, which again supports the convertion to Numpy arrays.
+Additionally I assume the data is normally distributed, thus we perform standardization on the features inside the Pipeline object. Lastly we must set the target values to -1 or 1, see below.
+```
+ data_excel = pd.read_excel("dataset/raisin.xlsx")
+    data = data_excel.to_numpy()
+    data[data == 'Kecimen'] = 1
+    data[data == 'Besni'] = -1
+```
+The pipeline object is given by:
+```
+Pipeline([
+    ('scaling', StandardScaler()),
+    ('svm', SVM())
+])
+```
+
+&nbsp;
+
 # Introduction to SVM, and what to solve
 Support Vector Machine (SVM) is a type of algorithm that aims to classify new points by using a **decision boundary**. In simple terms, a decision boundary is a N-1 dimensional object (a hyperplane in mathematical terms) which existence is to cleanly separate two groups in some N-space. A SVM can be implemented in two ways, using a **Hard Margin Classifier** and a **Soft Margin Classifier**. A the former requires that the data is **linearly separable**, i.e. that you separate the data without any of the two groups touching each other. This approach is typically not possible to implement in practice, as there is often noise in data leading to messy patterns. The latter (Soft Margin Classifier) is an approach that is suitable in a real-world environment as it allows for misclassifications which is a core problem of machine learning (bias-variance tradeoff). The image below by Singh (2023) illustrates the difference between these two implementations of SVM graphically.
 
@@ -97,24 +116,6 @@ $$G_{ij} = \langle x_{i}, x_{j} \rangle$$
 In essence, the Gram matrix stores the dot products between every pair of $x_i$ and $x_j$. This allows for using the kernel trick, since we do not perform the operation to move the points to a higher dimensional space, we only compute the transformed dot products. The code below illustrates one of the kernel functions that is implemented in the SMO class. 
 ```
 def polynomial_kernel(X, Y=None, r=0, d=3, gamma=None):
-    '''
-    Parameters
-    ----------
-    X : np.ndarray
-        A matrix with n samples and m features, shape (n, m)
-    Y : np.ndarray
-        A matrix with n samples and m features, shape (n, m)
-    r : float
-        Coefficient of the polynomial kernel
-    d : int
-        Degree of the polynomial kernel
-    gamma : float
-        Coefficient of the polynomial kernel, used for scaling
-        
-    Returns
-    -------
-    The polynomial kernel matrix for the given data, shape (n, n)
-    '''
     if Y is None:
         Y = X
         
@@ -234,7 +235,7 @@ Lastly we update the bias term `b` based on the changes in $\alpha_i$ and $\alph
 
 &nbsp;
 
-# Making predictions and computing accuracy of the model
+# Testing SVM model
 By using **SMO** we can fetch the alphas $\alpha$, and the bias term `b` to make predictions about new data points. The decision function is used to compute the score for each individual data point testing set. In simple terms it calculates the distance between the point and the decision boundary, and the `predict(...)` function classifies the distances as either a -1 or +1. The `predict(...)` function is necessary, due to the target values being in the form of ±1. See the code below.
 ```
 def decision_function(self, X):        
@@ -247,5 +248,39 @@ def decision_function(self, X):
 def predict(self, test_data):
     return np.sign(self.decision_function(test_data))
 ```
+> [!NOTE]
+> In this sample code we use the Radial Basis Kernel function, but you can change this to `polynomial_kernel` or `linear_kernel` if needed
+
+The metric used to determine the model's performance is the accuracy metric, however there exists many other metrics that can be used instead e.g. **specificity** or **sensitivity**.
+```
+def accuracy(self, test_data, labels):
+    return np.mean(self.predict(test_data) == labels)
+```
+
+## Cross Validation
+The project makes use of a great technique, **cross validation**. It is a technique that gives you a more representative value for the true performance of the model, by exposing the model to various training and testing sets.
+In this project I chose the common 10-fold CV. My own implementation was not efficient, thus I made use of the GridSearchCV class from Sklearn. Essentially it breaks down the data set into 10 folds. For each iteration (equal to number of folds), we choose one fold as the testing set, and the 9 other folds as the training set. This ensures that every single individual in the dataset is used as a testing example, leading to a more precise score of the true performance of the model. 
+
+## Grid Search
+I previously mentioned the term **hyperparameters**, but I did not state how to find these. In truth, most of these parameters are found through experience, but also through techniques like **Grid Search**. 
+GridSearchCV expects various arguments like a dictionary of various values for the parameters, the pipeline object, and optionally parameters like the number of folds, the number of cores to use on the processor, and the type of score. 
+It then goes through each combination of the parameters. See the example under.
+
+```
+param_grid1 = {
+    'svm__max_iters': [1000, 500],
+    'svm__tol': [0.01, 0.001],
+    'svm__C': [2],
+    'svm__gamma': [0.001]
+}
+```
+
+Here we have a total of combinations of C = 2 * 2 * 1 * 1 = 4. Thus we run 4 iterations, trying all possible hyperparameter values. Once this is done we can print out the best combination of parameters, leading to the best performance of the model.
+```
+ print("Our implementation: ", grid1.best_score_)
+```
+
+&nbsp;
+
 # Sources
 Singh, N. (2023). Soft Margin SVM / Support Vector Classifier (SVC) [Graph]. https://pub.aimind.so/soft-margin-svm-exploring-slack-variables-the-c-parameter-and-flexibility-1555f4834ecc
