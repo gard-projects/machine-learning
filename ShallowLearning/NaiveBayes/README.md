@@ -8,7 +8,9 @@ The datasets we will be working with in this project is "diabetes.csv" and "emai
 ## Dataset 1: "Diabetes.csv"
 Represented by a Dataframe object / or Numpy array of shape $\left(995, 3\right)$.
 > glucose: int
+> 
 > bloodpressure: int
+> 
 > diabetes: int
 
 Where `glucose` and `bloodpressure` are the predictors in the dataset, and `diabetes` being the response variable. 
@@ -16,6 +18,7 @@ Where `glucose` and `bloodpressure` are the predictors in the dataset, and `diab
 ## Dataset 2: "emails.csv"
 Represented by a Dataframe object / or Numpy array of shape $\left(5728, 2\right)$
 > text: str
+> 
 > spam: int
 
 Where the `text` variable is the predictor in the form of sentences (str), and `spam` being the response variable.
@@ -28,3 +31,42 @@ The "naive" assumption about this algorithm is that we assume all independent va
 3. Calculate the likelihoods of the class $C_k$ given the features $x_i$
 $$P(C_{k} | x_{i}) = \frac{P(C_k) \cdot P(x_{i} | C_{k})}{P(x_{i})}$$
 4. Classify the new point by the label with the greatest likelihood 
+
+
+## EXAMPLE of Gaussian NB: Potato/carrot farm
+Assume we have a dataset representing a farm with carrots and potatoes. From the first step (gathering data), we have the following. \
+**Features**
+> color: orange/brown
+>
+> shape: long/round
+>
+> texture: smooth / rough
+
+**Data**
+> 100 vegetables, 60 of which are carrots, and 40 are potatoes
+> 58 carrots are orange, 55 are long, and 50 are smooth
+> 38 potatoes are brown, 35 are round, and 30 are rough
+
+### Step 2: Calculating the prior probabilities
+$P(\text{carrot}) = \frac{60}{100} = 0.6$ \
+$P(\text{potato}) = \frac{40}{100} = 0.4$
+
+### Step 3: Calculate the likelihoods
+Likelihoods for features $x_i$ given the class $C_k$ \
+
+**For carrots** \
+$P(\text{orange} | \text{carrot}) = \frac{58}{60} \approx 0.967$ \
+$P(\text{long} | \text{carrot}) = \frac{55}{60} \approx 0.917$ \
+$P(\text{smooth} | \text{carrot}) = \frac{50}{60} \approx 0.833$
+
+&nbsf;
+
+**For potatoes** \
+$P(\text{brown} | \text{potato}) = \frac{38}{40} = 0.95$ \
+$P(\text{round} | \text{potato}) = \frac{35}{40} = 0.967$ \
+$P(\text{rough} | \text{potato}) = \frac{30}{40} = 0.967$ 
+
+
+Now we calculate the likelihoods of a class $C_k$ given the features $x_i$. \
+**For carrot** \
+$$P(\text{C_{carrot} | x_{i}) = P(\text{orange} | \text{carrot}) \cdot P(\text{long} | \text{carrot}) \cdot P(\text{smooth} | \text{carrot}) \approx 0.0889$$
