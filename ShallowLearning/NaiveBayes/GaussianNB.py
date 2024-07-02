@@ -3,6 +3,9 @@ import numpy as np
 from sklearn.model_selection import train_test_split, cross_val_score
 from sklearn.naive_bayes import GaussianNB as skGaussianNB
 from sklearn import metrics
+from sklearn.metrics import confusion_matrix
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 class GaussianNB():
     '''
@@ -287,6 +290,24 @@ class GaussianNB():
             setattr(self, parameter, value)
         return self
 
+def plot_confusion_matrix(y_true, y_pred):
+    '''
+    Parameters
+    ----------
+    y_true : array-like of shape (n_samples,)
+        The true target values
+    y_pred : array-like of shape (n_samples,)
+        The predicted target values
+    '''
+    
+    cm = metrics.confusion_matrix(y_true, y_pred)
+    plt.figure(figsize=(10,7))
+    sns.heatmap(cm, annot=True, fmt='d', cmap='Blues')
+    plt.title('Confusion Matrix')
+    plt.ylabel('Actual')
+    plt.xlabel('Predicted')
+    plt.show()
+
 if __name__ == "__main__":
     data = pd.read_csv("dataset/diabetes.csv")
     
@@ -327,3 +348,4 @@ if __name__ == "__main__":
     print(f"Precision (sklearn): {metrics.precision_score(y_test, sk_model.predict(X_test)).round(6)}")
     print(f"F1 Score (sklearn): {metrics.f1_score(y_test, sk_model.predict(X_test)).round(6)}")
 
+    plot_confusion_matrix(y_test, c_model.predict(X_test))
