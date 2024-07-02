@@ -68,5 +68,11 @@ $P(\text{rough} | \text{potato}) = \frac{30}{40} = 0.967$
 
 
 Now we calculate the likelihoods of a class $C_k$ given the features $x_i$. \
-**For carrot** \
 $$P(C_{\text{carrot}} | x_{i}) = P(\text{orange} | \text{carrot}) \cdot P(\text{long} | \text{carrot}) \cdot P(\text{smooth} | \text{carrot}) \approx 0.0889$$
+$$P(C_{\text{potato}} | x_{i}) = P(\text{brown} | \text{potato}) \cdot P(\text{round} | \text{potato}) \cdot P(\text{rough} | \text{potato}) \approx 0.001875$$ \
+
+>[!NOTE]
+>We can compute the likelihood this way because of the naive assumption, thus:
+>$$P(C_{k} | x_{i}) = P(C_{k} | x_{1}) \cdot P(C_{k} | x_{2}) \cdot \dots \cdot P(C_{k} | x_{n})$$
+
+
