@@ -19,3 +19,12 @@ Represented by a Dataframe object / or Numpy array of shape $\left(5728, 2\right
 > spam: int
 
 Where the `text` variable is the predictor in the form of sentences (str), and `spam` being the response variable.
+
+# The fundementals of Naive Bayes
+The "naive" assumption about this algorithm is that we assume all independent variables to be mutually independent. The reason being that computation becomes much easier, and the algorithm still performs well in most real-life cases, especially for document classification and spam filtering. The downside being that the algorithm may not truly capture the patterns in data, as features may be dependent. In simple terms this how the algorithm works.
+
+1. Gather data
+2. Calculate the prior probabilities, $P(C_{k})$
+3. Calculate the likelihoods of the features $x_i$ given the classes $C_k$ given by
+$$P(C_{k} | x_{i}) = \frac{P(C_k) \cdot P(x_{i} | C_{k})}{P(x_{i})}$$
+4. Classify the new point by the label with the greatest likelihood 
