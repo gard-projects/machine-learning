@@ -25,6 +25,6 @@ The "naive" assumption about this algorithm is that we assume all independent va
 
 1. Gather data
 2. Calculate the prior probabilities, $P(C_{k})$
-3. Calculate the likelihoods of the features $x_i$ given the classes $C_k$ given by
+3. Calculate the likelihoods of the class $C_k$ given the features $x_i$
 $$P(C_{k} | x_{i}) = \frac{P(C_k) \cdot P(x_{i} | C_{k})}{P(x_{i})}$$
 4. Classify the new point by the label with the greatest likelihood 
