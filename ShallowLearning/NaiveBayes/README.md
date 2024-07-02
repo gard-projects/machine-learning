@@ -80,3 +80,12 @@ $$P(C_{\text{potato}} | x_{i}) = P(\text{potato}) \cdot P(\text{brown} | \text{p
 ### Step 4: Make a decision
 Since $P(C_{\text{carrot}} | x_{i}) > P(C_{\text{potato}} | x_{i})$, we classify the new vegetable as a carrot.
 
+
+# Additional concepts
+To make the Naive Bayes algorithm more robust in cases of rare events, and small probabilities we make use of two important concepts.
+
+## Laplace smoothing, $\alpha$
+This technique is used to prevent rare events from having a 0 percent chance of occuring. Essentially you add a small value $\alpha$ (which is a **hyperparameter**) to the prior probability $P(C_{k})$. The equation is given by:
+$$p_{i, \alpha-smoothed} = \frac{x_i + \alpha}{N + \alpha d}$$
+
+
