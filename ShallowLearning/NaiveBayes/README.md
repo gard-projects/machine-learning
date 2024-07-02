@@ -73,6 +73,8 @@ $$P(C_{\text{potato}} | x_{i}) = P(\text{potato}) \cdot P(\text{brown} | \text{p
 
 >[!NOTE]
 >We can compute the likelihood this way because of the naive assumption, thus:
+>$$P(A \intersect B) = P(A) \cdot P(B)$$
+>
 >$$P(C_{k} | x_{i}) = P(C_{k}) \cdot P(x_{1} | C_{k}) \cdot P(x_{2} | C_{k}) \cdot \quad \dots \quad \cdot P(x_{n} | C_{k})$$
 
 
