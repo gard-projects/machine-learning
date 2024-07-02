@@ -69,7 +69,7 @@ $P(\text{rough} | \text{potato}) = \frac{30}{40} = 0.967$
 
 Now we calculate the likelihoods of a class $C_k$ given the features $x_i$. \
 $$P(C_{\text{carrot}} | x_{i}) = P(\text{carrot}) \cdot P(\text{orange} | \text{carrot}) \cdot P(\text{long} | \text{carrot}) \cdot P(\text{smooth} | \text{carrot}) \approx 0.0889$$
-$$P(C_{\text{potato}} | x_{i}) = P(\text{potato}) \cdot P(\text{brown} | \text{potato}) \cdot P(\text{round} | \text{potato}) \cdot P(\text{rough} | \text{potato}) \approx 0.001875$$ \
+$$P(C_{\text{potato}} | x_{i}) = P(\text{potato}) \cdot P(\text{brown} | \text{potato}) \cdot P(\text{round} | \text{potato}) \cdot P(\text{rough} | \text{potato}) \approx 0.001875$$ 
 
 >[!NOTE]
 >We can compute the likelihood this way because of the naive assumption, thus:
@@ -77,4 +77,6 @@ $$P(C_{\text{potato}} | x_{i}) = P(\text{potato}) \cdot P(\text{brown} | \text{p
 >
 >$$P(C_{k} | x_{i}) = P(C_{k}) \cdot P(x_{1} | C_{k}) \cdot P(x_{2} | C_{k}) \cdot \quad \dots \quad \cdot P(x_{n} | C_{k})$$
 
+### Step 4: Make a decision
+Since $P(C_{\text{carrot}} | x_{i}) > P(C_{\text{potato}} | x_{i})$, we classify the new vegetable as a carrot.
 
