@@ -59,7 +59,7 @@ $P(\text{orange} | \text{carrot}) = \frac{58}{60} \approx 0.967$ \
 $P(\text{long} | \text{carrot}) = \frac{55}{60} \approx 0.917$ \
 $P(\text{smooth} | \text{carrot}) = \frac{50}{60} \approx 0.833$
 
-&nbsf;
+$&nbsf;$
 
 **For potatoes** \
 $P(\text{brown} | \text{potato}) = \frac{38}{40} = 0.95$ \
