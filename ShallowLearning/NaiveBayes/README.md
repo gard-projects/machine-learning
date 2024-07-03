@@ -111,16 +111,16 @@ $$f(x) = \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{1}{2}\left(\frac{x - \mu}{\sigma}\
 
 This function is used to compute the likelihoods given by $P(x_{i} | C_{k})$, which requires the mean $\mu_{k,i}$ and the variance $\sigma^{2}_{k,i}$. Where `k` represents the given class, and `i` is the specific feature. On the other hand, **Multinomial Naive Bayes** does not use this type of function, instead we compute likelihoods by using feature occurence counts or frequencies:
 
-$$log \, P(C_{k} | x) \propto log \left(P(C_k)\prod_{i=1}^{n} (p_{k,i})^{x_i}\right)$$
+$$log \thinspace P(C_{k} | x) \propto log \left(P(C_k)\prod_{i=1}^{n} (p_{k,i})^{x_i}\right)$$
 
-$$\therefore log \,P(C_k) + \sum_{i=1}^{n} x_i \cdot log \,p_{k,i}$$
+$$\therefore log \thinspace P(C_k) + \sum_{i=1}^{n} x_i \cdot log \thinspace p_{k,i}$$
 
 $$\therefore b + w^{T}_{k}x$$
 
 Where we have the following.
-> b: $log \,P(C_k)$
+> b: $log \thinspace P(C_k)$
 >
-> $w_{k,i} = log \,p_{k,i}$
+> $w_{k,i} = log \thinspace p_{k,i}$
 
 $p_{k,i}$ is the probability of a feature $x_i$ given a class $C_k$ (denoted by `i` and `k` respectively). In other words:
 $$p_{k,i} = P(x_{i} | C_{k})$$
