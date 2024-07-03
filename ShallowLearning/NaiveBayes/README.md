@@ -117,3 +117,11 @@ $$\therefore log \enspace P(C_k) + \sum_{i=1}^{n} x_i \cdot log \enspace p_{k,i}
 
 $$\therefore b + w^{T}_{k}x$$
 
+Where we have the following.
+> b: $log \emdash P(C_k)
+>
+> $w_{k,i} = log \emdash p_{k,i}$
+
+$p_{k,i}$ is the probability of a feature $x_i$ given a class $C_k$ (denoted by `i` and `k` respectively). In other words:
+$$p_{k,i} = P(x_{i} | C_{k})$$
+
