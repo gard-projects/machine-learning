@@ -113,5 +113,7 @@ This function is used to compute the likelihoods given by $P(x_{i} | C_{k})$, wh
 
 $$log \enspace P(C_{k} | x) \propto log \left(P(C_k)\prod_{i=1}^{n} (p_{k,i})^{x_i}\right)$$
 
-$$\therefore log \enspace P(C_k) + \sum_{i=1}^{n} x_i \cdot log p_{k,i}$$
+$$\therefore log \enspace P(C_k) + \sum_{i=1}^{n} x_i \cdot log \enspace p_{k,i}$$
+
+$$\therefore b + w_{k}^{T}x$$
 
