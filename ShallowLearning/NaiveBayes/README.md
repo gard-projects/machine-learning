@@ -118,7 +118,7 @@ $$\therefore log \enspace P(C_k) + \sum_{i=1}^{n} x_i \cdot log \enspace p_{k,i}
 $$\therefore b + w^{T}_{k}x$$
 
 Where we have the following.
-> b: $log \emdash P(C_k)$
+> b: $log \enspace P(C_k)$
 >
 > $w_{k,i} = log \enspace p_{k,i}$
 
