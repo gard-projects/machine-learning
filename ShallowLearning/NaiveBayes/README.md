@@ -115,5 +115,5 @@ $$log \enspace P(C_{k} | x) \propto log \left(P(C_k)\prod_{i=1}^{n} (p_{k,i})^{x
 
 $$\therefore log \enspace P(C_k) + \sum_{i=1}^{n} x_i \cdot log \enspace p_{k,i}$$
 
-$$\therefore b + w_{k}^{T}x$$
+$$\therefore b + w^{T}_{k}x$$
 
