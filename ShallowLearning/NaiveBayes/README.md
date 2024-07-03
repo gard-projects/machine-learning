@@ -103,6 +103,6 @@ The reason we use logs is simply to prevent **arithmetic underflow** of probabil
 > $$\frac{tp}{tp + fp}$$
 >
 > **F1 Score**: representing both precision and recall
-> $$\frac{\text{precision} \cdot \text{recall}}{\text{precision} + \text{recall}}
+> $$\frac{\text{precision} \cdot \text{recall}}{\text{precision} + \text{recall}}$$
 
 
