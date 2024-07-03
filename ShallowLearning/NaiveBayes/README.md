@@ -113,14 +113,14 @@ This function is used to compute the likelihoods given by $P(x_{i} | C_{k})$, wh
 
 $$log \, P(C_{k} | x) \propto log \left(P(C_k)\prod_{i=1}^{n} (p_{k,i})^{x_i}\right)$$
 
-$$\therefore log \, P(C_k) + \sum_{i=1}^{n} x_i \cdot log \, p_{k,i}$$
+$$\therefore log \,P(C_k) + \sum_{i=1}^{n} x_i \cdot log \,p_{k,i}$$
 
 $$\therefore b + w^{T}_{k}x$$
 
 Where we have the following.
-> b: $log \, P(C_k)$
+> b: $log \,P(C_k)$
 >
-> $w_{k,i} = log \, p_{k,i}$
+> $w_{k,i} = log \,p_{k,i}$
 
 $p_{k,i}$ is the probability of a feature $x_i$ given a class $C_k$ (denoted by `i` and `k` respectively). In other words:
 $$p_{k,i} = P(x_{i} | C_{k})$$
