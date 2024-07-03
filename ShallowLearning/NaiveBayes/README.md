@@ -88,4 +88,21 @@ To make the Naive Bayes algorithm more robust in cases of rare events, and small
 This technique is used to prevent rare events from having a 0 percent chance of occuring. Essentially you add a small value $\alpha$ (which is a **hyperparameter**) to the prior probability $P(C_{k})$. The equation is given by:
 $$p_{i, \alpha-smoothed} = \frac{x_i + \alpha}{N + \alpha d}$$
 
+## Log probability
+Due to some events having a low probability, we introduce the concept of working in log space. This can be seen in the `log_proba(...)` and `gaussian_log_probability(...)`function. \
+The reason we use logs is simply to prevent **arithmetic underflow** of probabilities. 
+
+# Metrics used 
+> **Recall** (specificity): the proportion of True Negatives correctly classified by the algorithm
+> $$\frac{tn}{tn + fp}$$
+>
+> **Sensitivity**: the proportion of True Positives correctly classified by the algorithm
+> $$\frac{tp}{tp + fn}$$
+>
+> **Precision**: the proportion of actual positives correctly classified by the algorithm
+> $$\frac{tp}{tp + fp}$$
+>
+> **F1 Score**: representing both precision and recall
+> $$\frac{\text{precision} \cdot \text{recall}}{\text{precision} + \text{recall}}
+
 
