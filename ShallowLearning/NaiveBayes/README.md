@@ -2,6 +2,8 @@
 https://www.kaggle.com/datasets/himanshunakrani/naive-bayes-classification-data (Univariate Gaussian Naive Bayes) \
 https://www.kaggle.com/datasets/karthickveerakumar/spam-filter/data (Multinomial Naive Bayes)
 
+&nbsp;
+
 # About the datasets
 The datasets we will be working with in this project is "diabetes.csv" and "emails.csv". We will be using the Gaussian Naive Bayes for classifying pasients with diabetes, and those without. The latter (Multinomial Naive Bayes) will be used to classify whether a email should be considered spam or "ham" (not being spam). 
 
@@ -22,6 +24,8 @@ Represented by a Dataframe object / or Numpy array of shape $\left(5728, 2\right
 > spam: int
 
 Where the `text` variable is the predictor in the form of sentences (str), and `spam` being the response variable.
+
+&nbsp;
 
 # The fundementals of Naive Bayes
 The "naive" assumption about this algorithm is that we assume all independent variables to be mutually independent. The reason being that computation becomes much easier, and the algorithm still performs well in most real-life cases, especially for document classification and spam filtering. The downside being that the algorithm may not truly capture the patterns in data, as features may be dependent. In simple terms this how the algorithm works.
@@ -80,6 +84,7 @@ $$P(C_{\text{potato}} | x_{i}) = P(\text{potato}) \cdot P(\text{brown} | \text{p
 ### Step 4: Make a decision
 Since $P(C_{\text{carrot}} | x_{i}) > P(C_{\text{potato}} | x_{i})$, we classify the new vegetable as a carrot.
 
+&nbsp;
 
 # Additional concepts
 To make the Naive Bayes algorithm more robust in cases of rare events, and small probabilities we make use of two important concepts.
@@ -91,6 +96,8 @@ $$p_{i, \alpha-smoothed} = \frac{x_i + \alpha}{N + \alpha d}$$
 ## Log probability
 Due to some events having a low probability, we introduce the concept of working in log space. This can be seen in the `log_proba(...)` and `gaussian_log_probability(...)`function. \
 The reason we use logs is simply to prevent **arithmetic underflow** of probabilities. 
+
+&nbsp;
 
 # Metrics used 
 > **Recall** (specificity): the proportion of True Negatives correctly classified by the algorithm
@@ -104,6 +111,8 @@ The reason we use logs is simply to prevent **arithmetic underflow** of probabil
 >
 > **F1 Score**: representing both precision and recall
 > $$\frac{\text{precision} \cdot \text{recall}}{\text{precision} + \text{recall}}$$
+
+&nbsp;
 
 # The difference between Gaussian and Multinomial Naive Bayes
 The main difference lies in how we decide which category a given data point should belong to. In **Gaussian Naive Bayes** we use a Gaussian probability density function given by:
