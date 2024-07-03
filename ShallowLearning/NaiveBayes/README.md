@@ -107,5 +107,5 @@ The reason we use logs is simply to prevent **arithmetic underflow** of probabil
 
 # The difference between Gaussian and Multinomial Naive Bayes
 The main difference lies in how we decide which category a given data point should belong to. In Gaussian Naive Bayes we use a Gaussian distribution function given by:
-$$f(x) = \frac{1}{\sigma\sqrt{2\pi}}e^{\frac{-1}{2}\left(\frac{x - \mu}{\sigma}\right)^{2}}$$
+$$f(x) = \frac{1}{\sigma\sqrt{2\pi}}e^-{\frac{1}{2}\left(\frac{x - \mu}{\sigma}\right)^{2}}$$
 
