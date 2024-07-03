@@ -127,7 +127,7 @@ $$p_{k,i} = P(x_{i} | C_{k})$$
 
 &nbsp;
 
-Another big difference is how the `fit(...)` function is constructed. In **Gaussian Naive Bayes** we compute the mean $\mu$ and variance $\sigma^{2}$ for each feature $x_i$ given some class $C_k$. While in **Multinomial Naive Bayes** we compute the number of samples in a given class `self.class_count_` and the word count for the given class `self.word_count_`. These are necessary when computing the respective likelihoods. Both approaches compute the prior probabilities, either in the log or normal form. 
+Another big difference is how the `fit(...)` function is constructed. In **Gaussian Naive Bayes** we compute the mean $\mu$ and variance $\sigma^{2}$ for each feature $x_i$ given some class $C_k$. While in **Multinomial Naive Bayes** we compute the number of samples in a given class `self.class_count_`, and the word count for the given class `self.word_count_`. These are necessary when computing the respective likelihoods. Both approaches compute the prior probabilities, either in the log or normal form. 
 
 &nbsp;
 
