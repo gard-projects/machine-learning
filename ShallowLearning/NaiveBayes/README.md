@@ -111,5 +111,5 @@ $$f(x) = \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{1}{2}\left(\frac{x - \mu}{\sigma}\
 
 This function is used to compute the likelihoods given by $P(x_{i} | C_{k})$, which requires the mean $\mu_{k,i}$ and the variance $\sigma^{2}_{k,i}$. Where `k` represents the given class, and `i` is the specific feature. On the other hand, **Multinomial Naive Bayes** does not use this type of function, instead we compute likelihoods by using feature occurence counts or frequencies:
 
-$$log p(C_{k} | x) \propto log \left(p(C_k)\prod_{i=1}^{n} p_{k,i}^{x_i}\right)$$
+$$log p(C_{k} | x) \propto log \left(p(C_k)\prod_{i=1}^{n} (p_{k,i})^{x_i}\right)$$
 
