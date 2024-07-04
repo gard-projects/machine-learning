@@ -143,7 +143,7 @@ Another big difference is how the `fit(...)` function is constructed. In **Gauss
 Lastly, the use cases for these two approaches are slightly different. **Gaussian Naive Bayes** is typically used for regression or classification problems with continuous features, while **Multinomial Naive Bayes** is used in text classification and document categorization. 
 
 ## CountVectorizer() and TfidVectorizer()
-**CountVectorizer** is an algorithm that converts a collection of text documents into a matrix of token counts. The result is a sparse matrix, where each row represents a document &mdash in our case an email &mdash and each column represents a single word in the corpus (or dataset). Each cell within a column contains the count of that word in the email. Here is how it works.
+**CountVectorizer** is an algorithm that converts a collection of text documents into a matrix of token counts. The result is a sparse matrix, where each row represents a document &mdash; in our case an email &mdash; and each column represents a single word in the corpus (or dataset). Each cell within a column contains the count of that word in the email. Here is how it works.
 1. Perform **tokenization**, split text into words or tokens
 2. Create a vocabulary of unique words across all documents
 3. Transform each document into a vector where each element represents the count of a specific word from the vocabulary
