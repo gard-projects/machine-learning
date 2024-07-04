@@ -27,7 +27,7 @@ Where the `text` variable is the predictor in the form of sentences (str), and `
 
 &nbsp;
 
-# The fundementals of Naive Bayes
+# The fundamentals of Naive Bayes
 The "naive" assumption about this algorithm is that we assume all independent variables to be mutually independent. The reason being that computation becomes much easier, and the algorithm still performs well in most real-life cases, especially for document classification and spam filtering. The downside being that the algorithm may not truly capture the patterns in data, as features may be dependent. In simple terms this how the algorithm works.
 
 1. Gather data
@@ -117,6 +117,10 @@ The reason we use logs is simply to prevent **arithmetic underflow** of probabil
 # The difference between Gaussian and Multinomial Naive Bayes
 The main difference lies in how we decide which category a given data point should belong to. In **Gaussian Naive Bayes** we use a Gaussian probability density function given by:
 $$f(x) = \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{1}{2}\left(\frac{x - \mu}{\sigma}\right)^{2}}$$
+```
+ def gaussian_log_probability(self, X, mean, var):        
+        return -0.5 * np.log(2 * np.pi * var) - 0.5 * ((X - mean) ** 2 / var)
+```
 
 On the other hand, **Multinomial Naive Bayes** does not use this type of function, instead we compute likelihoods by using feature occurence counts or frequencies:
 
@@ -125,7 +129,24 @@ $$log \thinspace P(C_{k} | x) \propto log \left(P(C_k)\prod_{i=1}^{n} (p_{k,i})^
 $$\therefore log \thinspace P(C_k) + \sum_{i=1}^{n} x_i \cdot log \thinspace p_{k,i}$$
 
 $$\therefore b + w^{T}_{k}x$$
+```
+    def log_likelihood(self, X):
+        
+        # Multinomial distribution
+        b = self.class_log_prior_
+        V = X.shape[1] # Vocabulary size
+        w = np.zeros((self.classes_.shape[0], V))
 
+        # Compute p_ki = log(P(x_i|y_k))
+        for i in range(self.classes_.shape[0]):
+            w[i] = np.log((self.word_count_[i] + self.alpha) / (np.sum(self.word_count_[i]) + self.alpha * V))
+        
+        # Check if sparse matrix, typically for text data
+        if sparse.issparse(X):
+            return b + X.dot(w.T)
+        else:
+            return b + np.dot(X, w.T)
+```
 Where we have the following.
 > b: $log \thinspace P(C_k)$
 >
@@ -154,7 +175,7 @@ Lastly, the use cases for these two approaches are slightly different. **Gaussia
 
 The TF-IDF statistic is defined as:
 * Term Frequency (TF) - how often a word appears in a document
-* Inverse Document Frequency (IDF) - a measure of how common or rare a word is accross all document
+* Inverse Document Frequency (IDF) - a measure of how common or rare a word is across all document
 
 # Results from testing models
 Results from running Gaussian Naive Bayes on the `diabetes.csv` dataset. \
