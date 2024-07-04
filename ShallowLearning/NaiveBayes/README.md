@@ -146,11 +146,14 @@ Lastly, the use cases for these two approaches are slightly different. **Gaussia
 Results from running Gaussian Naive Bayes on the `diabetes.csv` dataset. \
 ![nb_gaussian](../images/nb_gauss_1.png)
 
+Corresponding confusion matrix to this implementation. \
+![nb_gaussian_conf_matrix](../images/nb_conf_matrix_gauss.png)
+
 Multinomial Naive Bayes using `CountVectorizer` on the `text` column in the dataset. \
 ![nb_multinomial_countvectorizer](../images/nb_mul_2.png)
 
 Multinomial Naive Bayes using `TfidVectorizer()` on the `text` column in the dataset. \
 ![nb_multinomial_tfidvectorizer](../images/nb_mul_1.png)
 
-Corresponding confusion matrix to this implementation.
+Corresponding confusion matrix to this implementation. \
 ![nb_multinomial_conf_matrix_tfid](../images/nb_conf_matrix.png)
