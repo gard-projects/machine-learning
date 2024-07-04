@@ -151,3 +151,6 @@ Multinomial Naive Bayes using `CountVectorizer` on the `text` column in the data
 
 Multinomial Naive Bayes using `TfidVectorizer()` on the `text` column in the dataset. \
 ![nb_multinomial_tfidvectorizer](../images/nb_mul_1.png)
+
+Corresponding confusion matrix to this implementation.
+![nb_multinomial_conf_matrix_tfid](../images/nb_conf_matrix.png)
