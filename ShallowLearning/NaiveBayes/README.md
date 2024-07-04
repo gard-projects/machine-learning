@@ -143,3 +143,5 @@ Another big difference is how the `fit(...)` function is constructed. In **Gauss
 Lastly, the use cases for these two approaches are slightly different. **Gaussian Naive Bayes** is typically used for regression or classification problems with continuous features, while **Multinomial Naive Bayes** is used in text classification and document categorization. 
 
 # Results from testing models
+Results from running Gaussian Naive Bayes on the `diabetes.csv` dataset.
+![nb_gaussian](../images/nb_gauss_1.png)
