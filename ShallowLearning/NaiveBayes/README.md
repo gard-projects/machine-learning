@@ -149,6 +149,8 @@ Results from running Gaussian Naive Bayes on the `diabetes.csv` dataset. \
 Corresponding confusion matrix to this implementation. \
 ![nb_gaussian_conf_matrix](../images/nb_conf_matrix_gauss.png)
 
+&nbsp;
+
 Multinomial Naive Bayes using `CountVectorizer` on the `text` column in the dataset. \
 ![nb_multinomial_countvectorizer](../images/nb_mul_2.png)
 
