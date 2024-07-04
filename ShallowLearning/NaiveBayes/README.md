@@ -145,3 +145,9 @@ Lastly, the use cases for these two approaches are slightly different. **Gaussia
 # Results from testing models
 Results from running Gaussian Naive Bayes on the `diabetes.csv` dataset. \
 ![nb_gaussian](../images/nb_gauss_1.png)
+
+Multinomial Naive Bayes using `CountVectorizer` on the `text` column in the dataset. \
+![nb_mul_2](../images/nb_mul2.png)
+
+Multinomial Naive Bayes using `TfidVectorizer()` on the `text` column in the dataset. \
+![nb_mul_1](../images/nb_mul1.png)
