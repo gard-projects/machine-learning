@@ -159,11 +159,7 @@ Where we have the following.
 $p_{k,i}$ is the probability of a feature $x_i$ given a class $C_k$ (denoted by `i` and `k` respectively). In other words:
 $$p_{k,i} = P(x_{i} | C_{k})$$
 
-&nbsp;
-
 Another big difference is how the `fit(...)` function is constructed. In **Gaussian Naive Bayes** we compute the mean $\mu$ and variance $\sigma^{2}$ for each feature $x_i$ given some class $C_k$. While in **Multinomial Naive Bayes** we compute the number of samples in a given class `self.class_count_`, and the word count for the given class `self.word_count_`. These are necessary when computing the respective likelihoods. Both approaches compute the prior probabilities, either in the log or normal form. 
-
-&nbsp;
 
 Lastly, the use cases for these two approaches are slightly different. **Gaussian Naive Bayes** is typically used for regression or classification problems with continuous features, while **Multinomial Naive Bayes** is used in text classification and document categorization. 
 
