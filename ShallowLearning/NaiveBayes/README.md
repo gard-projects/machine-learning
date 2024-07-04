@@ -95,9 +95,13 @@ $$p_{i, \alpha-smoothed} = \frac{x_i + \alpha}{N + \alpha d}$$
 
 Where:
 > p_{i, \$alpha-smoothed}: the smoothed probability estimate for a particular feature
+> 
 > x_i : the count or frequency of feature `i` in the training data
+> 
 > $\alpha$: is the smoothing hyperparameter, typically set to the value 1
+> 
 > N: the total count or sum of all features/classes in the training data
+> 
 > d: the number of possible features or classes in the model
 
 The denominator ($N + \alpha d$) normalizes the probabilities to ensure they sum to 1 across all features or classes.
