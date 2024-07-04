@@ -142,6 +142,20 @@ Another big difference is how the `fit(...)` function is constructed. In **Gauss
 
 Lastly, the use cases for these two approaches are slightly different. **Gaussian Naive Bayes** is typically used for regression or classification problems with continuous features, while **Multinomial Naive Bayes** is used in text classification and document categorization. 
 
+## CountVectorizer() and TfidVectorizer()
+**CountVectorizer** is an algorithm that converts a collection of text documents into a matrix of token counts. The result is a sparse matrix, where each row represents a document -- in our case an email -- and each column represents a single word in the corpus (or dataset). Each cell within a column contains the count of that word in the email. Here is how it works.
+1. Perform **tokenization**, split text into words or tokens
+2. Create a vocabulary of unique words across all documents
+3. Transform each document into a vector where each element represents the count of a specific word from the vocabulary
+
+**TfidVectorizer** is an extension of CountVectorizer. It transforms text into a vector representation based on the **TF-IDF statistic**. It involves
+1. Performing the same tokenization and vocabulary building as CountVectorizer
+2. Calculating TF-IDF scores **instead** of raw counts
+
+The TF-IDF statistic is defined as:
+* Term Frequency (TF) - how often a word appears in a document
+* Inverse Document Frequency (IDF) - a measure of how common or rare a word is accross all document
+
 # Results from testing models
 Results from running Gaussian Naive Bayes on the `diabetes.csv` dataset. \
 ![nb_gaussian](../images/nb_gauss_1.png)
@@ -151,7 +165,7 @@ Corresponding confusion matrix to this implementation. \
 
 &nbsp;
 
-Multinomial Naive Bayes using `CountVectorizer` on the `text` column in the dataset. \
+Multinomial Naive Bayes using `CountVectorizer()` on the `text` column in the dataset. \
 ![nb_multinomial_countvectorizer](../images/nb_mul_2.png)
 
 Multinomial Naive Bayes using `TfidVectorizer()` on the `text` column in the dataset. \
@@ -159,3 +173,5 @@ Multinomial Naive Bayes using `TfidVectorizer()` on the `text` column in the dat
 
 Corresponding confusion matrix to this implementation. \
 ![nb_multinomial_conf_matrix_tfid](../images/nb_conf_matrix.png)
+
+The interesting observation here, is that the accuracy of the model is significantly different in the two instances of Vectorizer. The reason is simple, `TfidVectorizer` downweights common words that appear frequently across many documents, as these words often carry less interesting information. However `CountVectorizer` on the other hand gives equal importance to all words based solely on their frequency. Additionally the **TF-IDF scores** are normalized, which can help in comparing documents (in our case emails) of different lengths more fairly. 
