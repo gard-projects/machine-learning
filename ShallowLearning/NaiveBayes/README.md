@@ -94,7 +94,7 @@ This technique is used to prevent rare events from having a 0 percent chance of 
 $$p_{i, \alpha-smoothed} = \frac{x_i + \alpha}{N + \alpha d}$$
 
 Where:
-> p_{i, \$alpha-smoothed}: the smoothed probability estimate for a particular feature
+> p_{i, $\alpha$-smoothed}: the smoothed probability estimate for a particular feature
 > 
 > x_i : the count or frequency of feature `i` in the training data
 > 
