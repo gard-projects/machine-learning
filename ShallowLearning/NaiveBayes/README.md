@@ -118,7 +118,7 @@ The reason we use logs is simply to prevent **arithmetic underflow** of probabil
 The main difference lies in how we decide which category a given data point should belong to. In **Gaussian Naive Bayes** we use a Gaussian probability density function given by:
 $$f(x) = \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{1}{2}\left(\frac{x - \mu}{\sigma}\right)^{2}}$$
 
-Implemented in code: \
+Implemented in code:
 ```
  def gaussian_log_probability(self, X, mean, var):        
         return -0.5 * np.log(2 * np.pi * var) - 0.5 * ((X - mean) ** 2 / var)
@@ -132,7 +132,7 @@ $$\therefore log \thinspace P(C_k) + \sum_{i=1}^{n} x_i \cdot log \thinspace p_{
 
 $$\therefore b + w^{T}_{k}x$$
 
-Implemented in code: \
+Implemented in code:
 ```
     def log_likelihood(self, X):
         
