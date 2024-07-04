@@ -147,7 +147,7 @@ Results from running Gaussian Naive Bayes on the `diabetes.csv` dataset. \
 ![nb_gaussian](../images/nb_gauss_1.png)
 
 Multinomial Naive Bayes using `CountVectorizer` on the `text` column in the dataset. \
-![nb_mul_2](../images/nb_mul2.png)
+![nb_multinomial_countvectorizer](../images/nb_mul2.png)
 
 Multinomial Naive Bayes using `TfidVectorizer()` on the `text` column in the dataset. \
-![nb_mul_1](../images/nb_mul1.png)
+![nb_multinomial_tfidvectorizer](../images/nb_mul1.png)
