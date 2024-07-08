@@ -35,6 +35,8 @@
  >
  > TenYearCHD: int
 
+&nbsp;
+
 # Shapes of numpy arrays
 > **x** (the features of a patient): $\left(4238, 15\right)$ 
 > 
@@ -49,3 +51,8 @@
 > **z** (the logits): $\left(4238,\right)$ 
 > 
 > **grad** (the gradient vector): $\left(16,\right)$
+
+&nbsp;
+
+# The Basics of Logistic Regression
+This type of model is quite similar to **linear regression** in many ways, but deals with classifications as opposed to predicting continuous values. Linear regression uses a linear function to make predictions, while logistic regression uses a S-shaped curve, which is actually the **sigmoid function $\sigma(z)$**. An image is provided below.
