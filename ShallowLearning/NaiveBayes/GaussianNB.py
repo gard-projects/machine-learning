@@ -70,7 +70,6 @@ class GaussianNB():
 
             self.class_prior_[i] = (n_c + self.alpha) / (n_samples + self.alpha * n_classes) # Laplace smoothing
     
-    
     def gaussian_log_probability(self, X, mean, var):
         '''
         Parameters

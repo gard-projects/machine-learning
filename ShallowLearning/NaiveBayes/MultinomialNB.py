@@ -262,7 +262,6 @@ class MultinomialNB:
             setattr(self, parameter, value)
         return self
 
-
 def plot_confusion_matrix(y_true, y_pred):
     '''
     Parameters
