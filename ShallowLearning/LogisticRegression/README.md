@@ -66,15 +66,29 @@ The advantage of using a sigmoid function is that the value range (y-axis) is re
 ```
  X = np.column_stack((np.ones((x.shape[0], 1)), x))
 ```
-5. Define the logit function
+4. Define the logit function
 $$z = \beta_0 + \beta_1x_1 + \dots + \beta_nx_n \quad \equiv X \boldsymbol{\cdot} w$$
-6. Define the Sigmoid function $\sigma(z)$
+5. Define the Sigmoid function $\sigma(z)$
 $$\sigma(z) = \frac{1}{1+e^{-z}}$$
-7. Forward propagation, compute z and apply the Sigmoid function to obtain `y_pred`
-8. Compute the gradient of the negative log-likelihood function (needed for **minimization**)
+6. Forward propagation, compute z and apply the Sigmoid function to obtain `y_pred`
+7. Compute the gradient of the negative log-likelihood function (needed for **minimization**)
 $$L(w) = - \sum_{n=1}^{n} y^{(i)} \thinspace log \thinspace \left[\sigma\left(z^{(i)}\right)\right] + (1-y^{(i)}) \thinspace log \thinspace \left[1-\sigma\left(z^{(i)}\right)\right]$$
-Instead of computing the loss for each individual sample at a time (by using the sum), we can convert the following equation into matrix form for faster computation
+In matrix form...
 $$L(w) = - \left[y \thinspace log \thinspace \left(\sigma(z)\right) + (1-y) \thinspace log \thinspace \left(1 - \sigma(z)\right)\right]$$
 Where y and z are matrices.
+8. Compute the gradient of the loss function $L(w)$ with respect to $w$.
+$$X^{T} \boldsymbol{\cdot} \left( y - \sigma(z)\right)$$
+In code:
+```
+ grad = np.dot(X.T, (y - y_pred))
+```
+9. Update the weight vector, adjust the hyperparameter $\alpha$ for learning rate as needed (e.g. using GridSearch)
+```
+self.w = self.w + self.learning_rate * grad
+```
+10. Repeat steps 6 - 9 until convergence (indicated by a gradient smaller than tolerance level, `tol`), or until maximum number of iterations `max_iter` is reached
+11. Make predictions and compute model metrics (like e.g. score)
+
+
 # Sources
 Toprak, M (2020). Activation Functions for Deep Learning [Image]. https://medium.com/@toprak.mhmt/activation-functions-for-deep-learning-13d8b9b20e
