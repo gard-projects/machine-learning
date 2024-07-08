@@ -36,16 +36,16 @@
  > TenYearCHD: int
 
 # Shapes of numpy arrays
-> x (the features of a patient): $\left(4238, 15\right)$ \
+> **x** (the features of a patient): $\left(4238, 15\right)$ 
 > 
-> y (the targets): $\left(4238,\right)$ \
+> **y** (the targets): $\left(4238,\right)$ 
 >
-> y\_pred (evaluated using sigmoid function $\sigma(z)$ ): $\left(4238,\right)$ \
+> **y\_pred** (evaluated using sigmoid function $\sigma(z)$ ): $\left(4238,\right)$ 
 > 
-> X (the design matrix): $\left(4238, 16\right)$ \
+> **X** (the design matrix): $\left(4238, 16\right)$ 
 > 
-> w (the weights, including the bias term `b`): $\left(16,\right)$ \
+> **w** (the weights, including the bias term `b`): $\left(16,\right)$ 
 > 
-> z (the logits): $\left(4238,\right)$ \
+> **z** (the logits): $\left(4238,\right)$ 
 > 
-> grad (the gradient vector): $\left(16,\right)$
+> **grad** (the gradient vector): $\left(16,\right)$
