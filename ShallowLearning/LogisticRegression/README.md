@@ -55,7 +55,7 @@
 &nbsp;
 
 # Data preprocessing
-The dataset in this project contains some missing values indicated by `NaN`, to resolve this I used the `SimpleImputer` from Sklearn. Essentially, the way I configured the object is to fill any missing `NaN`values with the mean of the given feature. Additionally, I applied **standardization** on the features, to reduce the number of iterations needed for reaching convergence. See the code below.
+The dataset in this project contains some missing values indicated by `NaN`, to resolve this I used the `SimpleImputer` from Sklearn. Essentially, the object is configured to fill any missing `NaN` values with the mean of the respective feature. Thus, since there are missing values in the `glucose` column, we replace the `NaN` values present here with the mean of the `glucose` feature! Additionally, I applied **standardization** on the features, to reduce the number of iterations needed for reaching convergence. See the code below.
 ```
     imp = SimpleImputer(missing_values=np.nan, strategy='mean')
     x = imp.fit_transform(x)
