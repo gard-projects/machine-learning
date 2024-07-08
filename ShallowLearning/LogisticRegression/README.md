@@ -54,6 +54,18 @@
 
 &nbsp;
 
+# Data preprocessing
+The dataset in this project contains some missing values indicated by `NaN`, to resolve this I used the `SimpleImputer` from Sklearn. Essentially, the way I configured the object is to fill any missing `NaN`values with the mean of the given feature. Additionally, I applied **standardization** on the features, to reduce the number of iterations needed for reaching convergence. See the code below.
+```
+    imp = SimpleImputer(missing_values=np.nan, strategy='mean')
+    x = imp.fit_transform(x)
+    # Normalize the features
+    x = StandardScaler().fit_transform(x)
+```
+
+
+&nbsp;
+
 # The Basics of Logistic Regression
 This type of model is quite similar to **linear regression** in many ways, but deals with classifications as opposed to predicting continuous values. Linear regression uses a linear function to make predictions, while logistic regression uses a S-shaped curve, which is actually the **sigmoid function $\sigma(z)$**. The image by Toprak (2020) illustrates the behaviour of the sigmoid function, see below.
 ![sigmoid_function](../images/sigmoid_function.png)
