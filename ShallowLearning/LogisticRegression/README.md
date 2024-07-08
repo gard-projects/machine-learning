@@ -56,7 +56,7 @@
 
 # The Basics of Logistic Regression
 This type of model is quite similar to **linear regression** in many ways, but deals with classifications as opposed to predicting continuous values. Linear regression uses a linear function to make predictions, while logistic regression uses a S-shaped curve, which is actually the **sigmoid function $\sigma(z)$**. The graph Toprak (2020) illustrates the sigmoid functio, see below.
-![sigmoid_function](../dataset/sigmoid_function.png)
+![sigmoid_function](dataset/sigmoid_function.png)
 
 # Sources
 Toprak, M (2020). Activation Functions for Deep Learning [Image]. https://medium.com/@toprak.mhmt/activation-functions-for-deep-learning-13d8b9b20e
