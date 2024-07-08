@@ -74,7 +74,7 @@ $$\sigma(z) = \frac{1}{1+e^{-z}}$$
 8. Compute the gradient of the negative log-likelihood function (needed for **minimization**)
 $$L(w) = - \sum_{n=1}^{n} y^{(i)} \thinspace log \thinspace \left[\sigma\left(z^{(i)}\right)\right] + (1-y^{(i)}) \thinspace log \thinspace \left[1-\sigma\left(z^{(i)}\right)\right]$$
 Instead of computing the loss for each individual sample at a time (by using the sum), we can convert the following equation into matrix form for faster computation
-$$L(w) = - y \thinspace log \thinspace \left(\sigma(z)\right) + (1-y) \thinspace log \thinspace \left(1 - \sigma(z)\right)$$
+$$L(w) = - \left[y \thinspace log \thinspace \left(\sigma(z)\right) + (1-y) \thinspace log \thinspace \left(1 - \sigma(z)\right)\right]$$
 Where y and z are matrices.
 # Sources
 Toprak, M (2020). Activation Functions for Deep Learning [Image]. https://medium.com/@toprak.mhmt/activation-functions-for-deep-learning-13d8b9b20e
