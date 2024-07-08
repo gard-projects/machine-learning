@@ -62,13 +62,17 @@ The advantage of using a sigmoid function is that the value range (y-axis) is re
 
 1. Data preparation, perform normalization on features, split data into training and testing sets respectively
 2. Initialize the parameters `w` randomly
-3. Define the logit function
+3. Define the design matrix, **X**
+```
+ X = np.column_stack((np.ones((x.shape[0], 1)), x))
+```
+5. Define the logit function
 $$z = \beta_0 + \beta_1x_1 + \dots + \beta_nx_n \quad \equiv X \boldsymbol{\cdot} w$$
-4. Define the Sigmoid function $\sigma(z)$
+6. Define the Sigmoid function $\sigma(z)$
 $$\sigma(z) = \frac{1}{1+e^{-z}}$$
-5. Forward propagation, compute z and apply the Sigmoid function to obtain `y_pred`
-6. Compute the gradient of the negative log-likelihood function (needed for **minimization**)
-$$L(w) = - \sum_{n=1}^{n} y^{(i)}log$$
+7. Forward propagation, compute z and apply the Sigmoid function to obtain `y_pred`
+8. Compute the gradient of the negative log-likelihood function (needed for **minimization**)
+$$L(w) = - \sum_{n=1}^{n} y^{(i)}log(\sigma(z^{(i)})) + (1-y)log(1-\sigma(z^{(i)}))$$
 
 # Sources
 Toprak, M (2020). Activation Functions for Deep Learning [Image]. https://medium.com/@toprak.mhmt/activation-functions-for-deep-learning-13d8b9b20e
