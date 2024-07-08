@@ -63,7 +63,7 @@ The advantage of using a sigmoid function is that the value range (y-axis) is re
 1. Data preparation, perform normalization on features, split data into training and testing sets respectively
 2. Initialize the parameters `w` randomly
 3. Define the logit function
-$$z = \beta_0 + \beta_1x_1 + \dots + \beta_nx_n \quad \eq X \cdot w$$
+$$z = \beta_0 + \beta_1x_1 + \dots + \beta_nx_n \quad \equiv X \cdot w$$
 4. Define the Sigmoid function $\sigma(z)$
 $$\sigma(z) = \frac{1}{1+e^{-z}}$$
 5. Forward propagation, compute z and apply the Sigmoid function to obtain `y_pred`
