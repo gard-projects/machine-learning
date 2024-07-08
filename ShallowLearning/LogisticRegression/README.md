@@ -72,7 +72,7 @@ $$z = \beta_0 + \beta_1x_1 + \dots + \beta_nx_n \quad \equiv X \boldsymbol{\cdot
 $$\sigma(z) = \frac{1}{1+e^{-z}}$$
 7. Forward propagation, compute z and apply the Sigmoid function to obtain `y_pred`
 8. Compute the gradient of the negative log-likelihood function (needed for **minimization**)
-$$L(w) = - \sum_{n=1}^{n} y^{(i)}log \thinspace \left[\sigma\left(z^{(i)}\right)\right] + (1-y)log \thinspace \left[1-\sigma\left(z^{(i)}\right)\right]$$
+$$L(w) = - \sum_{n=1}^{n} y^{(i)} \thinspace log \thinspace \left[\sigma\left(z^{(i)}\right)\right] + (1-y) \thinspace log \thinspace \left[1-\sigma\left(z^{(i)}\right)\right]$$
 
 # Sources
 Toprak, M (2020). Activation Functions for Deep Learning [Image]. https://medium.com/@toprak.mhmt/activation-functions-for-deep-learning-13d8b9b20e
