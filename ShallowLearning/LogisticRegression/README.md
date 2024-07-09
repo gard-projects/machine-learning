@@ -76,10 +76,12 @@ The advantage of using a sigmoid function is that the value range (y-axis) is re
 ## The process in simple steps
 
 1. Perform data preparation, thus standardize the features, and split data into training and testing sets respectively
+
+<br/><br/>
    
-2. Initialize the parameters `w` randomly
+3. Initialize the parameters `w` randomly
    
-3. Define the design matrix, **X**
+4. Define the design matrix, **X**
 ```
  X = np.column_stack((np.ones((x.shape[0], 1)), x))
 ```
@@ -110,7 +112,7 @@ In code:
 self.w = self.w + self.learning_rate * grad
 ```
 > [!NOTE]
-> I found the learning_rate, $\alpha$, by using GridSearch, the code is provided below.
+> I found the learning_rate, $\alpha$, by using GridSearch. The code is provided below.
 ```
 params = {
   'tol': [0.0001, 0.001, 0.01],
