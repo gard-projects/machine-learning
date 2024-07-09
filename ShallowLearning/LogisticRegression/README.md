@@ -114,13 +114,19 @@ To test the model, I chose the following functions from Sklearn's metrics class.
 > `auc` - calculates the AUC (Area Under the Curve). Represents the degree/measure of separability between classes, e.g. an AUC score of 0.5 represents a model no better than random guessing
 
 ## Classification report 
-The image to the left represents the report for the custom model, and the image to the right in the result of applying Sklearn's model to the dataset.
+The image to the **left** represents the report for the custom model, and the image to the **right** in the result of applying Sklearn's model to the dataset.
 
 <div>
  <img src="../images/c_classreport_logreg.png" width="45%" height="45%" style="float: left; margin-right: 10px;">
  <img src="../images/sk_classreport_logreg.png" width="45%" height="45%" style="float: left;">
 </div>
 
+## Confusion matrix
+The image to the **left** highlights the performance of the custom model, and the image on the **right** is the performance of Sklearn's logistic regression model.
+<div>
+ <img src="../images/c_conf_logreg.png" width="45%" height="45%" style="float: left; margin-right: 10px;">
+ <img src="../images/sk_conf_logreg.png" width="45%" height="45%" style="float: left;">
+</div>
 
 &nbsp;
 
