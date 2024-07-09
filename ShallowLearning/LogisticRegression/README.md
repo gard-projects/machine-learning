@@ -3,37 +3,37 @@
 
  # About the dataset
  The dataset has the following columns with a shape of $\left(4238, 16\right)$. They primary objective is to predict whether a patient is likely to developing coronary heart disease (CHD) within the next 10 years, given the provided features. Thus `TenYearCHD` is the response variable.
- > male: int
+ > **male**, type=int
  >
- > age: float
+ > **age**, type=float
  >
- > education: int
+ > **education**, type=int
  >
- > currentSmoker: int
+ > **currentSmoker**, type=int
  >
- > cigsPerDay: float
+ > **cigsPerDay**, type=float
  >
- > BPMeds: int
+ > **BPMeds**, type=int
  >
- > prevalentStroke: int
+ > **prevalentStroke**, type=int
  >
- > prevalentHyp: int
+ > **prevalentHyp**, type=int
  >
- > diabetes: int
+ > **diabetes**, type=int
  >
- > totChol: float
+ > **totChol**, type=float
  >
- > sysBP: float
+ > **sysBP**, type=float
  >
- > diaBP: float
+ > **diaBP**, type=float
  >
- > BMI: float
+ > **BMI**, type=float
  >
- > heartRate: float
+ > **heartRate**, type=float
  >
- > glucose: float
+ > **glucose**, type=float
  >
- > TenYearCHD: int
+ > **TenYearCHD**, type=int
 
 &nbsp;
 
