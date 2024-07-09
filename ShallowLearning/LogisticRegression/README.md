@@ -76,8 +76,6 @@ The advantage of using a sigmoid function is that the value range (y-axis) is re
 ## The process in simple steps
 
 1. Perform data preparation, thus standardize the features, and split data into training and testing sets respectively
-
-<br/><br/>
    
 3. Initialize the parameters `w` randomly
    
@@ -100,7 +98,9 @@ In matrix form...
 $$L(w) = - \left[y \thinspace log \thinspace \left(\sigma(z)\right) + (1-y) \thinspace log \thinspace \left(1 - \sigma(z)\right)\right]$$
 Where y and z are matrices.
 
-8. Compute the gradient of the loss function $L(w)$ with respect to $w$.
+<br/><br/>
+
+9. Compute the gradient of the loss function $L(w)$ with respect to $w$.
 $$\frac{\partial L(w)}{\partial w_j} = \nabla w = X^{T} \boldsymbol{\cdot} \left( y - \sigma(z)\right)$$
 In code:
 ```
@@ -124,6 +124,8 @@ clf = GridSearchCV(c_model, params, cv=10, n_jobs=-1).fit(x_train, y_train)
 print(clf.best_params_) 
 ```
 Which gave me the followings values: $\alpha = 0.001$, `max_iter` = 100, and `tol` = 0.0001
+
+<br/><br/>
 
 10. Repeat steps 6 - 9 until convergence (indicated by a gradient smaller than tolerance level, `tol`), or until the maximum number of iterations `max_iter` is reached
 
