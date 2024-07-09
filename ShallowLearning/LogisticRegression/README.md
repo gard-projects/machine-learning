@@ -134,12 +134,20 @@ The image to the **left** highlights the performance of the custom model, and th
  <img src="../images/sk_conf_logreg.png" width="45%" height="45%" style="float: left;">
 </div>
 
-## ROC curve and AUC score
-The image on the **left** displays the ROC curve and AUC score (in legend) of the custom model. As you have probably guessed, the image on the **right** is the results of the Sklearn implementation of the logistic regression model.
+## ROC curve and the AUC score
+The image on the **left** displays the **ROC** (Reciever operating characteristic) curve and **AUC** (Area Under the Curve) score (in legend) of the custom model. As you have probably guessed, the image on the **right** is the results of the Sklearn implementation of the logistic regression model.
 <div>
  <img src="../images/cmodel_auc_logreg.png" width="45%" height="45%" style="float: left; margin-right: 10px;">
  <img src="../images/sk_auc_logreg.png" width="45%" height="45%" style="float: left;">
 </div>
+
+&nbsp;
+
+# Conclusion
+As you can see, the implementation of this project is very similar to linear regression in some aspects, but differs in what we are predicting. Additionally, logistic regression only works with y-values in the range of 0 to 1, as compared to linear regression which can work with any y-value. The model it self performs well in terms of the metrics, like score and f1-score, but has a poor value for **AUC**. In such a situation you would try fit other models to the dataset, and then choose the model with the best AUC score. However the goal for this project is not to choose the right model for the dataset, but rather implement Logistic Regression from scratch and understand the math behind it.
+
+Thank you for reading the project, I hope it could be of benefit to you (the reader). \
+~ Gard
 
 &nbsp;
 
