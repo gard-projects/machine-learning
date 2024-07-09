@@ -117,7 +117,7 @@ To test the model, I chose the following functions from Sklearn's metrics class.
 The image to the left represents the report for the custom model, and the image to the right in the result of applying Sklearn's model to the dataset.
 
 <img src="../images/c_classreport_logreg.png" width="45%" height="45%" style="float: left; margin-right: 10px;">
-<img src="..images/sk_classreport_logreg.png" width="45%" height="45%" style="float: left;">
+<img src="../images/sk_classreport_logreg.png" width="45%" height="45%" style="float: left;">
 
 &nbsp;
 
