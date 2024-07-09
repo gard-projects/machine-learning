@@ -101,6 +101,24 @@ self.w = self.w + self.learning_rate * grad
 10. Repeat steps 6 - 9 until convergence (indicated by a gradient smaller than tolerance level, `tol`), or until maximum number of iterations `max_iter` is reached
 11. Make predictions and compute model metrics (like e.g. score)
 
+&nbsp;
+
+# Results from testing model
+To test the model, I chose the following functions from Sklearn's metrics class.
+> `classification_report` - provides a text report showing the main classification metrics &mdash; **precision**, **recall**, **F1-score**, and **support** (number of occurences of each class in the true data)
+> 
+> `confusion_matrix` - computes a matrix where each row corresponds to the instances in the actual class, while each column represents the instances in the predicted class
+>
+> `roc_curve` - computes the ROC curve, which plots the **True Positive Rate** (TPR) up against the **False Positive Rate** (FPR) at various tresholds, helps selecting a suitable treshold (used in the `predict()` function)
+>
+> `auc` - calculates the AUC (Area Under the Curve). Represents the degree/measure of separability between classes, e.g. an AUC score of 0.5 represents a model no better than random guessing
+
+## Classification report 
+The image to the left represents the report for the custom model, and the image to the right in the result of applying Sklearn's model to the dataset.
+<img src="../images/c_classreport_logreg.png" width="45%" style="float: left; margin-right: 10px;">
+<img src="..images/sk_classreport_logreg.png" width="45%" style="float: left;">
+
+&nbsp;
 
 # Sources
 Toprak, M (2020). Activation Functions for Deep Learning [Image]. https://medium.com/@toprak.mhmt/activation-functions-for-deep-learning-13d8b9b20e
