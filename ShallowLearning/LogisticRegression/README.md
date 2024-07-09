@@ -105,6 +105,8 @@ self.w = self.w + self.learning_rate * grad
 
 # Results from testing model
 To test the model, I chose the following functions from Sklearn's metrics class.
+> `cross_val_score` - computes the estimated model performance of the training set, using `k` folds (where k is set to 10)
+>
 > `classification_report` - provides a text report showing the main classification metrics &mdash; **precision**, **recall**, **F1-score**, and **support** (number of occurences of each class in the true data)
 > 
 > `confusion_matrix` - computes a matrix where each row corresponds to the instances in the actual class, while each column represents the instances in the predicted class
@@ -112,6 +114,10 @@ To test the model, I chose the following functions from Sklearn's metrics class.
 > `roc_curve` - computes the ROC curve, which plots the **True Positive Rate** (TPR) up against the **False Positive Rate** (FPR) at various tresholds, helps selecting a suitable treshold (used in the `predict()` function)
 >
 > `auc` - calculates the AUC (Area Under the Curve). Represents the degree/measure of separability between classes, e.g. an AUC score of 0.5 represents a model no better than random guessing
+
+## Cross validation
+The image below shows the estimated model performance of both implementations.
+![cv_model_performance](../images/logreg_cv.png)
 
 ## Classification report 
 The image to the **left** represents the report for the custom model, and the image to the **right** in the result of applying Sklearn's model to the dataset.
@@ -122,10 +128,17 @@ The image to the **left** represents the report for the custom model, and the im
 </div>
 
 ## Confusion matrix
-The image to the **left** highlights the performance of the custom model, and the image on the **right** is the performance of Sklearn's logistic regression model.
+The image to the **left** highlights the performance of the custom model, and the image on the **right** is the performance of Sklearn's logistic regression model. The "y-axis" represents the true labels, and the "x-axis" represents the predicted labels respectively.
 <div>
  <img src="../images/c_conf_logreg.png" width="45%" height="45%" style="float: left; margin-right: 10px;">
  <img src="../images/sk_conf_logreg.png" width="45%" height="45%" style="float: left;">
+</div>
+
+## ROC curve and AUC score
+The image on the **left** displays the ROC curve and AUC score (in legend) of the custom model. As you have probably guessed, the image on the **right** is the results of the Sklearn implementation of the logistic regression model.
+<div>
+ <img src="../images/cmodel_auc_logreg.png" width="45%" height="45%" style="float: left; margin-right: 10px;">
+ <img src="../images/sk_auc_logreg.png" width="45%" height="45%" style="float: left;">
 </div>
 
 &nbsp;
