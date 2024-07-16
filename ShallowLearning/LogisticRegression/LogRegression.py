@@ -208,6 +208,7 @@ if __name__ == "__main__":
     c_results = c_model.fit(x_train, y_train).predict(x_test)
     sk_results = sk_model.fit(x_train, y_train).predict(x_test)
     # Classification report
+    print("\n\n")
     print(classification_report(y_test, c_results, labels=[0, 1]))
     print("\n")
     print(classification_report(y_test, sk_results, labels=[0, 1]))
