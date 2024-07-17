@@ -55,11 +55,11 @@ A decision tree has various parameters, such as:
 
 1. Intialize the root node
 2. Recursively populate the tree with the `fit()`and `_build_tree()` functions
-3. Check if the constraints are violated:
-* The current depth is larger or equal to the maximum depth
-* The maximum depth provided to the given node is **None**
-* The number of samples provided to the node (by checking the shape of `X`) is smaller than the minimum number of samples for a split to be applied
-* The number of labels (from the target array `y`) is equal to 1
+3. Check if the constraints are violated: \
+:one: The current depth is larger or equal to the maximum depth \
+:two: The maximum depth provided to the given node is **None** \
+:three: The number of samples provided to the node (by checking the shape of `X`) is smaller than the minimum number of samples for a split to be applied \
+:four: The number of labels (from the target array `y`) is equal to 1 \
 ```
     if (self.max_depth is not None and depth >= self.max_depth) or \
            n_samples < self.min_samples_split or \
