@@ -100,12 +100,14 @@ $$L(w) = - \sum_{n=1}^{n} y^{(i)} \thinspace log \thinspace \left[\sigma\left(z^
 
 In matrix form... 
 
-$$L(w) = - \left[y \thinspace log \thinspace \left(\sigma(z)\right) + (1-y) \thinspace log \thinspace \left(1 - \sigma(z)\right)\right]$$ \
+$$L(w) = - \left[y \thinspace log \thinspace \left(\sigma(z)\right) + (1-y) \thinspace log \thinspace \left(1 - \sigma(z)\right)\right]$$ 
 
 Where y and z are matrices.
 
 8. Compute the gradient of the loss function $L(w)$ with respect to $w$.
+   
 $$\frac{\partial L(w)}{\partial w_j} = \nabla w = X^{T} \boldsymbol{\cdot} \left( y - \sigma(z)\right)$$
+
 In code:
 ```
  grad = np.dot(X.T, (y - y_pred))
