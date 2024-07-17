@@ -94,8 +94,11 @@ $$\sigma(z) = \frac{1}{1+e^{-z}}$$
 
 7. **Minimization of $L(w)$**: Define the negative log-likelihood function
 $$L(w) = - \sum_{n=1}^{n} y^{(i)} \thinspace log \thinspace \left[\sigma\left(z^{(i)}\right)\right] + (1-y^{(i)}) \thinspace log \thinspace \left[1-\sigma\left(z^{(i)}\right)\right]$$
+
 In matrix form...
+
 $$L(w) = - \left[y \thinspace log \thinspace \left(\sigma(z)\right) + (1-y) \thinspace log \thinspace \left(1 - \sigma(z)\right)\right]$$
+
 Where y and z are matrices.
 
 9. Compute the gradient of the loss function $L(w)$ with respect to $w$.
