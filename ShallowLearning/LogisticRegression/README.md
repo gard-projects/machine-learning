@@ -88,16 +88,17 @@ The advantage of using a sigmoid function is that the value range (y-axis) is re
 $$z = \beta_0 + \beta_1x_1 + \dots + \beta_nx_n \quad \equiv X \boldsymbol{\cdot} w$$
 
 5. Define the Sigmoid function $\sigma(z)$
-$$\sigma(z) = \frac{1}{1+e^{-z}}$$
+6. 
+$$\sigma(z) = \frac{1}{1+e^{-z}}$$ \
 
-6. Forward propagation: compute `z` and apply the Sigmoid function, $\sigma(z)$, to obtain `y_pred`
+7. Forward propagation: compute `z` and apply the Sigmoid function, $\sigma(z)$, to obtain `y_pred`
 
-7. **Minimization of $L(w)$**: Define the negative log-likelihood function
-$$L(w) = - \sum_{n=1}^{n} y^{(i)} \thinspace log \thinspace \left[\sigma\left(z^{(i)}\right)\right] + (1-y^{(i)}) \thinspace log \thinspace \left[1-\sigma\left(z^{(i)}\right)\right]$$
+8. **Minimization of $L(w)$**: Define the negative log-likelihood function
+$$L(w) = - \sum_{n=1}^{n} y^{(i)} \thinspace log \thinspace \left[\sigma\left(z^{(i)}\right)\right] + (1-y^{(i)}) \thinspace log \thinspace \left[1-\sigma\left(z^{(i)}\right)\right]$$ \
 
-In matrix form...
+In matrix form... \
 
-$$L(w) = - \left[y \thinspace log \thinspace \left(\sigma(z)\right) + (1-y) \thinspace log \thinspace \left(1 - \sigma(z)\right)\right]$$
+$$L(w) = - \left[y \thinspace log \thinspace \left(\sigma(z)\right) + (1-y) \thinspace log \thinspace \left(1 - \sigma(z)\right)\right]$$ \
 
 Where y and z are matrices.
 
