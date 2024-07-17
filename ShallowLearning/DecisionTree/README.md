@@ -41,3 +41,27 @@ A decision tree is similar to a binary tree in computer sience, but has its own 
 1. Each **internal node** represents a feature from the provided training set
 2. Each internal node has an optimal threshould for its feature
 3. **Leaf nodes** represent the final predictions
+
+A decision tree has various parameters, such as:
+> **max_depth**: the maximum depth of a decision tree
+>
+> **max_features**: the maximum number of features to be considered when selecting a feature for an internal node
+>
+> **min_samples_split**: the minimum number of samples required to perform a split
+
+### How does it work?
+1. Intialize the root node
+2. Recursively populate the tree with the `fit()`and `_build_tree()` functions
+3. Check if the constraints are violated:
+* The current depth is larger or equal to the maximum depth
+* The maximum depth provided to the given node is **None**
+* The number of samples provided to the node (by checking the shape of `X`) is smaller than the minimum number of samples for a split to be applied
+* The number of labels (from the target array `y`) is equal to 1
+```
+    if (self.max_depth is not None and depth >= self.max_depth) or \
+           n_samples < self.min_samples_split or \
+           n_labels == 1:
+            return Node(value=np.argmax(class_counts), class_probs=class_probs)
+```
+5. For each node, fetch the features provided in the training set `X` using the function `_get_feature_indices`
+6. Find the best feature and threshould that should be set on the specific internal node
