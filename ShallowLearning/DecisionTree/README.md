@@ -51,13 +51,11 @@ A decision tree has various parameters, such as:
 
 ### How does it work? 
 
-<div>
-<span style="font-size:2em;">Text goes here</span>
-</div>
 
-**1.** Intialize the root node
-**2.** Recursively populate the tree with the `fit()`and `_build_tree()` functions
-**3.** Check if the constraints are violated:
+
+1. Intialize the root node
+2. Recursively populate the tree with the `fit()`and `_build_tree()` functions
+3. Check if the constraints are violated:
 * The current depth is larger or equal to the maximum depth
 * The maximum depth provided to the given node is **None**
 * The number of samples provided to the node (by checking the shape of `X`) is smaller than the minimum number of samples for a split to be applied
@@ -68,5 +66,15 @@ A decision tree has various parameters, such as:
            n_labels == 1:
             return Node(value=np.argmax(class_counts), class_probs=class_probs)
 ```
-5. For each node, fetch the features provided in the training set `X` using the function `_get_feature_indices`
+4. For each node, fetch the features provided in the training set `X` using the function `_get_feature_indices`
+```
+feature_indices = self._get_feature_indices(n_features)
+```
 6. Find the best feature and threshould that should be set on the specific internal node
+```
+best_feature_index, best_threshold = self._best_split(X, y, feature_indices)
+
+# If no split improves the criterion, create a leaf node
+if best_feature_index is None:
+    return Node(value=np.argmax(class_counts), class_probs=class_probs)
+```
