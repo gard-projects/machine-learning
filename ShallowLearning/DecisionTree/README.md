@@ -50,9 +50,9 @@ A decision tree has various parameters, such as:
 > **min_samples_split**: the minimum number of samples required to perform a split
 
 ### How does it work?
-**1.** Intialize the root node
-2. Recursively populate the tree with the `fit()`and `_build_tree()` functions
-3. Check if the constraints are violated:
+<span style="font-size:0.5em;">**1.** </span> Intialize the root node
+**2.** Recursively populate the tree with the `fit()`and `_build_tree()` functions
+**3.** Check if the constraints are violated:
 * The current depth is larger or equal to the maximum depth
 * The maximum depth provided to the given node is **None**
 * The number of samples provided to the node (by checking the shape of `X`) is smaller than the minimum number of samples for a split to be applied
