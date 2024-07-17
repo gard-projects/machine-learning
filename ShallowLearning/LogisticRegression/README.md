@@ -85,24 +85,26 @@ The advantage of using a sigmoid function is that the value range (y-axis) is re
 ```
 
 4. Define the **logit** function
+   
 $$z = \beta_0 + \beta_1x_1 + \dots + \beta_nx_n \quad \equiv X \boldsymbol{\cdot} w$$
 
 5. Define the Sigmoid function $\sigma(z)$
-6. 
-$$\sigma(z) = \frac{1}{1+e^{-z}}$$ \
+   
+$$\sigma(z) = \frac{1}{1+e^{-z}}$$ 
 
-7. Forward propagation: compute `z` and apply the Sigmoid function, $\sigma(z)$, to obtain `y_pred`
+6. Forward propagation: compute `z` and apply the Sigmoid function, $\sigma(z)$, to obtain `y_pred`
 
-8. **Minimization of $L(w)$**: Define the negative log-likelihood function
-$$L(w) = - \sum_{n=1}^{n} y^{(i)} \thinspace log \thinspace \left[\sigma\left(z^{(i)}\right)\right] + (1-y^{(i)}) \thinspace log \thinspace \left[1-\sigma\left(z^{(i)}\right)\right]$$ \
+7. **Minimization of $L(w)$**: Define the negative log-likelihood function
+   
+$$L(w) = - \sum_{n=1}^{n} y^{(i)} \thinspace log \thinspace \left[\sigma\left(z^{(i)}\right)\right] + (1-y^{(i)}) \thinspace log \thinspace \left[1-\sigma\left(z^{(i)}\right)\right]$$ 
 
-In matrix form... \
+In matrix form... 
 
 $$L(w) = - \left[y \thinspace log \thinspace \left(\sigma(z)\right) + (1-y) \thinspace log \thinspace \left(1 - \sigma(z)\right)\right]$$ \
 
 Where y and z are matrices.
 
-9. Compute the gradient of the loss function $L(w)$ with respect to $w$.
+8. Compute the gradient of the loss function $L(w)$ with respect to $w$.
 $$\frac{\partial L(w)}{\partial w_j} = \nabla w = X^{T} \boldsymbol{\cdot} \left( y - \sigma(z)\right)$$
 In code:
 ```
