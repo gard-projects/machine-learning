@@ -51,7 +51,7 @@ A decision tree has various parameters, such as:
 
 ### How does it work? 
 
-<span style="font-size:0.5em;">Text goes here</span>
+<span style="font-size:2em;">Text goes here</span>
 
 
 **1.** Intialize the root node
