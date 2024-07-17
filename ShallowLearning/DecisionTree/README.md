@@ -70,7 +70,7 @@ A decision tree has various parameters, such as:
 ```
 feature_indices = self._get_feature_indices(n_features)
 ```
-6. Find the best feature and threshold that should be set on the specific internal node using `_best_split()` function
+6. Find the best feature and threshold that should be set on the given internal node, by using the `_best_split()` function
 ```
 best_feature_index, best_threshold = self._best_split(X, y, feature_indices)
 
