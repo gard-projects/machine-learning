@@ -113,6 +113,10 @@ Where **J** is the number of classes (2 in our case), and $p_i$ is the probabili
 
 &nbsp;
 
+## Bootstrap Aggregation
+
+&nbsp;
+
 ## Random Forest
 The Random Forest algorithm trains a fixed number of weak learners, typically decision trees. It then uses the weak learners to make predictions or classifications to new samples. 
 
@@ -137,9 +141,17 @@ X_sample, y_sample = X[indices], y[indices]
 ### Making predictions
 1. Invoke the `predict()` function by providing the testing set, `X` as the argument
 2. The predict function will call the `predict_proba()` function, which uses a numpy array `tree_probs` (which is a *3D array*)
+```
+tree_probs = np.array([tree.predict_proba(X) for tree in self.trees])
+```
 3. The `tree_probs` array has 3 axes,
 * The first axis being the decision tree (equal to what is set in `n_estimators` parameter of RandomForest object)
 * The second axis is the number of samples (equal to the first axis of `X`), which is 5000
 * The third axis is the prediction for each class label, which has a dimension size of 2
 4. The `predict_proba()` returns the mean of the probabilities for the class labels, resulting in a shape of $\left(5000, 2\right)$
 5. Lastly, the `predict()` function returns the index with the largest number in the second axis. This corresponds to choosing the class label that is most likely for a given sample
+
+&nbsp;
+
+# Results and conclusion
+
