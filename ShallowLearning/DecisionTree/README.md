@@ -86,7 +86,13 @@ if best_feature_index is None:
 
 $$I_{G}(p) = \sum_{i=1}^{J} p_{i}(1-p_{i}) \quad \equiv \quad \sum_{i=1}^{J}p_{i} - \sum_{i=1}^{J} p_{i}^{2} \quad \equiv \quad 1 - \sum_{i=1}^{J} p_{i}^{2}$$
 
-Where **J** is the number of classes (2 in our case), and $p_i$ is the probability of a given label for the respective subset of nodes (left or right tree).
+Where **J** is the number of classes (2 in our case), and $p_i$ is the probability of a given label for the respective subset of nodes (left or right tree). In code:
+```
+ def _gini_impurity(self, y):
+    _, counts = np.unique(y, return_counts=True)
+    probabilities = counts / len(y)
+    return 1 - np.sum(probabilities ** 2)
+```
 
 8. Once a leaf node is reached, set the `value` parameter of the Node object, and the `class_probs` parameter
 
