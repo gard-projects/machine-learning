@@ -110,3 +110,16 @@ Where **J** is the number of classes (2 in our case), and $p_i$ is the probabili
 2. In the predict function, for each sample we invoke the `_tree_traversal()` method
 3. The `_tree_traversal()` method moves through the by checking the sample's specific feature up against the threshold and moving accordingly
 4. Once we reach the leaf node (indicated by node.value != None), we return the `value` parameter
+
+&nbsp;
+
+## Random Forest
+The Random Forest algorithm trains a fixed number of weak learners, typically decision trees. It then uses the weak learners to make predictions or classifications to new samples. 
+
+### How does it work?
+1. First we call the `fit()` function, this function uses the `joblib` Python library to train decision trees in parallel. Thus making better use of the CPU cores.
+2. In the `fit()` function we use a **random state** variable which is for reproduceability
+3. Next we determine the maximum number of features to consider in each split, this is used to implement feature bagging. The maximum number of features is calculated in either of the following ways:
+:one: 'sqrt' - compute the square root of the number of features, and then convert it to an int, $\sqrt(13) \approx 4$
+:two: 'log2' - compute the log base 2 of the number of features, then convert to int, $log_{2}(13) \approx 4$
+:three: 'None' - set the maximum number of features equal to the number of features (13)
