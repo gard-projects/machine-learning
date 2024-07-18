@@ -123,3 +123,19 @@ The Random Forest algorithm trains a fixed number of weak learners, typically de
 :one: 'sqrt' - compute the square root of the number of features, and then convert it to an int, $\sqrt{13} \approx 4$ \
 :two: 'log2' - compute the log base 2 of the number of features, then convert to int, $log_{2}(13) \approx 4$ \
 :three: 'None' - set the maximum number of features equal to the number of features (13)
+4. Invoke the `_build_tree()` function to train the decision tree by making use of **bootstrap aggregation**
+```
+n_samples = X.shape[0]
+indices = np.random.choice(n_samples, size=n_samples, replace=True)
+X_sample, y_sample = X[indices], y[indices]
+```
+
+### Making predictions
+1. Invoke the `predict()` function by providing the testing set, `X` as the argument
+2. The predict function will call the `predict_proba()` function, which uses a numpy array `tree_probs` (which is a *3D array*)
+3. The `tree_probs` array has 3 axis,
+* The first axis being the decision tree (equal to what is set in `n_estimators` parameter of RandomForest object)
+* The second axis is the number of samples (equal to the first axis of `X`), which is 5000
+* The third axis is the prediction for each class label, which has a dimension size of 2
+4. The `predict_proba()` returns the mean of the probabilities for the class labels, resulting in a shape of $\left(5000, 2\right)$
+5. Lastly, the `predict()` function returns the index with the largest number in the second axis. This corresponds to choosing the class label that is most likely for a given sample
