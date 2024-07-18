@@ -50,9 +50,6 @@ A decision tree has various parameters, such as:
 > **min_samples_split**: the minimum number of samples required to perform a split
 
 ### How does it work? 
-
-
-
 1. Intialize the root node
 2. Recursively populate the tree with the `fit()`and `_build_tree()` functions
 3. Check if the constraints are violated: \
@@ -82,6 +79,12 @@ if best_feature_index is None:
 
 $$I_{G}(p) = \sum_{i=1}^{J} p_{i}(1-p_{i}) \quad \equiv \quad \sum_{i=1}^{J}p_{i} - \sum_{i=1}^{J} p_{i}^{2} \quad \equiv \quad 1 - \sum_{i=1}^{J} p_{i}^{2}$$
 
-Where **J** is the number of classes (2 in our case), and $p_i$ is the probability of a given label for a leaf node.
+Where **J** is the number of classes (2 in our case), and $p_i$ is the probability of a given label for the respective subset of nodes (left or right tree).
 
 8. Once a leaf node is reached, set the `value` parameter of the Node object, and the `class_probs` parameter
+
+### Making predictions
+1. Call the `predict()` function, by providing the testing set $X_{test}$ from the `train_test_split()` method from Sklearn
+2. In the predict function, for each sample we invoke the `_tree_traversal()` method
+3. The `_tree_traversal()` method moves through the by checking the sample's specific feature up against the threshold and moving accordingly
+4. Once we reach the leaf node (indicated by node.value != None), we return the `value` parameter
