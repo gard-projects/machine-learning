@@ -39,6 +39,13 @@ The dataset contains 14 columns, and 5000 samples. Thus the shape of the `data` 
 This project focuses on implementing RandomForest and DecisionTree from scratch. RandomForest is considered as one of the best machine learning models for shallow learning, it is also known as a **discriminative** machine learning model.
 We make use of this model to predict whether a given person is eligible for a personal loan given the associated features. 
 
+## Random subspacing (feature bagging)
+**Feature bagging** is a technique used in ensemble methods like Random Forests to improve the performance and reduce overfitting. This method works in the following way:
+1. For each model we ensemble (train), we provide a random subset of features from the full feature set (gotten from the second axis of the training set `X`)
+2. A feature can occur more than once in feature bagging, thus introducing extra variance
+
+This method is really useful, because it helps reduce the correlation between individual models Which leads to better generalization against noisy or irrelevant features. We need this due to the fact that training many decision trees can result in very similar results. 
+
 &nbsp;
 
 ## Decision Tree
