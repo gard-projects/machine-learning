@@ -120,6 +120,6 @@ The Random Forest algorithm trains a fixed number of weak learners, typically de
 1. First we call the `fit()` function, this function uses the `joblib` Python library to train decision trees in parallel. Thus making better use of the CPU cores.
 2. In the `fit()` function we use a **random state** variable which is for reproduceability
 3. Next we determine the maximum number of features to consider in each split, this is used to implement feature bagging. The maximum number of features is calculated in either of the following ways: \
-:one: 'sqrt' - compute the square root of the number of features, and then convert it to an int, $\sqrt(13) \approx 4$ \
+:one: 'sqrt' - compute the square root of the number of features, and then convert it to an int, $\sqrt{13} \approx 4$ \
 :two: 'log2' - compute the log base 2 of the number of features, then convert to int, $log_{2}(13) \approx 4$ \
 :three: 'None' - set the maximum number of features equal to the number of features (13)
