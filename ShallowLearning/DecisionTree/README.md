@@ -59,7 +59,7 @@ A decision tree has various parameters, such as:
 :one: The current depth is larger or equal to the maximum depth \
 :two: The maximum depth provided to the given node is **None** \
 :three: The number of samples provided to the node (by checking the shape of `X`) is smaller than the minimum number of samples for a split to be applied \
-:four: The number of labels (from the target array `y`) is equal to 1 \
+:four: The number of labels (from the target array `y`) is equal to 1 
 ```
     if (self.max_depth is not None and depth >= self.max_depth) or \
            n_samples < self.min_samples_split or \
@@ -78,3 +78,8 @@ best_feature_index, best_threshold = self._best_split(X, y, feature_indices)
 if best_feature_index is None:
     return Node(value=np.argmax(class_counts), class_probs=class_probs)
 ```
+7. To fetch the best feature for the current depth, we use a metric called Gini impurity. Select the feature with the lowest Gini impurity score.
+
+$$I_{G}(p) = \sum_{i=1}^{J} p_{i}(1-p_{i}) = \quad sum_{i=1}^{J}p_{i} - \sum_{i=1}^{J} p^{2}_{i} = \quad 1 - \sum_{i=1}^{J} p^{2}_{i}$$
+
+8. Once a leaf node is reached, set the `value` parameter of the Node object, and the `class_probs` parameter
