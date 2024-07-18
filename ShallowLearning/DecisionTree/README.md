@@ -116,6 +116,8 @@ Where **J** is the number of classes (2 in our case), and $p_i$ is the probabili
 ## Random Forest
 The Random Forest algorithm trains a fixed number of weak learners, typically decision trees. It then uses the weak learners to make predictions or classifications to new samples. 
 
+&nbsp;
+
 ### How does it work?
 1. First we call the `fit()` function, this function uses the `joblib` Python library to train decision trees in parallel. Thus making better use of the CPU cores.
 2. In the `fit()` function we use a **random state** variable which is for reproduceability
@@ -129,6 +131,8 @@ n_samples = X.shape[0]
 indices = np.random.choice(n_samples, size=n_samples, replace=True)
 X_sample, y_sample = X[indices], y[indices]
 ```
+
+&nbsp;
 
 ### Making predictions
 1. Invoke the `predict()` function by providing the testing set, `X` as the argument
