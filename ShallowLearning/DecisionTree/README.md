@@ -1,6 +1,7 @@
 **DATASET FROM** \
 https://www.kaggle.com/datasets/vikramamin/bank-loan-approval-lr-dt-rf-and-auc
 
+&nbsp;
 
 # Structure of the dataset
 The dataset contains 14 columns, and 5000 samples. Thus the shape of the `data` variable is $\left(5000, 14\right)$. 
@@ -32,9 +33,13 @@ The dataset contains 14 columns, and 5000 samples. Thus the shape of the `data` 
 >
 > **CreditCard**, type=int64, predictor variable
 
+&nbsp;
+
 # Overview
 This project focuses on implementing RandomForest and DecisionTree from scratch. RandomForest is considered as one of the best machine learning models for shallow learning, it is also known as a **discriminative** machine learning model.
 We make use of this model to predict whether a given person is eligible for a personal loan given the associated features. 
+
+&nbsp;
 
 ## Decision Tree
 A decision tree is similar to a binary tree in computer sience, but has its own set of rules.
@@ -48,6 +53,8 @@ A decision tree has various parameters, such as:
 > **max_features**: the maximum number of features to be considered when selecting a feature for an internal node
 >
 > **min_samples_split**: the minimum number of samples required to perform a split
+
+&nbsp;
 
 ### How does it work? 
 1. Intialize the root node
@@ -83,8 +90,10 @@ Where **J** is the number of classes (2 in our case), and $p_i$ is the probabili
 
 8. Once a leaf node is reached, set the `value` parameter of the Node object, and the `class_probs` parameter
 
+&nbsp;
+
 ### Making predictions
-1. Call the `predict()` function, by providing the testing set $X_{test}$ from the `train_test_split()` method from Sklearn
+1. Call the `predict()` function, by providing the testing set denoted by `X`
 2. In the predict function, for each sample we invoke the `_tree_traversal()` method
 3. The `_tree_traversal()` method moves through the by checking the sample's specific feature up against the threshold and moving accordingly
 4. Once we reach the leaf node (indicated by node.value != None), we return the `value` parameter
