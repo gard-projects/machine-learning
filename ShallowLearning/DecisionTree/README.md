@@ -133,7 +133,7 @@ X_sample, y_sample = X[indices], y[indices]
 ### Making predictions
 1. Invoke the `predict()` function by providing the testing set, `X` as the argument
 2. The predict function will call the `predict_proba()` function, which uses a numpy array `tree_probs` (which is a *3D array*)
-3. The `tree_probs` array has 3 axis,
+3. The `tree_probs` array has 3 axes,
 * The first axis being the decision tree (equal to what is set in `n_estimators` parameter of RandomForest object)
 * The second axis is the number of samples (equal to the first axis of `X`), which is 5000
 * The third axis is the prediction for each class label, which has a dimension size of 2
