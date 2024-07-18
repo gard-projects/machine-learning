@@ -80,6 +80,6 @@ if best_feature_index is None:
 ```
 7. To fetch the best feature for the current depth, we use a metric called Gini impurity. Select the feature with the lowest Gini impurity score.
 
-$$I_{G}(p) = \sum_{i=1}^{J} p_{i}(1-p_{i}) = \quad \sum_{i=1}^{J}p_{i} - \sum_{i=1}^{J} p_{i}^{2} = \quad 1 - \sum_{i=1}^{J} p_{i}^{2}$$
+$$I_{G}(p) = \sum_{i=1}^{J} p_{i}(1-p_{i}) \quad \eq \quad \sum_{i=1}^{J}p_{i} - \sum_{i=1}^{J} p_{i}^{2} \quad \eq \quad 1 - \sum_{i=1}^{J} p_{i}^{2}$$
 
 8. Once a leaf node is reached, set the `value` parameter of the Node object, and the `class_probs` parameter
