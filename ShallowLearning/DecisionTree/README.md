@@ -61,6 +61,10 @@ A decision tree has various parameters, such as:
 >
 > **min_samples_split**: the minimum number of samples required to perform a split
 
+Figure 2 below by Sriram (2020) shows the general structure of a decision tree. Notice how each internal node is a feature, and has some threshold associated with it, e.g. "Yes", "No", >90, and <90. In the figure Smoker, Drinker, and Weight would be the features, and the darker blue nodes would be the leaf nodes. \
+![decision_tree](https://github.com/user-attachments/assets/b1723340-6f89-4cbe-ae92-271da37a05bf)
+
+
 &nbsp;
 
 ### How does it work? 
@@ -128,7 +132,7 @@ X_sample, y_sample = X[indices], y[indices]
 The Random Forest algorithm trains a fixed number of weak learners, typically decision trees. It then uses the weak learners to make predictions or classifications to new samples. Figure 1 below, Gunay (2023), shows a visual representation of a typical random forest. \
 ![random_forest](https://github.com/user-attachments/assets/e3be712d-750e-407c-8c02-6e20ecf2ee41)
 
-This image shows **n** number of decision trees, where $n \in \mathbb{R}$
+This image shows **n** number of decision trees, where $n \in \mathbb{R}$.
 
 &nbsp;
 
@@ -165,4 +169,7 @@ tree_probs = np.array([tree.predict_proba(X) for tree in self.trees])
 # Sources
 Figure 1: Gunay, Deniz. "Random Forest". 2023. Medium.
 https://medium.com/@denizgunay/random-forest-af5bde5d7e1e. Accessed 19 July 2024.
+
+Figure 2: Sriram. "Decision Tree in Machine Learning Explained [With Examples]". 2020. upGrad.
+https://www.upgrad.com/blog/decision-tree-in-machine-learning/. Accessed 19 July 2024.
 
