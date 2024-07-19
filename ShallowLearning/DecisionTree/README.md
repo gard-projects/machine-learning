@@ -177,6 +177,11 @@ The first image shows the confusion matrix for the custom RandomForest model. Th
 </div>
 
 ## ROC curve and AUC score
+The first image shows the ROC curve and the AUC score in legend for the custom model. The second image is for the Sklearn implementation.
+<div>
+ <img src="../images/rf_c_roc_auc.png" width="45%" height="45%" style="float: left; margin-right: 10px;">
+ <img src="../images/rf_sk_roc_auc.png" width="45%" height="45%" style="float: left;">
+</div>
 
 &nbsp;
 
