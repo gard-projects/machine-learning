@@ -167,17 +167,21 @@ tree_probs = np.array([tree.predict_proba(X) for tree in self.trees])
 
 # Results and conclusion
 ## Classification report
+We use Sklearn's classification report function to obtain some insight into how well the model is able to predict true postives, true negatives etc. 
+<div>
+    <img src="../images/rf_class_report.png" width="45%" height="45%" style="float: left; margin-right: 10px;">
+</div>
 
 
 ## Confusion matrix
-The first image shows the confusion matrix for the custom RandomForest model. The second image is the result of implementing Sklearn's RandomForestClassifier.
+The first image shows the confusion matrix for the custom RandomForest model. The second image is the result of implementing Sklearn's RandomForestClassifier. As you can see they are quite similar in terms of classification, which is good.
 <div>
  <img src="../images/rf_c_conf.png" width="45%" height="45%" style="float: left; margin-right: 10px;">
  <img src="../images/rf_sk_conf.png" width="45%" height="45%" style="float: left;">
 </div>
 
 ## ROC curve and AUC score
-The first image shows the ROC curve and the AUC score in legend for the custom model. The second image is for the Sklearn implementation.
+The first image shows the ROC curve and the AUC score in legend for the custom model. The second image is for the Sklearn implementation. From both images we can see that both models perform nearly identical, with an AUC score of 0.58. This score indicates a poor discrimination. The AUC scores measures the model's ability to distinguish between positive and negative classes. In our case the RandomForest classifier has a ~58% probability of ranking a randomly chosen positive sample higher than a randomly chosen negative sample.
 <div>
  <img src="../images/rf_c_roc_auc.png" width="45%" height="45%" style="float: left; margin-right: 10px;">
  <img src="../images/rf_sk_roc_auc.png" width="45%" height="45%" style="float: left;">
