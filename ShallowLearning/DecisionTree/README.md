@@ -167,7 +167,7 @@ tree_probs = np.array([tree.predict_proba(X) for tree in self.trees])
 
 # Results and conclusion
 ## Classification report
-We use Sklearn's classification report function to obtain some insight into how well the model is able to predict true postives, true negatives etc. 
+We use Sklearn's classification report function to obtain some insight into how well the model is able to predict true postives, true negatives etc. The results are quite satisfying.
 <div>
     <img src="../images/rf_class_report.png" width="45%" height="45%" style="float: left; margin-right: 10px;">
 </div>
@@ -190,6 +190,9 @@ The first image shows the ROC curve and the AUC score in legend for the custom m
 &nbsp;
 
 # Conclusion
+The model performs well on the dataset in terms of the metrics provided in the `classification_report()` function, but poorly in terms of the **AUC** score. This could indicate that there may be further processing that can be done on the dataset before training, or other models like **SVM** or **LogisticRegression** may be a better choice. In practice, you often have to experiment with various algorithms, compute metrics and compare. Thank you for reading the project, hopefully it could be of use to you.
+
+~ Gard
 
 &nbsp;
 
