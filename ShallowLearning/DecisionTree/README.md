@@ -131,7 +131,8 @@ X_sample, y_sample = X[indices], y[indices]
 &nbsp;
 
 ## Random Forest
-The Random Forest algorithm trains a fixed number of weak learners, typically decision trees. It then uses the weak learners to make predictions or classifications to new samples. Figure 1 below, Gunay (2023), shows a visual representation of a typical random forest. \
+The Random Forest algorithm trains a fixed number of weak learners, typically decision trees. It then uses the weak learners to make predictions or classifications to new samples. Figure 1 below, Gunay (2023), shows a visual representation of a typical random forest. 
+
 ![random_forest](https://github.com/user-attachments/assets/e3be712d-750e-407c-8c02-6e20ecf2ee41)
 
 This image shows **n** number of decision trees, where $n \in \mathbb{R}$.
