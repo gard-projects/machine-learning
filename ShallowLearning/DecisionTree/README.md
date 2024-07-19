@@ -61,7 +61,7 @@ A decision tree has various parameters, such as:
 >
 > **min_samples_split**: the minimum number of samples required to perform a split
 
-Figure 2 below by Sriram (2020) shows the general structure of a decision tree. Notice how each internal node is a feature, and has some threshold associated with it, e.g. "Yes", "No", >90, and <90. In the figure Smoker, Drinker, and Weight would be the features, and the darker blue nodes would be the leaf nodes. \
+Figure 2 below by Sriram (2020) shows the general structure of a decision tree. Notice how each internal node is a feature, and has some threshold associated with it. For instance "Yes" and "No" are two examples of threshold values in the decision tree example below. On the other hand `Smoker`, `Drinker` and `Weight` would be the features, and the darker blue nodes would be the leaf nodes. \
 ![decision_tree](https://github.com/user-attachments/assets/b1723340-6f89-4cbe-ae92-271da37a05bf)
 
 
