@@ -167,12 +167,14 @@ tree_probs = np.array([tree.predict_proba(X) for tree in self.trees])
 
 # Results and conclusion
 ## Classification report
+
+
+## Confusion matrix
+The first image shows the confusion matrix for the custom RandomForest model. The second image is the result of implementing Sklearn's RandomForestClassifier.
 <div>
  <img src="../images/rf_c_conf.png" width="45%" height="45%" style="float: left; margin-right: 10px;">
  <img src="../images/rf_sk_conf.png" width="45%" height="45%" style="float: left;">
 </div>
-
-## Confusion matrix
 
 ## ROC curve and AUC score
 
