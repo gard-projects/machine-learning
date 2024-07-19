@@ -166,6 +166,14 @@ tree_probs = np.array([tree.predict_proba(X) for tree in self.trees])
 &nbsp;
 
 # Results and conclusion
+## Classification report
+
+## Confusion matrix
+## ROC curve and AUC score
+
+&nbsp;
+
+# Conclusion
 
 &nbsp;
 
