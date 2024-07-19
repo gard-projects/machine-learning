@@ -114,11 +114,18 @@ Where **J** is the number of classes (2 in our case), and $p_i$ is the probabili
 &nbsp;
 
 ## Bootstrap Aggregation
+**Bootstrap aggregation**, also known as **bagging**, is a technique used in machine learning to improve the stability and accuracy of models, especially decision trees. Bagging creates multiple subsets of data by randomly sampling with replacement. Thus each decision tree gets its own set of samples &mdash; where duplicates are allowed. This reduces overfitting, since each model captures slightly different patterns reducing the chance capturing noise. Additionally it improves stability, by being less sensitive to oddities in the data which might throw off a single model. Lastly, the ensembled often performs better on new, unseen data than any individual model would. This is equivalent to saying that the model is able to **generalize** better. The code below shows how this technique is implemented.
+
+```
+n_samples = X.shape[0]
+indices = np.random.choice(n_samples, size=n_samples, replace=True)
+X_sample, y_sample = X[indices], y[indices]
+```
 
 &nbsp;
 
 ## Random Forest
-The Random Forest algorithm trains a fixed number of weak learners, typically decision trees. It then uses the weak learners to make predictions or classifications to new samples. 
+The Random Forest algorithm trains a fixed number of weak learners, typically decision trees. It then uses the weak learners to make predictions or classifications to new samples.
 
 &nbsp;
 
@@ -130,11 +137,6 @@ The Random Forest algorithm trains a fixed number of weak learners, typically de
 :two: 'log2' - compute the log base 2 of the number of features, then convert to int, $log_{2}(13) \approx 4$ \
 :three: 'None' - set the maximum number of features equal to the number of features (13)
 4. Invoke the `_build_tree()` function to train the decision tree by making use of **bootstrap aggregation**
-```
-n_samples = X.shape[0]
-indices = np.random.choice(n_samples, size=n_samples, replace=True)
-X_sample, y_sample = X[indices], y[indices]
-```
 
 &nbsp;
 
