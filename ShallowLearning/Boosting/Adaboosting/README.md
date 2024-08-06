@@ -50,9 +50,10 @@ In this project we will be using information gain, which uses a concept called *
 $$\text{Entropy, e} = \quad - \sum_{i=1}^{n} p_i \log_{2}(p_i)$$
 
 Information gain is given by the following equation
+
 $$\text{IG}(T, a) = \quad H(T) - H(T|A)$$
 
-Which in words is the difference between the entropy of the parent, $$H(T)$$, and the total entropy in the left and right leaf nodes respectively, $$H(T|A)$$. This is the generalized form of information gain, but in Adaboost this form has to be modified to account for the weighted sampling.
+Which in words is the difference between the entropy of the parent, $H(T)$, and the total entropy in the left and right leaf nodes respectively, $H(T|A)$. This is the generalized form of information gain, but in Adaboost this form has to be modified to account for the weighted sampling.
 
 ## Entropy for multiclass
 
