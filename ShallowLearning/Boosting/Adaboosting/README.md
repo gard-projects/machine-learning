@@ -1,7 +1,7 @@
 DATASET: https://www.kaggle.com/datasets/rabieelkharoua/students-performance-dataset/data
 
 # The structure of the dataset
-This dataset has multiple classes, thus we will be dealing with **multiclass classification**. 
+This dataset has multiple classes, thus we are dealing with **multiclass classification**. 
 > **StudentID**, type=int, predictor variable
 >
 > **Age**, type=int, predictor variable
@@ -33,3 +33,26 @@ This dataset has multiple classes, thus we will be dealing with **multiclass cla
 > **GradeClass**, type=int, **response variable**
 
 As you can see this dataset has already done encoding on the categorical features, thus we require few preprocessing steps before training the model.
+
+# Decision Stump
+A decision stump is in simple terms a decision tree which consists of a root node, and two leaf nodes. In other words, you only need to determine the best feature once, then split the data according to this feature and its corresponding threshold.
+Adaboost typically uses decision stumps &emdash; unlike GradientBoosting which uses decision trees with greater depths &emdash; as weak learners. Here are some reasons as to why.
+
+* Weak learners should perform slightly better than random guessing, decision stumps satisfy this criteria
+* Decision trees with great depths are more prone to overfitting, which is not the case for decision stumps
+* Decision stumps can be trained very quickly
+
+
+# Information gain and entropy
+To find the best feature to split on when training a decision tree, you can choose between various metrics such as **Gini impurity** or **Information gain**. Do note that there exists many other techniques, the ones mentioned only a few.
+In this project we will be using information gain, which uses a concept called **entropy**. Information gain, like Gini impurity, tells us how important a given feature is. However unlike Gini impurity &emdash; in which lower scores is better &emdash; features with greater information gain are preferred. 
+
+$$\text{Entropy, e} = \quad - \sum_{i=1}^{n} p_i \log_{2}(p_i)$$
+
+## Entropy for multiclass
+
+# Adaboost in simple steps
+
+## Weighted error rate
+
+## Importance weight
