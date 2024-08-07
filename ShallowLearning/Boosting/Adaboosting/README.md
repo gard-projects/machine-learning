@@ -132,10 +132,15 @@ y_pred = np.argmax(estimator.predict(X_train), axis=1) # Majority voting
         alpha = np.log((1-err) / err) + np.log(K - 1)
 ```
 10. Store this alpha value in a list `learning_rate`, as it will be used when making predictions
-11. Check that $\alpha > 0$, and that $err < 1 - \frac{1}{K}$
+11. Check that $\alpha > 0$, and that error $< 1 - \frac{1}{K}$
 12. Update the weights from the following equation
 
 $$w \leftarrow w \cdot exp\left[\alpha^{m} \cdot I\left(y_i \neq T^{(m)}(x)\right) \right] \quad \forall i = 1, 2, \dots, n$$
+
+Which in code is implemented as:
+```
+w = w * np.exp(alpha * (y_train != y_pred))
+```
 # Results
 
 # Conclusion
