@@ -114,9 +114,9 @@ Where `n` is the number of samples in the dataset.
 3. In the decision stump we find the best feature to split on by considering the information gain from each possible feature, by also account for the weights associated with each sample
 4. Store the fitted estimator in a list `estimators`, which will be used when making predictions
 ```
-        estimator = DecisionStump()
-        estimator.fit(X_train, y_train, w)
-        self.estimators.append(estimator)
+estimator = DecisionStump()
+estimator.fit(X_train, y_train, w)
+self.estimators.append(estimator)
 ```
 5. Make predictions, which translates to $T^{(m)}(x)$
 ```
@@ -124,12 +124,12 @@ y_pred = np.argmax(estimator.predict(X_train), axis=1) # Majority voting
 ```
 6. Compute the error, $err^{(m)}$ for the given m-th classifier
 ```
-        err = self.weighted_error(y_train, y_pred, w)
+err = self.weighted_error(y_train, y_pred, w)
 ```
 8. Compute the importance weight, $\alpha^{(m)}$
 ```
-        K = len(estimator.n_classes)
-        alpha = np.log((1-err) / err) + np.log(K - 1)
+K = len(estimator.n_classes)
+alpha = np.log((1-err) / err) + np.log(K - 1)
 ```
 10. Store this alpha value in a list `learning_rate`, as it will be used when making predictions
 11. Check that $\alpha > 0$, and that error $< 1 - \frac{1}{K}$
