@@ -53,7 +53,15 @@ Information gain is given by the following equation
 
 $$\text{IG}(T, a) = \quad H(T) - H(T|A)$$
 
-Which in words is the difference between the entropy of the parent, $H(T)$, and the total entropy in the left and right leaf nodes respectively, $H(T|A)$. This is the generalized form of information gain, but in Adaboost this form has to be modified to account for the weighted sampling.
+Which in words is the difference between the entropy of the parent, $H(T)$, and the total entropy in the left and right leaf nodes respectively, $H(T|A)$. This is the generalized form of information gain, but in Adaboost this form has to be modified to account for the weighted sampling. As a result of this alternation we use the concept of **scores**. The `confidence_score()` function computes the score of a given class, which is the summed weight $w_i$ of the given class `i`, divided by the total weight for all classes. See below.
+
+```
+def confidence_score(self, y, w):
+    w_total = np.sum(w)
+    w_class = np.array([np.sum(w[y==c]) for c in self.n_classes])
+    conf_score = w_class / (w_total+1e-10)     
+    return conf_score
+```
 
 ## Entropy for multiclass
 
