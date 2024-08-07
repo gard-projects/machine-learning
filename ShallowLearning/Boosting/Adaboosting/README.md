@@ -53,7 +53,10 @@ Information gain is given by the following equation
 
 $$\text{IG}(T, a) = \quad H(T) - H(T|A)$$
 
-Which in words is the difference between the entropy of the parent, $H(T)$, and the total entropy in the left and right leaf nodes respectively, $H(T|A)$. This is the generalized form of information gain, but in Adaboost this form has to be modified to account for the weighted sampling. As a result of this alternation we use the concept of **scores**. The `confidence_score()` function computes the score of a given class, which is the summed weight $w_i$ of the given class `i`, divided by the total weight for all classes. See below.
+Which in words is the difference between the entropy of the parent, $H(T)$, and the total entropy in the left and right leaf nodes respectively, $H(T|A)$. This is the generalized form of information gain, but in Adaboost this form has to be modified to account for the weighted sampling. 
+
+## Entropy for multiclass
+As a result of introducing the concept of weighted sampling, we use the concept of **scores** to help compute entropy. The `confidence_score()` function computes the score of a given class, which is the summed weights $w_i$ of the given class `i`, divided by the total weight for all classes. See below.
 
 ```
 def confidence_score(self, y, w):
@@ -62,11 +65,21 @@ def confidence_score(self, y, w):
     conf_score = w_class / (w_total+1e-10)     
     return conf_score
 ```
+The small value in the total weight is used to prevent division by zero, which is possible if the current weak learner fits the data really well.
 
-## Entropy for multiclass
+
+# Weighted error rate
+The error, $\text{err}^{(m)}$, is a float value that describes the proportion of misclassifications against the total number of classifications. This is an important aspect of Adaboosting, as it is used to ensure that the next weak learner tries to minimize this error. The error is given by:
+
+$$\text{err}^{(m)} = \frac{\sum_{i=1}^{n} w_i \cdot I(c_i \neq T^{(m)}(x_i))}{\sum_{i=1}^{n}w_i}$$
+
+However, in practice we generalize this to matrices. Thus we get the following:
+
+$$\text{err}^{(m)} = \frac{w \cdot I(c \neq T^{(m)}(x))}{\sum_{i=1}^{n} w_i}$$
+# Importance weight
 
 # Adaboost in simple steps
 
-## Weighted error rate
+# Results
 
-## Importance weight
+# Conclusion
