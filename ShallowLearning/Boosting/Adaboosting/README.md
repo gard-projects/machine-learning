@@ -78,7 +78,7 @@ However, in practice we generalize this to matrices. Thus we get the following:
 $$\text{err}^{(m)} = \frac{w \cdot I(y \neq T^{(m)}(x))}{\sum_{i=1} w_i}, \quad \forall i=1, \dots, n$$
 
 This equation may look very complex, but it will become easier once we break it down.
-> $I\left(y_i \neq T^{(m)}(x)\right)$, is called an **indicator function**, it returns 0 for correctly classified samples, and 1 otherwise
+> $I\left(\dots\\right)$ or $1\left(\dots\right)$, is called an **indicator function**, it returns 0 for correctly classified samples, and 1 otherwise
 >
 > $y \neq T^{(m)}(x)$, is a condition that checks whether the y-label and the corresponding prediction $T^{(m)}(x)$ are equal or not
 >
