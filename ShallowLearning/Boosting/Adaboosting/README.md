@@ -148,6 +148,13 @@ w = w / np.sum(w) # Re-normalize
 14. Repeat steps 2-13 until you have trained **n** number of weak learners (defined by the `n_estimators` attribute of the Adaboost object)
 15. Make predictions, this is where we use the lists `estimators` and `learning_rate`. Defined by the equation:
 $$C(x) = argmax_{k} \sum_{m=1} \alpha^{(m)} I\left(T^{(m)}(x) = k\right) \quad \forall m = 1, \dots, M$$
+
+In code:
+```
+def predict(self, X_test):
+        predictions = np.sum([e.learning_rate * e.predict(X_test) for e in self.estimators], axis=0)
+        return np.argmax(predictions, axis=1)
+```
 # Results
 
 # Conclusion
