@@ -107,12 +107,14 @@ When $K = 2$ (indicating two classes, thus binary classification), this term can
 
 # Adaboost in simple steps
 1. Initialize the weights, $w$, as
+
 $$w = \frac{1}{n}$$
+
 Where `n` is the number of samples in the dataset.
 
-2. Train a decision stump on the given features matrix, $X$, the labels $y$, and the **current** weights $w$
-3. In the decision stump we find the best feature to split on by considering the information gain from each possible feature, by also account for the weights associated with each sample
-4. Store the fitted estimator in a list `estimators`, which will be used when making predictions
+3. Train a decision stump on the given features matrix, $X$, the labels $y$, and the **current** weights $w$
+4. In the decision stump we find the best feature to split on by considering the information gain from each possible feature, by also account for the weights associated with each sample
+5. Store the fitted estimator in a list `estimators`, which will be used when making predictions
 ```
 estimator = DecisionStump()
 estimator.fit(X_train, y_train, w)
