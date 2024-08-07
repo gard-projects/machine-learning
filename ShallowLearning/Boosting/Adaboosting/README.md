@@ -92,11 +92,11 @@ The importance weight denoted by $\alpha^{(m)}$ represents the amount of "say" a
 
 $$\alpha^{(m)} = \log\left(\frac{1 - \text{err}^{(m)}}{\text{err}^{(m)}}\right) + \log\left(K-1\right)$$
 
-Let us address each part of the equation.
+Let us address each part of the equation. The first part,
 
 $$\log\left(\frac{1 - \text{err}^{(m)}}{\text{err}^{(m)}}\right)$$
 
-Is the ratio of the correct predictions opposed to incorrect predictions. When the current weak learner performs better than random guessing, the **log-value is positive**. Likewise, when the weak learner is no better than random guessing, the **log-value is negative**. What we want is for the error, $err^{(m)}$, to be less than 0.5 (0.5 representing random guessing). If the error of the weak learner does not satisfy this condition, we do not give a large importance, i.e. $\alpha$ value. The second part of the equation is a part of what makes **Adaboost SAMME** different from regular Adaboost (used for binary classification). 
+is the ratio of the correct predictions opposed to incorrect predictions. When the current weak learner performs better than random guessing, the **log-value is positive**. Likewise, when the weak learner is no better than random guessing, the **log-value is negative**. What we want is for the error, $err^{(m)}$, to be less than 0.5 (0.5 representing random guessing). If the error of the weak learner does not satisfy this condition, we do not give a large importance, i.e. $\alpha$ value. The second part of the equation is a part of what makes **Adaboost SAMME** different from regular Adaboost (used for binary classification). 
 
 $$\log\left(K - 1\right)$$
 
