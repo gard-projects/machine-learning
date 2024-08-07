@@ -71,14 +71,22 @@ The small value in the total weight is used to prevent division by zero, which i
 # Weighted error rate
 The error, $\text{err}^{(m)}$, is a float value that describes the proportion of misclassifications against the total number of classifications. This is an important aspect of Adaboosting, as it is used to ensure that the next weak learner tries to minimize this error. The error is given by:
 
-$$\frac{\sum_{i=1} w_i \cdot I(c_i \neq T^{(m)}(x_i))}{\sum_{i=1}w_i}, \quad \forall i=1, \dots, n$$
+$$\frac{\sum_{i=1} w_i \cdot I(y_i \neq T^{(m)}(x_i))}{\sum_{i=1}w_i}, \quad \forall i=1, \dots, n$$
 
 However, in practice we generalize this to matrices. Thus we get the following:
 
-$$\text{err}^{(m)} = \frac{w \cdot I(c \neq T^{(m)}(x))}{\sum_{i=1} w_i}, \quad \forall i=1, \dots, n$$
+$$\text{err}^{(m)} = \frac{w \cdot I(y \neq T^{(m)}(x))}{\sum_{i=1} w_i}, \quad \forall i=1, \dots, n$$
 
 This equation may look very complex, but it will become easier once we break it down.
-> `I($T^{(m)}(x)$)`, is called an **indicator function**, it returns 0 for correctly classified samples, and 1 otherwise
+> $I\left(y_i \neq T^{(m)}(x)\right)$, is called an **indicator function**, it returns 0 for correctly classified samples, and 1 otherwise
+>
+> $y \neq T^{(m)}(x)$, is a condition that checks whether the y-label and its corresponding prediction $T^{(m)}(x)$ are equal or not
+>
+> $w$ is the weight matrix, with a shape of $\left(\text{n_samples},\right)$
+>
+> $y$ is the matrix containing the labels (responses), with a shapeo of $\left(\text{n_samples},\right)$
+
+
 # Importance weight
 
 # Adaboost in simple steps
