@@ -158,5 +158,6 @@ def predict(self, X_test):
         return np.argmax(predictions, axis=1)
 ```
 # Results
+I use the `classification_report()` function and `confusion_matrix()` function from Sklearn to understand the performance of both models (custom and Sklearn's implementation). The classification report is quite useful, as it provides the main classification metrics like precision, recall, f1-score, support, accuracy and more. The confusion matrix is a square matrix of shape $\left(v, v\right)$, where v is the number of classes we are trying to predict. In our case the confusiin matrix is of size $5\cross5$
 
 # Conclusion
