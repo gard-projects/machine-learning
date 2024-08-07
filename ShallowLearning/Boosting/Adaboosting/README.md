@@ -86,6 +86,9 @@ This equation may look very complex, but it will become easier once we break it 
 >
 > $y$ is the matrix containing the labels (responses), with a shape of $\left(n,\right)$
 
+>[!NOTE]
+> Why do we divide by the sum of the weights, $\sum_{i=1} w_i$?
+>The reason is to ensure the error is between 0 and 1, which will be really useful when calculating $\alpha^{(m)}$. Additionally it makes sense intuitively, as the weighted error is known as the **weighted average**.
 
 # Importance weight
 The importance weight denoted by $\alpha^{(m)}$ represents the amount of "say" a weak learner has in the final prediction. For example, a child is more likely to listen to their parents (indicated by a higher $\alpha$), then listening to his/her sibilings (indicated by a lower $\alpha$). The importance weight is computed slightly differently in a multiclass classification problem, see below.
