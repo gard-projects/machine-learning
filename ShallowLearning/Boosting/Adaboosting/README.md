@@ -88,6 +88,19 @@ This equation may look very complex, but it will become easier once we break it 
 
 
 # Importance weight
+The importance weight denoted by $\alpha^{(m)}$ represents the amount of "say" a weak learner has in the final prediction. For example, a child is more likely to listen to their parents (indicated by a higher $\alpha$), then listening to his/her sibilings (indicated by a lower $\alpha$). The importance weight is computed slightly differently in a multiclass classification problem, see below.
+
+$$\alpha^{(m)} = \log\left(\frac{1 - \text{err}^{(m)}}{\text{err}^{(m)}}\right) + \log\left(K-1\right)$$
+
+Let us address each part of the equation.
+
+$$\log\left(\frac{1 - \text{err}^{(m)}}{\text{err}^{(m)}}\right)$$
+
+Is the ratio of the correct predictions opposed to incorrect predictions. When the current weak learner performs better than random guessing, the **log-value is positive**. Likewise, when the weak learner is no better than random guessing, the **log-value is negative**. What we want is for the error, $err^{(m)}$, to be less than 0.5 (0.5 representing random guessing). If the error of the weak learner does not satisfy this condition, we do not give a large importance, i.e. $\alpha$ value. The second part of the equation is a part of what makes **Adaboost SAMME** different from regular Adaboost (used for binary classification). 
+
+$$\log\left(K - 1\right)$$
+
+When $K = 2$ (indicating two classes, thus binary classification), this term cancels out. When $K > 2$ we have multiclass classification, and we need to use the second term $\log\left(K - 1\right)$ to ensure that the **alpha value is positive**.
 
 # Adaboost in simple steps
 
