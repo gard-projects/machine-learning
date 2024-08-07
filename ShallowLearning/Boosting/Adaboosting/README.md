@@ -158,6 +158,9 @@ def predict(self, X_test):
         return np.argmax(predictions, axis=1)
 ```
 # Results
-I use the `classification_report()` function and `confusion_matrix()` function from Sklearn to understand the performance of both models (custom and Sklearn's implementation). The classification report is quite useful, as it provides the main classification metrics like precision, recall, f1-score, support, accuracy and more. The confusion matrix is a square matrix of shape $\left(v, v\right)$, where v is the number of classes we are trying to predict. In our case the confusiin matrix is of size $5\cross5$
+I use the `classification_report()` function and `confusion_matrix()` function from Sklearn to understand the performance of both models (custom and Sklearn's implementation). The classification report is quite useful, as it provides the main classification metrics like precision, recall, f1-score, support, accuracy and more. The confusion matrix is a square matrix of shape $\left(v, v\right)$, where v is the number of classes we are trying to predict. In our case the confusion matrix is of size $5 \times 5$. The ROC-curve turns out to be quite complex for multiclass classification, as you cannot create a curve for all classes at once. Thus a common approach is to create a ROC-curve for each class, however I chose to drop this metric for the given project. 
+
+**Results from classification report**
+
 
 # Conclusion
