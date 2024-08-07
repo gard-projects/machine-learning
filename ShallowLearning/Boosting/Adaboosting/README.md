@@ -106,7 +106,36 @@ $$\log\left(K - 1\right)$$
 When $K = 2$ (indicating two classes, thus binary classification), this term cancels out. When $K > 2$ we have multiclass classification, and we need to use the second term $\log\left(K - 1\right)$ to ensure that the **alpha value is positive**.
 
 # Adaboost in simple steps
+1. Initialize the weights, $w$, as
+$$w = \frac{1}{n}$$
+Where `n` is the number of samples in the dataset.
 
+2. Train a decision stump on the given features matrix, $X$, the labels $y$, and the **current** weights $w$
+3. In the decision stump we find the best feature to split on by considering the information gain from each possible feature, by also account for the weights associated with each sample
+4. Store the fitted estimator in a list `estimators`, which will be used when making predictions
+```
+        estimator = DecisionStump()
+        estimator.fit(X_train, y_train, w)
+        self.estimators.append(estimator)
+```
+5. Make predictions, which translates to $T^{(m)}(x)$
+```
+y_pred = np.argmax(estimator.predict(X_train), axis=1) # Majority voting
+```
+6. Compute the error, $err^{(m)}$ for the given m-th classifier
+```
+        err = self.weighted_error(y_train, y_pred, w)
+```
+8. Compute the importance weight, $\alpha^{(m)}$
+```
+        K = len(estimator.n_classes)
+        alpha = np.log((1-err) / err) + np.log(K - 1)
+```
+10. Store this alpha value in a list `learning_rate`, as it will be used when making predictions
+11. Check that $\alpha > 0$, and that $err < 1 - \frac{1}{K}$
+12. Update the weights from the following equation
+
+$$w \leftarrow w \cdot exp\left[\alpha^{m} \cdot I\left(y_i \neq T^{(m)}(x)\right) \right] \quad \forall i = 1, 2, \dots, n$$
 # Results
 
 # Conclusion
