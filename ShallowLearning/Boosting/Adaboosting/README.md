@@ -82,9 +82,9 @@ This equation may look very complex, but it will become easier once we break it 
 >
 > $y \neq T^{(m)}(x)$, is a condition that checks whether the y-label and its corresponding prediction $T^{(m)}(x)$ are equal or not
 >
-> $w$ is the weight matrix, with a shape of $\left(\text{n\_samples},\right)$
+> $w$ is the weight matrix, with a shape of $\left(n\_samples,\right)$
 >
-> $y$ is the matrix containing the labels (responses), with a shapeo of $\left(\text{n\_samples},\right)$
+> $y$ is the matrix containing the labels (responses), with a shape of $\left(\text{n_samples},\right)$
 
 
 # Importance weight
