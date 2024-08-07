@@ -163,4 +163,10 @@ I use the `classification_report()` function and `confusion_matrix()` function f
 **Results from classification report** \
 ![adaboost_conf](../../images/adaboost_conf.png)
 
+**Confusion matrix for custom model** \
+![adaboost_c_matrix](../../images/adaboost_cmatrix.png)
+
+**Confusion matrix for Sklearn implementation** \
+![adaboost_conf](../../images/adaboost_skmatrix.png)
+
 # Conclusion
