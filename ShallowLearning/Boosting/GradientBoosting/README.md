@@ -92,7 +92,7 @@ As opposed to linear regression
 
 $$F(x) = \beta_0 + \beta_1 x_1 + \dots + \beta_n x_n$$
 
-
+In the context of machine learning, **function space** is the set of all possible functions that a particular model can learn. For gradient boosting the function space is the set of all possible weighted sums of decision trees (weak learners). The function space is very convenient, as it allows our model to deal with complex non-linear relationships in the data. On the other hand linear regression works in a function space that is more constrained, that is all possible linear equations. The main takeaway is that each weak learner in Gradient boosting does not have an analytical form, we are working directly with the outputs (predictions) of each weak learner, in fact this is what we are adding up! Thus, the final strong learner is essentially just the sum of all the predictions of the weak learners. 
 
 &nbsp;
 
