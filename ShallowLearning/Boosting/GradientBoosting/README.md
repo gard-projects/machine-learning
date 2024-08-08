@@ -1,5 +1,6 @@
 **DATASET**: https://www.kaggle.com/datasets/fedesoriano/stroke-prediction-dataset/data
 
+&nbsp;
 
 # The structure of the dataset
 This dataset features a response variable `stroke` which has a binary outcome, 0 or 1. The goal in this project is classify patients that may develop stroke, given a set of features, **X**.
@@ -27,16 +28,30 @@ This dataset features a response variable `stroke` which has a binary outcome, 0
 >
 > **stroke**, type=int, **response variable**
 
+&nbsp;
+
 # Data preprocessing
+
+&nbsp;
 
 # Log loss function
 
+&nbsp;
+
 # The concept of function space
+
+&nbsp;
 
 # Functional gradient descent
 
+&nbsp;
+
 # Pseudo residuals
 
+&nbsp;
+
 # The step by step process
+
+&nbsp;
 
 # Results and conclusion
