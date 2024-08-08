@@ -79,7 +79,7 @@ $$L(y_i, p_i) = \quad - \left[y_i \log(p_i) + (1 - y_i) \log(1 - p_i)\right]$$
 
 Where $y_i$ is the label of the current sample, and $p_i$ is the predicted label of the current weak learner. We can calculate $p_i$ by using the **Sigmoid function**, $\sigma(y_i)$.
 
-$$p_i = \frac{1}{1 + e^{(-y_i)}$$
+$$p_i = \frac{1}{1 + e^{(-y_i)}}$$
 
 &nbsp;
 
