@@ -57,7 +57,18 @@ smote = SMOTE(random_state=42)
 X_train_resampled, y_train_resampled = smote.fit_resample(X_train, y_train)
 ```
 
+To train each of the models we again use the pipeline object. This will first apply the appropriate preprocessing steps, then it will train the model. 
+```
+ c_model = Pipeline([
+        ('preprocessor', preprocessor),
+        ('classifier', GradientBoost())
+    ])
 
+    sk_model = Pipeline([
+        ('preprocessor', preprocessor),
+        ('classifier', GradientBoostingClassifier())
+    ])
+```
 
 &nbsp;
 
