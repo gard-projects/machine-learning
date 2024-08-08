@@ -84,6 +84,15 @@ $$p_i = \frac{1}{1 + e^{(-y_i)}}$$
 &nbsp;
 
 # The concept of function space
+What makes GradientBoosting (and Adaboost for instance) different from other models is that this algorithm works directly with the **function space**, not the analytical expression of the model. Linear regression is an example of a model that uses a analytical expression, in which the goal is to optimize the parameters making up the equation for the model. However GradientBoosting is different, as we are not trying to optimize any parameters, but rather the output of the sequential weak learners. Thus the final model in this boosting algorithm is the weighted sum of the trained weak learners, rather than a single analytical expression. More formally:
+
+$$F_m(x) = F_{m-1}(x) + \gamma_{m} h_{m}(x)$$
+
+As opposed to linear regression
+
+$$F(x) = \beta_0 + \beta_1 x_1 + \dots + \beta_n x_n$$
+
+
 
 &nbsp;
 
