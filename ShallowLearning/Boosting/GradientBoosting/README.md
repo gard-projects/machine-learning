@@ -144,7 +144,10 @@ F = np.full((len(y),), np.log(p/ (1-p)))
 
 $$r_{i, m} = \quad - \left. \frac{\partial L(y, F(x)}{\partial F(x)} \right\rvert_{F(x)= F\_{m-1}(x)}$$
 
-4. Fit a weak learner closed under scaling $h_m(x)$ to the pseudo-residual. Train it using a training set in the form of: $`\{ X, r_m \}`$
+4. Fit a weak learner closed under scaling $h_m(x)$ to the pseudo-residual. Train it using a training set in the form of: $`\{ X, r_m \}`$. Which equates to this line of code:
+```
+h_m = DecisionTreeRegressor().fit(X, grad)
+```
 
 &nbsp;
 
