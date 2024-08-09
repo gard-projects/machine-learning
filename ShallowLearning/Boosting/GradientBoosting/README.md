@@ -103,7 +103,7 @@ So how do we derive the gradient in such a case? From the definition of negative
 
 $$L(y_i, p_i) = \quad - \left[y_i \log(p_i) + (1 - y_i) \log(1 - p_i)\right]$$
 
-$$\frac{\partial L(y, p)}{\partial \Hat{y}} = \quad - \left[y_i \cdot \frac{1}{p_i} \cdot $$
+$$\frac{\partial L(y, p)}{\partial \Hat{y}} = \quad - \left[y_i \cdot \frac{1}{p_i} \cdot \right]$$
 
 &nbsp;
 
