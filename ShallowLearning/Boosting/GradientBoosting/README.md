@@ -111,7 +111,7 @@ $$\frac{\partial L(y, p)}{\partial \hat{y}} = \quad - \left[y_i \cdot \frac{e^{-
 
 Where we have the following:
 
-$$\left(1 - p) = \quad \frac{e^{-\hat{y}}}{\left(1 + e^{-\hat{y}}\right)}$$
+$$\left(1 - p\right) = \quad \frac{e^{-\hat{y}}}{\left(1 + e^{-\hat{y}}\right)}$$
 
 $$p = \quad \frac{1}{\left(1 + e^{-\hat{y}}\right)}$$
 
