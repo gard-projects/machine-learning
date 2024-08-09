@@ -123,7 +123,15 @@ This is the gradient we will be using to compute the pseudo-residuals (more on t
 &nbsp;
 
 # Pseudo residuals
+A pseudo-residual is an approximation of the negative gradient of a loss function, with respect to the model's predictions. The key concept here is that gradient boosting tries to minimize a loss function iteratively, by computing the pseudo-residual in each iteration and training the next weak learner on the pseudo-residual. In other words, the pseudo-residuals become the target variable for the next weak learner. See the code below.
 
+```
+y_pred = 1 / (1+np.exp(-F))
+grad = -(y - y_pred) # Pseudo-residual
+            
+h_m = DecisionTreeRegressor().fit(X, grad)
+```
+Notice how $h_m$ (which is the (m+1) weak learner) is trained on both the features matrix, $X$, and the **pesudo-residuals**! This allows us converge towards a minimum in an iterative manner using weak learners. Note that this differs quite a lot from standard regression, as we only train one model and minimize the loss function using this model. However, in this algorithm we constantly minimize the loss function with a model that continues to change (in each iteration), making the minimization process different.
 &nbsp;
 
 # The step by step process
