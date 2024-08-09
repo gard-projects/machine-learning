@@ -72,7 +72,7 @@ To train each of the models we again use the pipeline object. This will first ap
 
 &nbsp;
 
-# Log loss function
+# Negative log loss function
 This **objective function** is very common in classification algorithms like **Logistic regression** and also in **Gradient boosting**. It is defined in the following way:
 
 $$L(y_i, p_i) = \quad - \left[y_i \log(p_i) + (1 - y_i) \log(1 - p_i)\right]$$
@@ -97,6 +97,13 @@ In the context of machine learning, **function space** is the set of all possibl
 &nbsp;
 
 # Functional gradient descent
+Gradient boosting is also different in how it computes gradients and uses them. Usually when we compute the gradient of a loss function $L(y, p)$, we compute it with respect to the objective function's parameters. An example of this is in linear regression, where we compute the gradient with respect to the betas, $\beta$. However in graient boosting we compute the gradient with respect to a function, namely the **predict function** which is defined as $F_m(x_i)$. We call this type of gradient, **functional gradient**. This is interesting, as parameters (a.k.a weights) are typically "fixed", while functions represent a large range of values (typically an infinite range). 
+
+So how do we derive the gradient in such a case? From the definition of negative log loss function
+
+$$L(y_i, p_i) = \quad - \left[y_i \log(p_i) + (1 - y_i) \log(1 - p_i)\right]$$
+
+$$\frac{\partial L(y, p)}{\partial \Hat{y}} = \quad - \left[y_i \cdot \frac{1}{p_i} \cdot \frac{e^{-\Hat{y}}{\left(1 + e^{-\Hat{y}\right)^{2}} \right]$$
 
 &nbsp;
 
