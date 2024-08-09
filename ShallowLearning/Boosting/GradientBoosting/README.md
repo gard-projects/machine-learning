@@ -106,8 +106,20 @@ $$L(y_i, p_i) = \quad - \left[y_i \log(p_i) + (1 - y_i) \log(1 - p_i)\right]$$
 $$\frac{\partial L(y, p)}{\partial \hat{y}} = \quad - \left[y_i \cdot \frac{1}{p_i} \cdot \frac{e^{-\hat{y}}}{\left(1 + e^{-\hat{y}}\right)^{2}} \quad - \quad (1 - y) \cdot \frac{\left(1 + e^{-\hat{y}}\right)}{e^{-\hat{y}}} \cdot \frac{e^{-\hat{y}}}{\left(1 + e^{-\hat{y}}\right)^{2}}\right]$$
 
 Simplifying this further, gives us
+
 $$\frac{\partial L(y, p)}{\partial \hat{y}} = \quad - \left[y_i \cdot \frac{e^{-\hat{y}}}{\left(1 + e^{-\hat{y}}\right)} - (1-y) \cdot \frac{1}{\left(1 + e^{-\hat{y}}\right)} \right]$$
 
+Where we have the following:
+
+$$\left(1 - p) = \quad \frac{e^{-\hat{y}}}{\left(1 + e^{-\hat{y}}\right)}$$
+
+$$p = \quad \frac{1}{\left(1 + e^{-\hat{y}}\right)}$$
+
+Finally we have...
+
+$$\frac{\partial L(y, p)}{\partial \hat{y}} = \quad - (y - p)$$
+
+This is the gradient we will be using to compute the pseudo-residuals (more on this in the next section).
 &nbsp;
 
 # Pseudo residuals
