@@ -142,7 +142,7 @@ F = np.full((len(y),), np.log(p/ (1-p)))
 2. Train $m$ weak learners by using a for loop
 3. Compute the pseudo-residuals
 
-$$r_{i, m} = \quad - \frac{\partial L(y, F(x)}{\partial F(x)}_{F(x) = F\_{m-1}(x)}$$
+$$r_{i, m} = \quad - \left. \frac{\partial L(y, F(x)}{\partial F(x)} \right\rvert_{F(x)= F\_{m-1}(x)}$$
 
 $$T(s) = \left. \frac{1}{H(\hat S)} \right\rvert_{\hat S = \epsilon^{1/n} \frac{s}{\omega_P}}$$
 
