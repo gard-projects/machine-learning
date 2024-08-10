@@ -182,7 +182,7 @@ F = np.zeros(X.shape[0])
 for gamma, estimator in zip(self.learning_rate, self.estimators_):
     F += gamma * estimator.predict(X)
 ```
-10. Convert F &emdash; which is expressed as log odds ratio, logit &emdash; into probabilities using the sigmoid function $\sigma(F(x))$
+10. Convert F &mdash; which is expressed as log odds ratio, logit &mdash; into probabilities using the sigmoid function $\sigma(F(x))$
 ```
 return 1 / (1 + np.exp(-F))
 ```
