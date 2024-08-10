@@ -150,7 +150,8 @@ $$r_{i, m} = \quad - \left. \frac{\partial L(y, F(x)}{\partial F(x)} \right\rver
 ```
 h_m = DecisionTreeRegressor().fit(X, grad)
 ```
-
+5. Compute the multiplier $\gamma_m$, by solving the one-dimensional optimization problem
+$$\gamma_m = \text{argmin}_ {\gamma} \sum_{i=1}^{n} L\left[y_i, F_{m-1}(x_i) + \gamma h_m(x_i)\right]$$
 &nbsp;
 
 # Results and conclusion
