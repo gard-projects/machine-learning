@@ -224,3 +224,4 @@ Image (1) is the custom model, image (2) is the Sklearn implementation.
 Image (1) is the custom model, image (2) is the Sklearn implementation.
 
 # Conclusion
+From the classification report we can observe high values for precision and recall, which is a good sign for the general performance of the models. The custom model has more false negatives than the Sklearn implementation. Looking at the c-statistic which is at 0.53 for the custom model, and 0.54 for the Sklearn version of gradient boosting. This is a very bad score in terms of classification, as the model only performs slightly better than random guessing. It should be noted that trying other models will results in better scores, like for example logistic regression or support vector machines (SVM). The true goal of this project however is to implement the algorithm, which we were successful in doing. 
