@@ -203,6 +203,7 @@ return np.where(probabilities > 0.5, 1, 0)
 <div>
     <img src="../../images/gradboost_conf.png" width="45%" height="45%">
 </div>
+The first output is from the custom model, and the latter is from Sklearn implementation.
 
 &nbsp;
 
@@ -210,10 +211,14 @@ return np.where(probabilities > 0.5, 1, 0)
 <div>
  <img src="../../images/gradboost_cmatrix.png" width="45%" height="45%" style="float: left; margin-right: 10px;">
  <img src="../../images/gradboost_skmatrix.png" width="45%" height="45%" style="float: left;">
- <span>Image (1) is the custom model, image (2) is the Sklearn implementation</span>
 </div>
+Image (1) is the custom model, image (2) is the Sklearn implementation.
 
 &nbsp;
 
 ## ROC curve
+<div>
+ <img src="../../images/gradboost_sk_rocauc.png" width="45%" height="45%" style="float: left; margin-right: 10px;">
+ <img src="../../images/gradboost_c_rocauc.png" width="45%" height="45%" style="float: left;">
+</div>
 
