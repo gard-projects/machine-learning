@@ -196,6 +196,23 @@ return np.where(probabilities > 0.5, 1, 0)
 &nbsp;
 
 # Results and conclusion
+
+&nbsp;
+
+## Classification report
 <div>
     <img src="../../images/gradboost_conf.png" width="45%" height="45%">
 </div>
+
+&nbsp;
+
+## Confusion matrix
+<div>
+ <img src="../../images/gradboost_cmatrix.png" width="45%" height="45%" style="float: left; margin-right: 10px;">
+ <img src="../../images/gradboost_skmatrix.png" width="45%" height="45%" style="float: left;">
+</div>
+
+&nbsp;
+
+## ROC curve
+
