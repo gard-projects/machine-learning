@@ -210,6 +210,7 @@ return np.where(probabilities > 0.5, 1, 0)
 <div>
  <img src="../../images/gradboost_cmatrix.png" width="45%" height="45%" style="float: left; margin-right: 10px;">
  <img src="../../images/gradboost_skmatrix.png" width="45%" height="45%" style="float: left;">
+ <span>Image (1) is the custom model, image (2) is the Sklearn implementation</span>
 </div>
 
 &nbsp;
