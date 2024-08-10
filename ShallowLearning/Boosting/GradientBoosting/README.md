@@ -151,7 +151,48 @@ $$r_{i, m} = \quad - \left. \frac{\partial L(y, F(x)}{\partial F(x)} \right\rver
 h_m = DecisionTreeRegressor().fit(X, grad)
 ```
 5. Compute the multiplier $\gamma_m$, by solving the one-dimensional optimization problem
+
 $$\gamma_m = \text{argmin}_ {\gamma} \sum_{i=1}^{n} L\left[y_i, F_{m-1}(x_i) + \gamma h_m(x_i)\right]$$
+
+We solve this by using the Python library Scipy's `minimize_scalar()` function. This function solves a one-dimensional optimization problem that deals with weights/parameters, which works for our scenario.
+The function expects a Python function as argument, which is the objective function. The objective function in our case will be negative log loss. 
+```
+def objective_func(gamma):
+    predictions = 1 / (1 + np.exp(-(F + gamma * h_m)))
+    epsilon = 1e-10
+    predictions = np.clip(predictions, epsilon, 1 - epsilon)
+    return -np.sum(y * np.log(predictions) + (1-y) * np.log(1 - predictions))
+```
+&nbsp;
+We perform a clipping to prevent division by zero. The reason is that some predictions may provide very small values leading to arithmetic underflow. 
+
+6. Update the model
+
+$$F_m(x) = F_{m-1}(x) + \gamma_{m} h_m(x)$$
+
+Corresponding to the following line in code.
+```
+F += gamma * h_m
+```
+7. Repeat steps (3) to (6) until all the weak learners are trained
+8. Make predictions by invoking `predict()` function. This will call the `predict_proba()` function
+9. In the `predict_proba()` function, multiply each prediction with the corresponding gamma value found in step (5)
+```
+F = np.zeros(X.shape[0])
+for gamma, estimator in zip(self.learning_rate, self.estimators_):
+    F += gamma * estimator.predict(X)
+```
+10. Convert F &emdash; which is expressed as log odds ratio, logit &emdash; into probabilities using the sigmoid function $\sigma(F(x))$
+```
+return 1 / (1 + np.exp(-F))
+```
+11. Use a decision threshold, in our case 0.5, to make class predictions
+```
+probabilities = self.predict_proba(X)
+return np.where(probabilities > 0.5, 1, 0)
+```
+12. Check model performance using the c-statistic (ROC_AUC score), and for example Sklearn's classification report
+
 &nbsp;
 
 # Results and conclusion
