@@ -197,5 +197,5 @@ return np.where(probabilities > 0.5, 1, 0)
 
 # Results and conclusion
 <div>
-    <img src="../images/gradboost_conf.png" width="45%" height="45%">
+    <img src="../../images/gradboost_conf.png" width="45%" height="45%">
 </div>
