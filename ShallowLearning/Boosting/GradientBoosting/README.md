@@ -221,4 +221,6 @@ Image (1) is the custom model, image (2) is the Sklearn implementation.
  <img src="../../images/gradboost_sk_rocauc.png" width="45%" height="45%" style="float: left; margin-right: 10px;">
  <img src="../../images/gradboost_c_rocauc.png" width="45%" height="45%" style="float: left;">
 </div>
+Image (1) is the custom model, image (2) is the Sklearn implementation.
 
+# Conclusion
